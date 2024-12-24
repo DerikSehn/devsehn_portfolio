@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-
+ 
 const education = [
   {
     degree: "Bachelor's degree, Computer Science",

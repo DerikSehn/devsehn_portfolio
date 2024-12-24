@@ -3,12 +3,11 @@
 import { motion } from "framer-motion"
 import { Button } from "./ui/button"
 import { ArrowRight } from 'lucide-react'
-import { AnimatedWaves } from "./AnimatedWaves"
-
+import { AnimatedHero } from "./AnimatedHero"
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <AnimatedWaves />
+      <AnimatedHero />
       <div className="container mx-auto px-4 text-center z-10">
         <motion.h1 
           className="text-4xl md:text-6xl font-bold mb-4"
