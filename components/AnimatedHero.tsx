@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useMemo } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, ThreeElements } from '@react-three/fiber'
 import { Mesh } from 'three'
 import { useScroll } from '@react-three/drei'
 
