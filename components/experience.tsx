@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import HomeSection from "./home-section"
 
 const experiences = [
   {
@@ -50,8 +51,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <HomeSection id="experience">
         <motion.h2 
           className="text-3xl font-bold mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -87,8 +87,7 @@ export function Experience() {
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </HomeSection>
   )
 }
 

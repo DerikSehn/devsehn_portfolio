@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Badge } from "./ui/badge"
+import HomeSection from "./home-section"
 
 const technicalSkills = [
   "NextJS", "TypeScript", "JavaScript", "Java", "React", "PostgreSQL", "MySQL", "Oracle", "SQL Server", "Git", "TailwindCSS", "BootStrap", "JSON", "Axios", "Microservices", "AWS", "Amazon EC2", "ECS", "CloudFront", "S3 bucket", "Scrum", "Bash", "Jest", "Figma", "Docker", "WebFlow", "UI/UX", "GSAP"
@@ -13,8 +14,7 @@ const softSkills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4">
+    <HomeSection id="skills">
         <motion.h2 
           className="text-3xl font-bold mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -58,8 +58,7 @@ export function Skills() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </HomeSection>
   )
 }
 

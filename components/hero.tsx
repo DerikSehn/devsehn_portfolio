@@ -3,12 +3,10 @@
 import { motion } from "framer-motion"
 import { Button } from "./ui/button"
 import { ArrowRight } from 'lucide-react'
-import { AnimatedHero } from "./AnimatedHero"
+import HomeSection from "./home-section"
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-     
-      <div className="container mx-auto px-4 text-center z-10">
+    <HomeSection id="hero" className="flex items-center justify-center">
         <motion.h1 
           className="text-4xl md:text-6xl font-bold mb-4"
           initial={{ opacity: 0, y: -20 }}
@@ -35,8 +33,7 @@ export function Hero() {
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
-      </div>
-    </section>
+      </HomeSection>
   )
 }
 

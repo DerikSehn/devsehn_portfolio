@@ -7,6 +7,7 @@ import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Mail, Phone, Linkedin, Github } from 'lucide-react'
 import { useState } from "react"
+import HomeSection from "./home-section"
 
 export function Contact() {
   const [formState, setFormState] = useState({
@@ -50,8 +51,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <HomeSection id="contact">
         <motion.h2 
           className="text-3xl font-bold mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -146,8 +146,7 @@ export function Contact() {
             </Card>
           </motion.div>
         </div>
-      </div>
-    </section>
+    </HomeSection>
   )
 }
 

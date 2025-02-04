@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent } from "./ui/card"
+import HomeSection from "./home-section"
 
 export function About() {
   return (
-    <section id="about" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <HomeSection id="about">
         <motion.h2 
           className="text-3xl font-bold mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -29,8 +29,7 @@ export function About() {
             </motion.p>
           </CardContent>
         </Card>
-      </div>
-    </section>
+    </HomeSection>
   )
 }
 
