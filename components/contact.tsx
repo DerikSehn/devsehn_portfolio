@@ -1,55 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Textarea } from "./ui/textarea"
-import { Mail, Phone, Linkedin, Github } from 'lucide-react'
-import { useState } from "react"
+import { Github, Linkedin, Mail, Phone } from 'lucide-react'
+import ContactForm from "./contact/contact-form"
 import HomeSection from "./home-section"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
 export function Contact() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: ""
-  })
-  const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
-
-  const handleChange = (e) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const validateForm = () => {
-    let errors = {}
-    if (!formState.name) errors.name = "Name is required"
-    if (!formState.email) errors.email = "Email is required"
-    if (!/\S+@\S+\.\S+/.test(formState.email)) errors.email = "Email is invalid"
-    if (!formState.message) errors.message = "Message is required"
-    return errors
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const formErrors = validateForm()
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors)
-      return
-    }
-    setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setFormState({ name: "", email: "", message: "" })
-  }
-
+  
+  
   return (
     <HomeSection id="contact">
         <motion.h2 
@@ -73,45 +32,7 @@ export function Contact() {
                 <CardTitle>Get in Touch</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input 
-                      placeholder="Your Name" 
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      aria-invalid={errors.name ? "true" : "false"}
-                    />
-                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                  </div>
-                  <div>
-                    <Input 
-                      type="email" 
-                      placeholder="Your Email" 
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      aria-invalid={errors.email ? "true" : "false"}
-                    />
-                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                  </div>
-                  <div>
-                    <Textarea 
-                      placeholder="Your Message" 
-                      name="message"
-                      value={formState.message}
-                      onChange={handleChange}
-                      aria-invalid={errors.message ? "true" : "false"}
-                    />
-                    {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-                  </div>
-                  <Button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-                {submitSuccess && (
-                  <p className="text-green-500 mt-4">Message sent successfully!</p>
-                )}
+                <ContactForm />
               </CardContent>
             </Card>
           </motion.div>

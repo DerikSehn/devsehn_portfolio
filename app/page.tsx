@@ -7,21 +7,20 @@ import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Skills } from "@/components/skills"
-import { SectionTransitionManager } from "@/components/section-transition-manager"
 
 export default function Home() {
   return (
     <main className="bg-black text-foreground relative min-h-screen">
       <Header />
-      <SectionTransitionManager>
+     {/*  <SectionTransitionManager> */}
         <Hero />
         <About />
         <Skills />
         <Experience />
         <Education />
         <Contact />
-      </SectionTransitionManager>
-      <Footer />
+{/*       </SectionTransitionManager>
+ */}      <Footer />
     </main>
   )
 }
