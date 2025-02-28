@@ -10,7 +10,7 @@ import { Skills } from "@/components/skills"
 
 export default function Home() {
   return (
-    <main className="bg-black text-foreground relative min-h-screen">
+    <main className=" text-foreground relative min-h-screen">
       <Header />
      {/*  <SectionTransitionManager> */}
         <Hero />
