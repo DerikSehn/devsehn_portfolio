@@ -318,7 +318,7 @@ export function ElectricCircuits({
   return (
     <canvas
       ref={canvasRef}
-      className={cn(`absolute inset-0 pointer-events-none ${className}`)}
+      className={cn('absolute inset-0 pointer-events-none', className)}
       style={{ opacity }}
     />
   )
