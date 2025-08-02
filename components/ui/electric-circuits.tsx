@@ -1,5 +1,6 @@
 "use client"
 
+import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react"
 
 interface CircuitPath {
@@ -317,7 +318,7 @@ export function ElectricCircuits({
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 pointer-events-none ${className}`}
+      className={cn('absolute inset-0 pointer-events-none', className)}
       style={{ opacity }}
     />
   )
