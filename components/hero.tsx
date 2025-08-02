@@ -89,7 +89,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Link href="#experience" passHref>
+          <Link href="#experience">
             <Button size="lg" className="group bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90">
               View My Work
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
