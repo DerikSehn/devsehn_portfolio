@@ -1,13 +1,28 @@
+import { Header } from "@/components/header"
+import { ThemeProvider } from "@/components/theme-provider"
+import { CustomCursor } from "@/components/ui/custom-cursor"
 import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Dérik Bosing Sehn - Portfolio",
-  description: "Software engineer with 3 years of experience specializing in NextJS, ReactJS, and cloud technologies.",
+  title: "Dérik Sehn - Software Engineer Portfolio",
+  description: "Software Engineer at Ford Motor Company specializing in Angular, Spring Boot, and modern cloud infrastructure. Delivering enterprise-grade solutions with passion for innovation.",
+  keywords: "Software Engineer, Ford, Angular, Spring Boot, Next.js, TypeScript, DevOps, Kubernetes, Full Stack Developer",
+  authors: [{ name: "Dérik Sehn" }],
+  openGraph: {
+    title: "Dérik Sehn - Software Engineer Portfolio",
+    description: "Software Engineer at Ford Motor Company specializing in Angular, Spring Boot, and modern cloud infrastructure.",
+    url: "https://deriksehn.dev",
+    siteName: "Dérik Sehn Portfolio",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -24,8 +39,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+           <CustomCursor />
+           <main className=" text-foreground relative min-h-screen">
+           <Header />
           {children}
-        </ThemeProvider>
+        </main>
+      </ThemeProvider>
       </body>
     </html>
   )
