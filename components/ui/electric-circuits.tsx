@@ -296,7 +296,7 @@ export function ElectricCircuits({
     const animate = () => {
       updateCircuitActivation()
       drawCircuits()
-      requestAnimationFrame(animate)
+      animationFrameIdRef.current = requestAnimationFrame(animate)
     }
 
     resizeCanvas()
