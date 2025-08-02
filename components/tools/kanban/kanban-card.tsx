@@ -52,12 +52,6 @@ export function KanbanCard({ task, onEdit, onDelete, isDragging = false }: Kanba
     return ""
   }
 
-  const getDateTextClass = () => {
-    if (isOverdue) return "text-red-600"
-    if (isDueSoon) return "text-yellow-600"
-    return "text-muted-foreground"
-  }
-
   return (
     <motion.div
       ref={setNodeRef}

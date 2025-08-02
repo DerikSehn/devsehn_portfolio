@@ -43,7 +43,7 @@ export function TimelineItem({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ 
         duration: 0.4, 
-        delay: memoizedDelay, // Reduced delay for more fluidity
+        delay: delay, // Reduced delay for more fluidity
         ease: "easeOut" 
       }}
       viewport={{ once: true, margin: "-20px" }}

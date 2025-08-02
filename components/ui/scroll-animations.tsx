@@ -92,7 +92,7 @@ export function ParallaxText({
   })
 
   const x = useTransform(velocityFactor, (latest) => {
-    let moveBy = latest * -1
+    const moveBy = latest * -1
     if (baseX.current < -100) {
       baseX.current = 0
     }

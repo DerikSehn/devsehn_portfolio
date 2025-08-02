@@ -36,6 +36,7 @@ export function ElectricCircuits({
   const mousePosRef = useRef({ x: 0, y: 0 })
   const pathsRef = useRef<CircuitPath[]>([])
   const nodesRef = useRef<CircuitNode[]>([])
+  const animationFrameIdRef = useRef<number | null>(null)
 
   // Update ref whenever state changes
   useEffect(() => {
@@ -307,6 +308,9 @@ export function ElectricCircuits({
     return () => {
       window.removeEventListener('resize', resizeCanvas)
       document.removeEventListener('mousemove', handleGlobalMouseMove)
+      if (animationFrameIdRef.current) {
+        cancelAnimationFrame(animationFrameIdRef.current)
+      }
     }
   }, [gridSize, interactionRadius])
 
