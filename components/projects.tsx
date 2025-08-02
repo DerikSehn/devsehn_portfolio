@@ -1,16 +1,16 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { ProjectCard, StatsCard, languageColors } from "@/components/project-cards"
 import { BentoGrid } from "@/components/ui/bento-grid"
 import { Button } from "@/components/ui/button"
-import { 
+import { Repository, githubAPI } from "@/lib/github"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
+import {
   Filter,
   Github
 } from "lucide-react"
-import { Repository, githubAPI } from "@/lib/github"
-import { ProjectCard, StatsCard, languageColors } from "@/components/project-cards"
-import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react"
 import HomeSection from "./home-section"
 import { SectionHeading } from "./ui/section-heading"
 
@@ -43,8 +43,8 @@ export function Projects({ className }: ProjectsProps) {
         setRepositories(repos)
         setFilteredRepos(repos)
         setStats(repoStats)
-      } catch (error) {
-        console.error("Error loading repositories:", error)
+      } catch (_) {
+        console.error("Error loading repositories:")
       } finally {
         setLoading(false)
       }
