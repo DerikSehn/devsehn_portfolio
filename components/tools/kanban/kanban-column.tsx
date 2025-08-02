@@ -6,7 +6,7 @@ import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import { Card, CardHeader, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Trash2 } from "lucide-react"
- import type { KanbanTask, KanbanColumn as KanbanColumnType } from "./kanban-board"
+import type { KanbanTask, KanbanColumn as KanbanColumnType } from "./kanban-board"
 import { KanbanCard } from "./kanban-card"
 
 interface KanbanColumnProps {

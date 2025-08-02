@@ -4,16 +4,20 @@ import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 
-export function CustomCursor() {
+type CustomCursorProps = {
+  disabledPaths?: (string | RegExp)[]
+}
+export function CustomCursor({ disabledPaths = ['/tools/code-playground', '/tools/kanban'] }: Readonly<CustomCursorProps>) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
   const pathname = usePathname()
-
   // Disable custom cursor on specific pages where it interferes with functionality
-  const isDisabled = pathname?.includes('/tools/code-playground') || 
-                    pathname?.includes('/tools/kanban')
-
+  const isDisabled = disabledPaths.some((pattern) =>
+    typeof pattern === 'string'
+      ? pathname?.includes(pattern)
+      : pattern.test(pathname ?? '')
+  )
   useEffect(() => {
     // Apply or remove cursor-none class based on whether custom cursor is disabled
     if (isDisabled) {
