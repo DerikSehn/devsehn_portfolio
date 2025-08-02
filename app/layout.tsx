@@ -40,7 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
            <CustomCursor />
-           <main className=" text-foreground relative min-h-screen">
+           <main className=" text-foreground relative min-h-screen overflow-hidden">
            <Header />
           {children}
         </main>

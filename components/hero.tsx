@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "./ui/button"
 import { ArrowRight, MapPin, Phone, Mail, Linkedin, GitBranch } from 'lucide-react'
 import HomeSection from "./home-section"
-import { ElectricCircuits } from "./ui/electric-circuits"
 
 export function Hero() {
   const { scrollY } = useScroll()
@@ -13,12 +12,7 @@ export function Hero() {
 
   return (
     <HomeSection id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">
-      {/* Electric Circuits Background */}
-      <ElectricCircuits 
-        className="opacity-80" 
-        gridSize={100}
-        interactionRadius={150}
-      />
+    
 
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />

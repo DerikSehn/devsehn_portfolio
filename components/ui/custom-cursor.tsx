@@ -7,13 +7,39 @@ import { motion } from "framer-motion"
 type CustomCursorProps = {
   disabledPaths?: (string | RegExp)[]
 }
+
+// Hook to detect mobile devices
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      // Check for touch capability and screen width
+      const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      const isSmallScreen = window.innerWidth <= 768
+      const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      
+      setIsMobile(hasTouchScreen && (isSmallScreen || isMobileUA))
+    }
+
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
+
 export function CustomCursor({ disabledPaths = ['/tools/code-playground', '/tools/kanban'] }: Readonly<CustomCursorProps>) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
   const pathname = usePathname()
-  // Disable custom cursor on specific pages where it interferes with functionality
-  const isDisabled = disabledPaths.some((pattern) =>
+  const isMobile = useIsMobile()
+  
+  // Disable custom cursor on mobile devices or specific pages where it interferes with functionality
+  const isDisabled = isMobile || disabledPaths.some((pattern) =>
     typeof pattern === 'string'
       ? pathname?.includes(pattern)
       : pattern.test(pathname ?? '')
