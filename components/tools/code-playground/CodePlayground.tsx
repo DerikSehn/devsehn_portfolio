@@ -661,28 +661,54 @@ export default function CodePlayground({ className }: CodePlaygroundProps) {
 
     try {
       if (selectedLanguage === 'javascript') {
-        // Create a sandbox for JavaScript execution
+        // Use a Web Worker for sandboxed JavaScript execution
         const logs: string[] = []
-        const originalConsoleLog = console.log
-        
-        // Override console.log to capture output
-        console.log = (...args) => {
-          logs.push(args.map(arg => 
-            typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
-          ).join(' '))
-          originalConsoleLog(...args)
-        }
+        setOutput('') // Clear previous output
 
-        try {
-          // Execute the code in a try-catch to handle errors
-          eval(code)
-          setOutput(logs.join('\n') || 'Code executed successfully (no output)')
-        } catch (error) {
-          setOutput(`Error: ${error instanceof Error ? error.message : String(error)}`)
-        } finally {
-          // Restore original console.log
-          console.log = originalConsoleLog
-        }
+        // Create the worker code as a string
+        const workerCode = `
+          self.console = {
+            log: function(...args) {
+              self.postMessage({ type: 'log', message: args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+              ).join(' ') });
+            }
+          };
+          self.onerror = function(e) {
+            self.postMessage({ type: 'error', message: e.message });
+          };
+          try {
+            ${code}
+            self.postMessage({ type: 'done' });
+          } catch (err) {
+            self.postMessage({ type: 'error', message: err.message });
+          }
+        `;
+
+        // Create a Blob and Worker
+        const blob = new Blob([workerCode], { type: 'application/javascript' });
+        const worker = new window.Worker(URL.createObjectURL(blob));
+
+        worker.onmessage = (event) => {
+          const { type, message } = event.data;
+          if (type === 'log') {
+            logs.push(message);
+          } else if (type === 'error') {
+            setOutput(`Error: ${message}`);
+            worker.terminate();
+            setIsRunning(false);
+          } else if (type === 'done') {
+            setOutput(logs.join('\n') || 'Code executed successfully (no output)');
+            worker.terminate();
+            setIsRunning(false);
+          }
+        };
+
+        worker.onerror = (e) => {
+          setOutput(`Error: ${e.message}`);
+          worker.terminate();
+          setIsRunning(false);
+        };
       } else if (selectedLanguage === 'html') {
         // For HTML, we'll show a preview instead of running
         setOutput('HTML preview would be shown in a separate panel')
