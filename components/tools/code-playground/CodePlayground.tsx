@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { toast } from 'sonner'
+import type { editor } from 'monaco-editor'
 
 export interface CodeSnippet {
   id: string
@@ -27,6 +28,16 @@ export interface CodeSnippet {
   description?: string
   createdAt: Date
   updatedAt: Date
+}
+
+interface SavedSnippetData {
+  id: string
+  title: string
+  language: string
+  code: string
+  description?: string
+  createdAt: string
+  updatedAt: string
 }
 
 const SUPPORTED_LANGUAGES = [
@@ -592,7 +603,7 @@ export default function CodePlayground({ className }: CodePlaygroundProps) {
   const [isRunning, setIsRunning] = useState(false)
   const [output, setOutput] = useState<string>('')
   const [savedSnippets, setSavedSnippets] = useState<CodeSnippet[]>([])
-  const editorRef = useRef<any>(null)
+  const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null)
 
   // Update editor theme based on system theme
   useEffect(() => {
@@ -604,7 +615,7 @@ export default function CodePlayground({ className }: CodePlaygroundProps) {
     const saved = localStorage.getItem('code-playground-snippets')
     if (saved) {
       try {
-        const parsed = JSON.parse(saved).map((snippet: any) => ({
+        const parsed = JSON.parse(saved).map((snippet: SavedSnippetData) => ({
           ...snippet,
           createdAt: new Date(snippet.createdAt),
           updatedAt: new Date(snippet.updatedAt)
@@ -635,7 +646,7 @@ export default function CodePlayground({ className }: CodePlaygroundProps) {
     }
   }, [selectedLanguage])
 
-  const handleEditorDidMount = (editor: any) => {
+  const handleEditorDidMount = (editor: editor.IStandaloneCodeEditor) => {
     editorRef.current = editor
   }
 

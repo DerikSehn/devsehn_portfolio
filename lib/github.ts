@@ -11,18 +11,18 @@ export interface Repository {
   full_name: string
   description: string | null
   html_url: string
-  homepage: string | null
-  language: string | null
+  homepage: string | null | undefined
+  language: string | null | undefined
   languages_url: string
-  stargazers_count: number
-  watchers_count: number
-  forks_count: number
-  created_at: string
-  updated_at: string
-  pushed_at: string
+  stargazers_count: number | undefined
+  watchers_count: number | undefined
+  forks_count: number | undefined
+  created_at: string | null | undefined
+  updated_at: string | null | undefined
+  pushed_at: string | null | undefined
   topics: string[]
-  visibility: string
-  default_branch: string
+  visibility: string | undefined
+  default_branch: string | undefined
 }
 
 export interface RepositoryLanguages {
@@ -50,7 +50,7 @@ export class GitHubAPI {
     try {
       const { data } = await octokit.rest.repos.listForUser({
         username: this.username,
-        type: 'public',
+        type: 'all',
         sort: 'updated',
         per_page: 100,
       })
@@ -130,7 +130,7 @@ export class GitHubAPI {
     
     return repos.filter(repo => {
       if (filters.language && repo.language !== filters.language) return false
-      if (filters.minStars && repo.stargazers_count < filters.minStars) return false
+      if (filters.minStars && (repo.stargazers_count || 0) < filters.minStars) return false
       if (filters.topic && !repo.topics.includes(filters.topic)) return false
       if (filters.hasHomepage && !repo.homepage) return false
       return true
@@ -151,11 +151,11 @@ export class GitHubAPI {
     
     const stats = {
       totalRepos: repos.length,
-      totalStars: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0),
-      totalForks: repos.reduce((sum, repo) => sum + repo.forks_count, 0),
+      totalStars: repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0),
+      totalForks: repos.reduce((sum, repo) => sum + (repo.forks_count || 0), 0),
       languages: {} as { [key: string]: number },
       mostStarredRepo: repos.reduce((max, repo) => 
-        repo.stargazers_count > (max?.stargazers_count || 0) ? repo : max, 
+        (repo.stargazers_count || 0) > (max?.stargazers_count || 0) ? repo : max, 
         null as Repository | null
       ),
     }

@@ -35,6 +35,17 @@ export interface KanbanTask {
     tags?: string[]
 }
 
+interface SavedKanbanTask {
+    id: string
+    title: string
+    description: string
+    column: string
+    priority: "low" | "medium" | "high"
+    createdAt: string
+    dueDate?: string
+    tags?: string[]
+}
+
 export interface KanbanColumn {
     id: string
     title: string
@@ -71,7 +82,7 @@ export function KanbanBoard() {
         const savedColumns = localStorage.getItem("kanban-columns")
         
         if (savedTasks) {
-            const parsedTasks = JSON.parse(savedTasks).map((task: any) => ({
+            const parsedTasks = JSON.parse(savedTasks).map((task: SavedKanbanTask) => ({
                 ...task,
                 createdAt: new Date(task.createdAt),
                 dueDate: task.dueDate ? new Date(task.dueDate) : undefined,

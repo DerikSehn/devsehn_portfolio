@@ -82,15 +82,15 @@ export function ProjectCard({ repo, size = "small" }: ProjectCardProps) {
         <div className="flex items-center gap-4 text-xs text-muted-foreground">
           <div className="flex items-center gap-1">
             <Star className="h-3 w-3" />
-            {repo.stargazers_count}
+            {repo.stargazers_count || 0}
           </div>
           <div className="flex items-center gap-1">
             <GitFork className="h-3 w-3" />
-            {repo.forks_count}
+            {repo.forks_count || 0}
           </div>
           <div className="flex items-center gap-1">
             <Calendar className="h-3 w-3" />
-            {formatDate(repo.updated_at)}
+            {repo.updated_at ? formatDate(repo.updated_at) : 'N/A'}
           </div>
         </div>
 

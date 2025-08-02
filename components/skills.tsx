@@ -22,7 +22,22 @@ import { SectionHeading } from "./ui/section-heading"
 import { SkillOrbit } from "./ui/skill-orbit"
 import { ProgressBar } from "./ui/progress-bar"
 
-const technicalSkillCategories = {
+type SkillLevel = "beginner" | "intermediate" | "advanced" | "expert"
+type SkillCategory = "frontend" | "backend" | "cloud" | "database" | "mobile" | "design" | "soft"
+
+interface Skill {
+  name: string
+  level: SkillLevel
+  category: SkillCategory
+}
+
+interface SkillCategoryData {
+  icon: any
+  color: string
+  skills: Skill[]
+}
+
+const technicalSkillCategories: Record<string, SkillCategoryData> = {
   "Frontend Development": {
     icon: Monitor,
     color: "from-blue-500 to-purple-600",
@@ -84,13 +99,13 @@ const skillLevels = {
   "UI/UX Design": 78
 }
 
-const softSkills = [
-  { name: "Problem Solving", category: "soft" },
-  { name: "Fast Learning", category: "soft" },
-  { name: "Teamwork", category: "soft" },
-  { name: "Leadership", category: "soft" },
-  { name: "Communication", category: "soft" },
-  { name: "Adaptability", category: "soft" }
+const softSkills: Skill[] = [
+  { name: "Problem Solving", category: "soft", level: "advanced" },
+  { name: "Fast Learning", category: "soft", level: "expert" },
+  { name: "Teamwork", category: "soft", level: "expert" },
+  { name: "Leadership", category: "soft", level: "advanced" },
+  { name: "Communication", category: "soft", level: "advanced" },
+  { name: "Adaptability", category: "soft", level: "expert" }
 ]
 
 const certifications = [
@@ -127,13 +142,15 @@ export function Skills() {
                     </div>
                     <h3 className="text-xl font-semibold">{category}</h3>
                   </div>
-                  
+
+
+
                   <div className="flex flex-wrap gap-3">
                     {data.skills.map((skill, index) => (
                       <SkillBadge
                         key={skill.name}
-                        level={skill.level as any}
-                        category={skill.category as any}
+                        level={skill.level}
+                        category={skill.category}
                         delay={categoryIndex * 0.2 + index * 0.1}
                       >
                         {skill.name}
@@ -200,9 +217,9 @@ export function Skills() {
               {softSkills.map((skill, index) => (
                 <SkillBadge
                   key={skill.name}
-                  category={skill.category as any}
+                  category={skill.category}
+                  level={skill.level}
                   delay={0.8 + index * 0.1}
-                  level="advanced"
                 >
                   {skill.name}
                 </SkillBadge>
