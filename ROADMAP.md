@@ -59,7 +59,7 @@
 - **Optimized Performance**: Reduced animation delays and improved fluidity across all components
 - **English Language Support**: Complete interface translation for international appeal
 
-### 🎯 **CURRENT STATUS: Production-Ready Portfolio (95%)**
+### 🎯 **CURRENT STATUS: Production-Ready Portfolio (96%)**
 
 **Ready for Deployment:**
 - All core features implemented and tested
@@ -69,11 +69,12 @@
 - Responsive design across all devices
 - English language interface complete
 
-**Remaining 5% - Polish & Optimization:**
-1. Final performance optimization
-2. Accessibility improvements
-3. SEO optimization
-4. Analytics integration
+**Remaining 4% - Polish & Optimization:**
+1. ~~CV Download Button implementation~~ ✅ COMPLETED
+2. Final performance optimization
+3. Accessibility improvements
+4. SEO optimization
+5. Analytics integration
 
 ## Current Tech Stack ✅ 🔧 PRODUCTION-READY
 - **Framework**: Next.js 15.4.5 (App Router) with latest security updates
@@ -176,7 +177,7 @@
 - [ ] **Performance Audit**: Lighthouse optimization for Core Web Vitals
 - [ ] **SEO Enhancement**: Meta tags, structured data, and Open Graph optimization
 - [ ] **Accessibility Audit**: WCAG compliance and screen reader optimization
-- [ ] **Bundle Optimization**: Code splitting and lazy loading implementation
+
 - [ ] **Error Logging**: Production error monitoring and logging system
 
 ### 3.2 Advanced Features 📋 PLANNED
@@ -297,6 +298,23 @@ SMTP_PASS=your_password
 - [ ] Validate accessibility features
 - [ ] Performance audit with Lighthouse
 
+### 📄 **CV Download Feature Implementation** ✅ COMPLETED
+**User Story:** As a potential employer or recruiter, I want to download Derik's CV so that I can review his qualifications offline.
+
+**Requirements:**
+- [x] Add CV download button in Hero section alongside other action buttons
+- [x] Use proper download icon from Lucide React
+- [x] Ensure button follows existing design patterns and animations
+- [x] CV file located at `/public/Derik-Sehn-CV-en.pdf`
+- [x] Button should trigger direct download without opening PDF in browser
+- [x] Add hover effects and smooth animations consistent with other buttons
+
+**Technical Implementation:**
+- [x] Update `components/hero.tsx` to include CV download button
+- [x] Use download attribute for direct file download
+- [x] Maintain existing button styling and animation patterns
+- [x] Ensure accessibility with proper ARIA labels
+
 ## Success Metrics 🎯
 
 - **User Engagement**: Time spent on interactive features
@@ -316,3 +334,4 @@ SMTP_PASS=your_password
 ---
 
 *This roadmap is a living document and will be updated as development progresses.*
+

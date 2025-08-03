@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "./ui/button"
-import { ArrowRight, MapPin, Phone, Mail, Linkedin, GitBranch } from 'lucide-react'
+import { ArrowRight, MapPin, Phone, Mail, Linkedin, GitBranch, Download } from 'lucide-react'
 import HomeSection from "./home-section"
 import Link from "next/link"
 
@@ -95,6 +95,17 @@ export function Hero() {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
+
+          <a 
+            href="/Derik-Sehn-CV-en.pdf" 
+            download="Derik-Sehn-CV-en.pdf"
+            className="inline-flex"
+          >
+            <Button size="lg" variant="outline" className="group">
+              <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+              Download CV
+            </Button>
+          </a>
 
           <div className="flex gap-3">
             <Button size="lg" variant="outline" asChild>
