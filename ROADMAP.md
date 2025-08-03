@@ -178,7 +178,6 @@
 - [ ] **SEO Enhancement**: Meta tags, structured data, and Open Graph optimization
 - [ ] **Accessibility Audit**: WCAG compliance and screen reader optimization
 
-- [ ] **CV Download Button**: Add a button to download the CV
 - [ ] **Error Logging**: Production error monitoring and logging system
 
 ### 3.2 Advanced Features 📋 PLANNED
