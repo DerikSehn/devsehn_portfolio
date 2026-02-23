@@ -1,3 +1,4 @@
+import { AnalyticsTracker } from "@/components/analytics-tracker"
 import { Header } from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { CustomCursor } from "@/components/ui/custom-cursor"
@@ -40,6 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
            <CustomCursor />
+           <AnalyticsTracker />
            <main className=" text-foreground relative min-h-screen overflow-hidden">
            <Header />
           {children}
