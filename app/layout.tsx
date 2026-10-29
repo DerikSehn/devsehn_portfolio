@@ -1,54 +1,25 @@
-import { AnalyticsTracker } from "@/components/analytics-tracker"
-import { Header } from "@/components/header"
-import { ThemeProvider } from "@/components/theme-provider"
-import { CustomCursor } from "@/components/ui/custom-cursor"
-import type { Metadata } from "next"
-import { Inter } from 'next/font/google'
-import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
+import type { Metadata } from "next";
+import { ClarityAnalytics } from "@/components/observability/clarity-analytics";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dérik Sehn - Software Engineer Portfolio",
-  description: "Software Engineer at Ford Motor Company specializing in Angular, Spring Boot, and modern cloud infrastructure. Delivering enterprise-grade solutions with passion for innovation.",
-  keywords: "Software Engineer, Ford, Angular, Spring Boot, Next.js, TypeScript, DevOps, Kubernetes, Full Stack Developer",
-  authors: [{ name: "Dérik Sehn" }],
-  openGraph: {
-    title: "Dérik Sehn - Software Engineer Portfolio",
-    description: "Software Engineer at Ford Motor Company specializing in Angular, Spring Boot, and modern cloud infrastructure.",
-    url: "https://deriksehn.dev",
-    siteName: "Dérik Sehn Portfolio",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+  title: "DevSehn · Derik Sehn, engenheiro de software",
+  description: "Portfólio de Derik Sehn: sistemas corporativos, cloud, DevOps e integrações para indústria, logística, comércio e saúde.",
+};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-           <CustomCursor />
-           <AnalyticsTracker />
-           <main className=" text-foreground relative min-h-screen overflow-hidden">
-           <Header />
-          {children}
-        </main>
-      </ThemeProvider>
+    <html lang="pt-BR">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Geist:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" />
+      </head>
+      <body>
+        {children}
+        <ClarityAnalytics />
       </body>
     </html>
-  )
+  );
 }
-
