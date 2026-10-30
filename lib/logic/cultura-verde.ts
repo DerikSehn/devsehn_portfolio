@@ -1,12 +1,13 @@
 // @ts-nocheck
 /* eslint-disable */
-// Lógica portada de "Cultura Verde Case.dc.html".
-import React from "react";
-import { DCLogic } from "@/lib/dc";
+// GERADO por scripts/sync-design.mjs a partir de "Cultura Verde Case.dc.html". Não edite à mão.
+import React from 'react';
+import { DCLogic } from '@/lib/dc';
 
 export default class Component extends DCLogic {
   state = { lang: 'pt' };
   componentDidMount() {
+    const L0 = (window.dsI18n && window.dsI18n.lang) || (() => { try { return localStorage.getItem('ds-lang') === 'en' ? 'en' : 'pt'; } catch (e) { return null; } })(); if (L0 && L0 !== this.state.lang) this.setState({ lang: L0 });
     this.ro = new ResizeObserver(es => es.forEach(e => this.fit(e.target)));
     this.scan();
     this.motionInit();
@@ -48,7 +49,7 @@ export default class Component extends DCLogic {
       addEventListener('resize', this._onScroll);
     }
     const rm = this._rm;
-    document.querySelectorAll('[data-reveal]').forEach(el => {
+    document.querySelectorAll('[data-reveal-legacy]').forEach(el => {
       if (this._seen.has(el)) return; this._seen.add(el); if (rm) return;
       const k = el.getAttribute('data-reveal'), S = el.style;
       if (k === 'clip') S.clipPath = 'inset(0 0 100% 0)';
@@ -108,7 +109,7 @@ export default class Component extends DCLogic {
     return {
       ptBg: pt ? '#ECEBE6' : 'transparent', enBg: pt ? 'transparent' : '#ECEBE6',
       ptColor: pt ? '#0B0E13' : '#9AA1AB', enColor: pt ? '#9AA1AB' : '#0B0E13',
-      setPT: () => this.setState({ lang: 'pt' }), setEN: () => this.setState({ lang: 'en' }),
+      setPT: () => { this.setState({ lang: 'pt' }); window.dsI18n && window.dsI18n.set('pt'); }, setEN: () => { this.setState({ lang: 'en' }); window.dsI18n && window.dsI18n.set('en'); },
       showDiagram: this.props.showDiagram ?? true,
       showCallouts: this.props.showCallouts ?? true
     };

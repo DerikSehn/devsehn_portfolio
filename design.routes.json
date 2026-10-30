@@ -1,0 +1,14 @@
+{
+  "$comment": "Mapa das páginas do design para as rotas do Next. Para publicar uma página nova do design, adicione uma linha em pages e rode npm run design:sync. title só é usado ao criar o page.tsx da rota; depois disso, edite o metadata no próprio page.tsx.",
+  "pages": {
+    "DevSehn Portfolio v2.dc.html": { "route": "/", "title": "DevSehn · Derik Sehn, engenheiro de software" },
+    "Sobre.dc.html": { "route": "/sobre", "title": "Sobre · Derik Sehn · DevSehn" },
+    "Contato.dc.html": { "route": "/contato", "title": "Contato · DevSehn" },
+    "Eli Control Case.dc.html": { "route": "/cases/eli-control", "title": "Eli Control · Case · DevSehn" },
+    "Eli Pecas Case.dc.html": { "route": "/cases/eli-pecas", "title": "Eli Peças · Case · DevSehn" },
+    "Cultura Verde Case.dc.html": { "route": "/cases/cultura-verde", "title": "Cultura Verde · Case · DevSehn" },
+    "Daniela Bosing Case.dc.html": { "route": "/cases/daniela-bosing", "title": "Daniela Bosing · Case · DevSehn" },
+    "Ford Case.dc.html": { "route": "/cases/ford", "title": "Ford · Case · DevSehn" }
+  },
+  "ignore": ["Eli Control Case v1.dc.html"]
+}

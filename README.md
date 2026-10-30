@@ -34,29 +34,68 @@ npm run analytics:catalog:check
 - `/cases/daniela-bosing` ← Daniela Bosing Case
 - `/cases/ford` ← Ford Case
 
+## Atualizar a partir do design
+
+As páginas são geradas 1:1 a partir do projeto de design (`.dc.html`). Para sincronizar depois de mudar o design:
+
+1. Exporte/baixe a pasta do projeto (a que tem os `.dc.html`, `i18n.js`, `motion.js` e `assets/`).
+2. Rode:
+
+```bash
+npm run design:sync -- "C:/caminho/para/a/pasta-do-design"
+```
+
+Se a pasta do design estiver em `./design`, basta `npm run design:sync`.
+
+O script regenera `app/**/view.tsx`, `lib/logic/*.ts`, `public/i18n.js`, `public/motion.js` e `public/assets/`,
+cria o `page.tsx` de rotas novas e regenera o catálogo de analytics do Clarity.
+Não mexe em `layout.tsx`, em `page.tsx` que já existem nem na config da Vercel.
+
+### Página nova no design
+
+Adicione uma linha em `design.routes.json` e rode `npm run design:sync`:
+
+```json
+"Blog.dc.html": { "route": "/blog", "title": "Blog · DevSehn" }
+```
+
+Arquivos `.dc.html` que não são páginas do site (rascunhos, versões antigas) vão em `ignore`.
+No fim, o script avisa se:
+
+- existe página no design fora do mapa;
+- uma página do mapa não está na pasta do design;
+- o menu do `motion.js` aponta para uma rota que não existe.
+
 ## Estrutura
 
 ```
 app/
-  layout.tsx                 fontes Google + metadados
+  layout.tsx                 Clarity, scripts globais (i18n.js, motion.js) e capa anti-flash do loader
+  icon.svg                   favicon do design
   globals.css                Tailwind v4 (sem preflight) + reset mínimo
   page.tsx / view.tsx        landing
   cases/<slug>/page.tsx      metadados da rota (server)
-  cases/<slug>/view.tsx      markup da página ("use client")
+  cases/<slug>/view.tsx      markup da página ("use client", GERADO)
+  sobre/, contato/           mesmas regras das rotas de case
 lib/
   dc.ts                      DCLogic + useDC: liga a lógica de classe ao React
-  logic/<pagina>.ts          estado, carrossel, filtros, reveal, parallax, contadores
-public/assets/               imagens e vídeos
+  logic/<pagina>.ts          lógica de cada página (GERADO)
+public/
+  i18n.js                    PT/EN por dicionário (GERADO)
+  motion.js                  loader, menu, transições, GSAP/Lenis via CDN (GERADO)
+  assets/                    imagens e vídeos
+design.routes.json           mapa página do design → rota
+scripts/
+  sync-design.mjs            conversor .dc.html → Next.js
 ```
 
-## Como foi convertido
+## Como a conversão preserva o visual
 
-- Markup e estilos inline vieram 1:1 dos designs, então o visual é o mesmo do protótipo.
-- Hover/active viraram classes `.dhN` no `<style>` de cada página.
-- A lógica de cada página (carrossel do hero, filtros de cursos, parallax, reveal no scroll, contadores, autoplay de vídeo) está em `lib/logic/`, sem alterações de comportamento.
-- Tailwind v4 está instalado sem o preflight, para não resetar o design. Dá para usar utilitários em código novo.
+- Markup, estilos inline e textos vêm 1:1 do design; o conversor segue as mesmas regras do runtime do design (espaços em branco, `<span class="sc-interp">` nos valores interpolados, `style-hover` como classe com `!important`).
+- Fontes Google carregadas por página, com os mesmos pesos do design.
+- `i18n.js` e `motion.js` rodam depois da hidratação; uma capa azul (a mesma do loader) cobre a página antes do primeiro paint, como no design.
+- Comparação pixel a pixel (1440px e 390px, sem animação) entre o design e as páginas geradas: idênticas, exceto o quadro dos vídeos.
 
 ## Pendências
 
-- PT/EN ainda só alterna estado. Sugestão: `next-intl` com `app/[locale]/...`.
-- Links de LinkedIn, GitHub, CV e "Mais sobre mim" apontam para `#`.
+- Links de LinkedIn, GitHub e CV apontam para `#` (como no design).

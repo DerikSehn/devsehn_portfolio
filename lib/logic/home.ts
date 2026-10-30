@@ -1,8 +1,8 @@
 // @ts-nocheck
 /* eslint-disable */
-// Lógica portada de "DevSehn Portfolio v2.dc.html".
-import React from "react";
-import { DCLogic } from "@/lib/dc";
+// GERADO por scripts/sync-design.mjs a partir de "DevSehn Portfolio v2.dc.html". Não edite à mão.
+import React from 'react';
+import { DCLogic } from '@/lib/dc';
 
 export default class Component extends DCLogic {
   state = { lang: 'pt', slide: 0, heroScale: 1, cf: 'all', cAll: false };
@@ -46,6 +46,7 @@ export default class Component extends DCLogic {
     return { filters, courses, hasMore: f.length > lim, moreLabel: this.state.cAll ? 'Mostrar menos ↑' : 'Mostrar todos (' + f.length + ') ↓', toggleAll: () => this.setState(s => ({ cAll: !s.cAll })) };
   }
   componentDidMount() {
+    const L0 = (window.dsI18n && window.dsI18n.lang) || (() => { try { return localStorage.getItem('ds-lang') === 'en' ? 'en' : 'pt'; } catch (e) { return null; } })(); if (L0 && L0 !== this.state.lang) this.setState({ lang: L0 });
     this.rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.ro = new ResizeObserver(() => this.fitHero());
     this.observe();
@@ -79,7 +80,7 @@ export default class Component extends DCLogic {
       addEventListener('resize', this._onScroll);
     }
     const rm = this._rm;
-    document.querySelectorAll('[data-reveal]').forEach(el => {
+    document.querySelectorAll('[data-reveal-legacy]').forEach(el => {
       if (this._seen.has(el)) return; this._seen.add(el); if (rm) return;
       const k = el.getAttribute('data-reveal'), S = el.style;
       if (k === 'clip') S.clipPath = 'inset(0 0 100% 0)';
@@ -173,8 +174,8 @@ export default class Component extends DCLogic {
       enBg: pt ? 'transparent' : '#ECEBE6',
       ptColor: pt ? '#0B0E13' : '#9AA1AB',
       enColor: pt ? '#9AA1AB' : '#0B0E13',
-      setPT: () => this.setState({ lang: 'pt' }),
-      setEN: () => this.setState({ lang: 'en' }),
+      setPT: () => { this.setState({ lang: 'pt' }); window.dsI18n && window.dsI18n.set('pt'); },
+      setEN: () => { this.setState({ lang: 'en' }); window.dsI18n && window.dsI18n.set('en'); },
       cases: [
         { n: '02', name: 'Ford', logo: '/assets/ford_logo.png', radius: '0', sector: 'Fev 2025 - atual', desc: 'Plataforma global de logística com Angular, Spring Boot, PostgreSQL e Kubernetes no GCP.' },
         { n: '03', name: 'Maxxi', logo: '/assets/maxxi_logo.png', radius: '8px', sector: 'inovação bayer, eztime · Full-stack', desc: 'Migrations, IA, controle de colheita, registro e sistema de ponto.' },
