@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='3 2 60 60'%3E%3Crect x='3' y='2' width='60' height='60' rx='13' fill='%230D0E11'/%3E%3Cpath fill='%23EFEDE7' d='M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z'/%3E%3Ccircle cx='34' cy='32' r='3.5' fill='%23EFEDE7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Raleway:wght@400;500;600;700&display=swap">
+<style>
+@media (max-width:860px){header nav{display:none!important}}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0B0E13;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:#3D6BFF}
+*{box-sizing:border-box}
+::selection{background:#3D6BFF;color:#FFFFFF}
+</style>
+<script src="i18n.js"></script>
+<script src="motion.js"></script>
+</helmet>
+
+<div style="background:#0B0E13;color:#ECEBE6;min-height:100vh;overflow-x:clip">
+
+<header style="position:sticky;top:0;z-index:50;background:#0B0E13;border-bottom:1px solid #22272F">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="DevSehn%20Portfolio%20v2.dc.html" aria-label="DevSehn, início" style="display:flex;align-items:center;gap:9px;color:#ECEBE6"><svg viewBox="12 10 42 44" width="23" height="24" aria-hidden="true" style="display:block;flex:none"><path fill="#ECEBE6" d="M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z"></path><circle cx="34" cy="32" r="3.5" fill="#2F4BF0"></circle></svg><span style="font-family:'Geist',system-ui,sans-serif;font-size:22px;line-height:1;letter-spacing:-0.04em"><span style="font-weight:600">Dev</span><span style="font-weight:300">Sehn</span></span></a>
+    <nav style="display:flex;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
+      <a href="DevSehn%20Portfolio%20v2.dc.html#trabalhos" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">01</span>Trabalhos</a>
+      <a href="Sobre.dc.html" aria-current="page" style="display:flex;gap:8px;color:#FFFFFF" style-hover="color:#FFFFFF"><span style="color:#3D6BFF">02</span>Sobre</a>
+      <a href="Contato.dc.html" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">03</span>Contato</a>
+      <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">↓</span>CV</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px"><div style="display:flex;border:1px solid #2C323B;border-radius:4px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500">
+      <button onClick="{{ setPT }}" style="background:{{ ptBg }};color:{{ ptColor }};border:none;cursor:pointer;font:inherit;padding:6px 10px">PT</button>
+      <button onClick="{{ setEN }}" style="background:{{ enBg }};color:{{ enColor }};border:none;cursor:pointer;font:inherit;padding:6px 10px">EN</button>
+    </div><button data-menu-toggle="" aria-expanded="false" aria-label="Abrir menu" style="height:32px;padding:0 12px;display:flex;align-items:center;gap:10px;border:1px solid #2C323B;border-radius:4px;background:transparent;color:#ECEBE6;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:border-color .2s" style-hover="border-color:#ECEBE6">Menu<span style="display:flex;flex-direction:column;gap:4px"><span data-ml="" style="display:block;width:16px;height:1px;background:currentColor"></span><span data-ml="" style="display:block;width:16px;height:1px;background:currentColor"></span></span></button></div>
+  </div>
+  <span data-progress="" style="position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:#3D6BFF;transform-origin:0 50%;transform:scaleX(0)"></span>
+</header>
+
+<section id="top" data-screen-label="Hero" style="background:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(56px,7vw,96px);display:flex;flex-direction:column;gap:clamp(36px,5vw,64px)">
+    <div data-reveal="fade" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #22272F;padding-bottom:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">
+      <a href="DevSehn%20Portfolio%20v2.dc.html" style="color:#9AA1AB" style-hover="color:#ECEBE6">← Início</a>
+      <span>Sobre · Engenheiro de software</span>
+    </div>
+    <div style="overflow:hidden"><h1 data-reveal="line" data-delay="80" style="margin:0;padding:0.06em 0 0.24em;max-width:14ch;font-size:clamp(48px,8.6vw,132px);line-height:0.94;letter-spacing:-0.045em;font-weight:500;text-wrap:balance">Derik Sehn</h1></div>
+    <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,5vw,96px);align-items:flex-start">
+      <p data-reveal="fade" data-delay="200" style="flex:1.4 1 420px;max-width:720px;margin:0;line-height:1.6;color:#B4BAC2;text-wrap:pretty;font-size:clamp(18px,1.6vw,21px)">Engenheiro de software com experiência em <span style="color:#ECEBE6">sistemas corporativos</span>, <span style="color:#ECEBE6">cloud</span>, <span style="color:#ECEBE6">DevOps</span> e <span style="color:#ECEBE6">integrações</span>. Já desenvolvi soluções para indústria, logística, comércio e saúde, do código à infraestrutura em produção.</p>
+      <dl data-reveal="fade" data-delay="320" style="flex:1 1 320px;margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);font-family:'IBM Plex Mono',monospace;font-size:13px;border-top:1px solid #22272F">
+        <dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Atual</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Ford Motor Company · DevSehn</dd><dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Foco</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Full-stack · Cloud · DevOps</dd><dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Base</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Capão da Canoa, RS · Brasil</dd><dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Idiomas</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Português · Inglês (C1)</dd>
+      </dl>
+    </div>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px;min-width:0"><div data-reveal="clip" style="position:relative;border:1px solid #22272F;background:#0F1218"><div style="position:relative;aspect-ratio:21/8;overflow:hidden;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 1050 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"><g stroke="#1B2029" stroke-width="1"><line x1="0" y1="0" x2="0" y2="400"></line><line x1="50" y1="0" x2="50" y2="400"></line><line x1="100" y1="0" x2="100" y2="400"></line><line x1="150" y1="0" x2="150" y2="400"></line><line x1="200" y1="0" x2="200" y2="400"></line><line x1="250" y1="0" x2="250" y2="400"></line><line x1="300" y1="0" x2="300" y2="400"></line><line x1="350" y1="0" x2="350" y2="400"></line><line x1="400" y1="0" x2="400" y2="400"></line><line x1="450" y1="0" x2="450" y2="400"></line><line x1="500" y1="0" x2="500" y2="400"></line><line x1="550" y1="0" x2="550" y2="400"></line><line x1="600" y1="0" x2="600" y2="400"></line><line x1="650" y1="0" x2="650" y2="400"></line><line x1="700" y1="0" x2="700" y2="400"></line><line x1="750" y1="0" x2="750" y2="400"></line><line x1="800" y1="0" x2="800" y2="400"></line><line x1="850" y1="0" x2="850" y2="400"></line><line x1="900" y1="0" x2="900" y2="400"></line><line x1="950" y1="0" x2="950" y2="400"></line><line x1="1000" y1="0" x2="1000" y2="400"></line><line x1="1050" y1="0" x2="1050" y2="400"></line><line x1="0" y1="0" x2="1050" y2="0"></line><line x1="0" y1="50" x2="1050" y2="50"></line><line x1="0" y1="100" x2="1050" y2="100"></line><line x1="0" y1="150" x2="1050" y2="150"></line><line x1="0" y1="200" x2="1050" y2="200"></line><line x1="0" y1="250" x2="1050" y2="250"></line><line x1="0" y1="300" x2="1050" y2="300"></line><line x1="0" y1="350" x2="1050" y2="350"></line><line x1="0" y1="400" x2="1050" y2="400"></line></g><g fill="none" stroke="#2F4BF0" stroke-width="1.2"><circle cx="525" cy="200" r="120" opacity="0.5"><animate attributeName="r" values="120;150;120" dur="6s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.5;0.12;0.5" dur="6s" repeatCount="indefinite"></animate></circle><circle cx="525" cy="200" r="180" opacity="0.25"><animate attributeName="r" values="180;214;180" dur="6s" begin="1.2s" repeatCount="indefinite"></animate></circle></g><g transform="translate(437 112) scale(4)"><path fill="#ECEBE6" d="M0 0H20A22 22 0 0 1 20 44H0V25H15.68A7 7 0 1 0 15.68 19H0Z"></path><circle cx="22" cy="22" r="3.5" fill="#2F4BF0"></circle></g><g font-family="IBM Plex Mono, monospace" font-size="13" fill="#4B525C" letter-spacing="1.5"><text x="40" y="60">LAT −29.75</text><text x="40" y="82">LON −50.01</text><text x="870" y="350">UTC−3</text></g></svg></div><span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span></div><figcaption data-reveal="fade" data-delay="300" style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#9AA1AB"><span style="white-space:nowrap">Fig. 01</span><span style="text-align:right">Capão da Canoa, RS · trabalhando remoto para times do Brasil e de fora.</span></figcaption></figure>
+  </div>
+</section>
+
+<section data-screen-label="Contexto" style="background:#EFEEE9;color:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(56px,7vw,96px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Do código à produção</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(01) Quem sou</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px clamp(32px,5vw,96px)">
+      <p data-reveal="fade" style="flex:1 1 360px;margin:0;font-size:18px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Comecei em sistemas de gestão hospitalar, onde aprendi que software bom é o que a equipe usa todo dia sem pensar nele. Desde então trabalho em produtos que precisam funcionar em operação real.</p>
+      <p data-reveal="fade" data-delay="120" style="flex:1 1 360px;margin:0;font-size:18px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Hoje divido o tempo entre a plataforma de logística da Ford e os projetos da DevSehn, cuidando da interface, da API, do banco e da entrega, com o mesmo cuidado em cada camada.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid #0B0E13">
+      <div style="display:flex;flex-direction:column;gap:14px;padding:28px 28px 28px 0;border-bottom:1px solid #CFCDC4" data-reveal="fade" data-delay="0"><span style="font-size:clamp(56px,6.4vw,96px);font-weight:500;letter-spacing:-0.05em;line-height:0.9"><span data-count="4">4</span>+</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.55;color:#5A5F66;max-width:30ch">anos construindo software em produção</span></div><div style="display:flex;flex-direction:column;gap:14px;padding:28px 28px 28px 0;border-bottom:1px solid #CFCDC4" data-reveal="fade" data-delay="120"><span style="font-size:clamp(56px,6.4vw,96px);font-weight:500;letter-spacing:-0.05em;line-height:0.9"><span data-count="4">4</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.55;color:#5A5F66;max-width:30ch">empresas, da saúde à indústria automotiva</span></div><div style="display:flex;flex-direction:column;gap:14px;padding:28px 28px 28px 0;border-bottom:1px solid #CFCDC4" data-reveal="fade" data-delay="240"><span style="font-size:clamp(56px,6.4vw,96px);font-weight:500;letter-spacing:-0.05em;line-height:0.9"><span data-count="5">5</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.55;color:#5A5F66;max-width:30ch">cases publicados neste portfólio</span></div><div style="display:flex;flex-direction:column;gap:14px;padding:28px 28px 28px 0;border-bottom:1px solid #CFCDC4" data-reveal="fade" data-delay="360"><span style="font-size:clamp(56px,6.4vw,96px);font-weight:500;letter-spacing:-0.05em;line-height:0.9"><span data-count="20">20</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.55;color:#5A5F66;max-width:30ch">cursos e certificações concluídos</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Trajetória" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(16px,2vw,24px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #ECEBE6;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Onde já trabalhei</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">(02) Trajetória</span></div>
+    <div style="display:flex;flex-direction:column">
+      <article data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px clamp(24px,4vw,64px);padding:32px 0;border-bottom:1px solid #22272F">
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB">Fev 2025 – atual</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#ECEBE6"><span style="width:7px;height:7px;border-radius:50%;background:#3D6BFF"></span>Atual</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(26px,2.6vw,38px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">Ford Motor Company</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#6E7681">Engenheiro de software</span></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><p style="margin:0;font-size:16px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Plataforma global de logística com Angular, Spring Boot, PostgreSQL e Kubernetes no GCP.</p><div style="display:flex;flex-wrap:wrap;gap:8px;color:#C9CDD3"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Angular</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Spring Boot</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">PostgreSQL</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Kubernetes</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">GCP</span></div></div>
+      </article><article data-reveal="fade" data-delay="100" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px clamp(24px,4vw,64px);padding:32px 0;border-bottom:1px solid #22272F">
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB">Set 2025 – Ago 2026</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(26px,2.6vw,38px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">Maxxi Data Informática</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#6E7681">Full-stack · Inovação Bayer, eztime</span></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><p style="margin:0;font-size:16px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Migrations, IA, controle de colheita, registro e sistema de ponto.</p><div style="display:flex;flex-wrap:wrap;gap:8px;color:#C9CDD3"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">CloudOps</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Data &amp; AI</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Clean Architecture</span></div></div>
+      </article><article data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px clamp(24px,4vw,64px);padding:32px 0;border-bottom:1px solid #22272F">
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB">Mar 2024 – atual</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#ECEBE6"><span style="width:7px;height:7px;border-radius:50%;background:#3D6BFF"></span>Atual</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(26px,2.6vw,38px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">DevSehn</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#6E7681">Estúdio próprio</span></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><p style="margin:0;font-size:16px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Aplicações web, APIs e integrações para comércio, indústria e serviços, do código à infraestrutura.</p><div style="display:flex;flex-wrap:wrap;gap:8px;color:#C9CDD3"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Next.js</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">NestJS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">TypeScript</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">PostgreSQL</span></div></div>
+      </article><article data-reveal="fade" data-delay="100" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px clamp(24px,4vw,64px);padding:32px 0;border-bottom:1px solid #22272F">
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB">Ago 2022 – Mar 2024</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(26px,2.6vw,38px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">Unimed Vale do Caí</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#6E7681">Full-stack · Saúde e gestão hospitalar</span></div>
+        <div style="display:flex;flex-direction:column;gap:16px"><p style="margin:0;font-size:16px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Módulo de manutenção preventiva e UniChat para +850 colaboradores.</p><div style="display:flex;flex-wrap:wrap;gap:8px;color:#C9CDD3"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Sistemas hospitalares</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Integrações</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #2C323B">Chat interno</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Princípios" style="background:#EFEEE9;color:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Como eu trabalho</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(03) Princípios</span></div>
+    <div style="display:flex;flex-direction:column">
+      <div data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px clamp(20px,3vw,48px);align-items:baseline;padding:26px 4px;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">01</span><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px clamp(20px,3vw,48px)"><h3 style="flex:1 1 260px;margin:0;font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.15">Ponta a ponta</h3><p style="flex:1.4 1 300px;margin:0;font-size:16px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Interface, API, banco e infraestrutura pensados juntos, para que nada fique sem dono.</p></div></div>
+      <div data-reveal="fade" data-delay="80" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px clamp(20px,3vw,48px);align-items:baseline;padding:26px 4px;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">02</span><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px clamp(20px,3vw,48px)"><h3 style="flex:1 1 260px;margin:0;font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.15">Regras no servidor</h3><p style="flex:1.4 1 300px;margin:0;font-size:16px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Validações e cálculos ficam na API. A interface apresenta, o servidor decide.</p></div></div>
+      <div data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px clamp(20px,3vw,48px);align-items:baseline;padding:26px 4px;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">03</span><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px clamp(20px,3vw,48px)"><h3 style="flex:1 1 260px;margin:0;font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.15">Entrega contínua</h3><p style="flex:1.4 1 300px;margin:0;font-size:16px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Ciclos curtos, revisáveis e publicados de forma automatizada por ambiente.</p></div></div>
+      <div data-reveal="fade" data-delay="80" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px clamp(20px,3vw,48px);align-items:baseline;padding:26px 4px;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">04</span><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px clamp(20px,3vw,48px)"><h3 style="flex:1 1 260px;margin:0;font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.15">Clareza para o time</h3><p style="flex:1.4 1 300px;margin:0;font-size:16px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Fluxos visíveis, histórico de cada mudança e documentação que alguém de fato lê.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Stack" style="background:#EFEEE9;color:#0B0E13;border-top:1px solid #0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Ferramentas do dia a dia</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(04) Stack</span></div>
+    <div style="display:flex;flex-direction:column">
+      <div data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px clamp(24px,4vw,64px);align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Front-end</span><div style="display:flex;flex-wrap:wrap;gap:8px;grid-column:span 2"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Angular</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">React</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Next.js</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">TypeScript</span></div></div><div data-reveal="fade" data-delay="80" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px clamp(24px,4vw,64px);align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Back-end</span><div style="display:flex;flex-wrap:wrap;gap:8px;grid-column:span 2"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Spring Boot</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Java</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">NestJS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Node.js</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">REST APIs</span></div></div><div data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px clamp(24px,4vw,64px);align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Dados</span><div style="display:flex;flex-wrap:wrap;gap:8px;grid-column:span 2"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">PostgreSQL</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Migrations</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Data &amp; AI</span></div></div><div data-reveal="fade" data-delay="80" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px clamp(24px,4vw,64px);align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Cloud e DevOps</span><div style="display:flex;flex-wrap:wrap;gap:8px;grid-column:span 2"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">GCP</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Azure</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">AWS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Kubernetes</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">CI/CD</span></div></div><div data-reveal="fade" data-delay="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px clamp(24px,4vw,64px);align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Integrações</span><div style="display:flex;flex-wrap:wrap;gap:8px;grid-column:span 2"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">MQTT</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">WhatsApp</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Pagamentos</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:7px 12px;border-radius:4px;border:1px solid #0B0E13">Entra ID</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Certificações" style="background:#EFEEE9;color:#0B0E13;border-top:1px solid #0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Formação contínua</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(05) Certificações</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:16px">
+      <article data-reveal="fade" data-delay="0" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:200px;padding:22px;border:1px solid #0B0E13;background:#EFEEE9;transition:border-color .25s,background .25s" style-hover="border-color:#3D6BFF;background:#E9E7E1"><span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-size:11px;padding:5px 9px;border-radius:3px;background:#0B0E13;color:#ECEBE6">Certificação</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:-0.02em;line-height:1.15">AWS Certified Cloud Practitioner</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5F66">AWS · 2023</span></div></article><article data-reveal="fade" data-delay="80" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:200px;padding:22px;border:1px solid #0B0E13;background:#EFEEE9;transition:border-color .25s,background .25s" style-hover="border-color:#3D6BFF;background:#E9E7E1"><span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-size:11px;padding:5px 9px;border-radius:3px;background:#0B0E13;color:#ECEBE6">Certificação</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:-0.02em;line-height:1.15">EF SET C1 Advanced</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5F66">EF Education First · 2024</span></div></article><article data-reveal="fade" data-delay="160" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:200px;padding:22px;border:1px solid #0B0E13;background:#EFEEE9;transition:border-color .25s,background .25s" style-hover="border-color:#3D6BFF;background:#E9E7E1"><span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-size:11px;padding:5px 9px;border-radius:3px;background:#0B0E13;color:#ECEBE6">Certificação</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:-0.02em;line-height:1.15">42Crunch API Security Mastery</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5F66">Ford Motor Company · 2025</span></div></article><article data-reveal="fade" data-delay="240" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:200px;padding:22px;border:1px solid #0B0E13;background:#EFEEE9;transition:border-color .25s,background .25s" style-hover="border-color:#3D6BFF;background:#E9E7E1"><span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-size:11px;padding:5px 9px;border-radius:3px;background:#0B0E13;color:#ECEBE6">Certificação</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:-0.02em;line-height:1.15">Certified Scrum Developer</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5F66">Ford Motor Company · 2025</span></div></article>
+    </div>
+    <a href="DevSehn%20Portfolio%20v2.dc.html#formacao" data-reveal="fade" style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0B0E13" style-hover="color:#2A52E0">Ver todos os cursos (20) <span>→</span></a>
+  </div>
+</section>
+
+<section data-screen-label="Currículo" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(56px,7vw,96px)">
+    <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:32px 0;border-top:1px solid #22272F;border-bottom:1px solid #22272F;color:#ECEBE6;transition:color .2s" style-hover="color:#3D6BFF">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">(06) Currículo · Google Docs</span>
+        <span style="font-size:clamp(48px,7vw,104px);font-weight:500;letter-spacing:-0.045em;line-height:0.94">Currículo completo</span>
+      </div>
+      <span style="font-size:clamp(40px,5vw,72px);line-height:1">↗</span>
+    </a>
+  </div>
+</section>
+
+<footer id="contato" data-screen-label="Contato" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(80px,10vw,144px);padding-bottom:32px;display:flex;flex-direction:column;gap:clamp(56px,7vw,104px)">
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">(07) Contato</span>
+      <div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;max-width:12ch;font-size:clamp(48px,8.6vw,132px);line-height:0.94;letter-spacing:-0.045em;font-weight:500;text-wrap:balance">Tem um projeto em mente?</h2></div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,5vw,96px);align-items:flex-end">
+        <p style="flex:1 1 320px;max-width:460px;margin:0;font-size:18px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Estou aberto a conversar sobre oportunidades em engenharia de software e projetos que precisam de desenvolvimento prático.</p>
+        <a href="mailto:derik@devsehn.com" style="flex:1 1 360px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:12px;border-bottom:2px solid #ECEBE6;font-size:clamp(24px,3vw,44px);font-weight:500;letter-spacing:-0.03em;color:#ECEBE6;transition:color .2s,border-color .2s" style-hover="color:#3D6BFF;border-color:#3D6BFF">derik@devsehn.com<span>↗</span></a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;padding-top:24px;border-top:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA1AB">
+      <span>© 2026 · Derik Sehn — Engenheiro de software</span>
+      <div style="display:flex;gap:28px;flex-wrap:wrap">
+        <a href="#" style="color:#ECEBE6" style-hover="color:#3D6BFF">LinkedIn ↗</a>
+        <a href="https://github.com/DerikSehn" target="_blank" rel="noopener" style="color:#ECEBE6" style-hover="color:#3D6BFF">GitHub ↗</a>
+        <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="color:#ECEBE6" style-hover="color:#3D6BFF">CV ↓</a>
+        <a href="#top" style="color:#9AA1AB" style-hover="color:#ECEBE6">Topo ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'pt' };
+  componentDidMount() {
+    const L0 = window.dsI18n && window.dsI18n.lang; if (L0 && L0 !== this.state.lang) this.setState({ lang: L0 });
+    this.motionInit();
+  }
+  componentDidUpdate() { this.motionInit(); }
+  componentWillUnmount() { this.motionStop(); }
+
+  motionInit() {
+    if (!this._io) {
+      this._rm = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) || this.props.motion === false;
+      this._map = new Map(); this._seen = new WeakSet(); this._seenC = new WeakSet();
+      this._io = new IntersectionObserver(es => es.forEach(e => {
+        this._ioFired = 1;
+        if (!e.isIntersecting) return;
+        const list = this._map.get(e.target) || [];
+        this._map.delete(e.target); this._io.unobserve(e.target);
+        list.forEach(el => { if (el._to !== undefined) this.countUp(el); else this.reveal(el); });
+      }), { threshold: 0.01, rootMargin: '0px 0px -6% 0px' });
+      this._watch = el => {
+        const k = el.getAttribute('data-reveal');
+        const t = (k === 'line' || k === 'clip') ? el.parentElement : el;
+        if (!this._map.has(t)) { this._map.set(t, []); this._io.observe(t); }
+        this._map.get(t).push(el);
+      };
+      setTimeout(() => { if (!this._ioFired) { this._map.forEach(l => l.forEach(el => el._to !== undefined ? this.countUp(el) : this.reveal(el))); this._map.clear(); } }, 1500);
+      this._onScroll = () => { if (!this._raf) this._raf = requestAnimationFrame(() => { this._raf = 0; this.scrollFx(); }); };
+      addEventListener('scroll', this._onScroll, { passive: true });
+      addEventListener('resize', this._onScroll);
+    }
+    const rm = this._rm;
+    document.querySelectorAll('[data-reveal-legacy]').forEach(el => {
+      if (this._seen.has(el)) return; this._seen.add(el); if (rm) return;
+      const k = el.getAttribute('data-reveal'), S = el.style;
+      if (k === 'clip') S.clipPath = 'inset(0 0 100% 0)';
+      else if (k === 'line') S.transform = 'translateY(105%)';
+      else if (k === 'grow') { S.transform = 'scaleX(0)'; S.transformOrigin = '0 50%'; }
+      else { S.opacity = '0'; S.transform = 'translateY(' + (k === 'rise' ? 72 : 28) + 'px)'; }
+      this._watch(el);
+    });
+    document.querySelectorAll('[data-count]').forEach(el => {
+      if (this._seenC.has(el)) return; this._seenC.add(el);
+      const n = el.firstChild; if (rm || !n || n.nodeType !== 3) return;
+      el._to = parseFloat(el.getAttribute('data-count')); n.nodeValue = '0'; this._watch(el);
+    });
+    document.querySelectorAll('[data-marquee]').forEach(el => {
+      if (el._mq || rm || !el.animate) return;
+      el._mq = el.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }], { duration: +el.getAttribute('data-marquee') || 40000, iterations: Infinity });
+    });
+    document.querySelectorAll('[data-autoscroll]').forEach(el => {
+      if (el._as || rm || !el.animate) return;
+      const d = +el.getAttribute('data-autoscroll');
+      el._as = el.animate([{ transform: 'translateY(0)', offset: 0 }, { transform: 'translateY(0)', offset: 0.1 }, { transform: 'translateY(-' + d + 'px)', offset: 0.9 }, { transform: 'translateY(-' + d + 'px)', offset: 1 }], { duration: +el.getAttribute('data-dur') || 28000, iterations: Infinity, direction: 'alternate', easing: 'cubic-bezier(.45,0,.55,1)' });
+    });
+    this.scrollFx();
+    clearTimeout(this._kick); this._kick = setTimeout(() => this.scrollFx(), 400);
+  }
+  reveal(el) {
+    const d = +(el.getAttribute('data-delay') || 0), k = el.getAttribute('data-reveal'), E = 'cubic-bezier(.16,1,.3,1)';
+    el.style.transition = 'opacity .9s ' + E + ' ' + d + 'ms, transform ' + (k === 'line' ? 1.1 : k === 'grow' ? 1.4 : 1) + 's ' + E + ' ' + d + 'ms, clip-path 1.3s cubic-bezier(.77,0,.18,1) ' + d + 'ms';
+    requestAnimationFrame(() => requestAnimationFrame(() => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = ''; }));
+  }
+  countUp(el) {
+    const n = el.firstChild, to = el._to, t0 = performance.now(), dur = 1600;
+    const f = t => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4); n.nodeValue = Math.round(to * e).toLocaleString('pt-BR'); if (p < 1) requestAnimationFrame(f); };
+    requestAnimationFrame(f);
+  }
+  scrollFx() {
+    if (this._map && this._map.size) {
+      const vh = innerHeight;
+      this._map.forEach((list, t) => {
+        const r = t.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) { this._map.delete(t); this._io && this._io.unobserve(t); list.forEach(el => el._to !== undefined ? this.countUp(el) : this.reveal(el)); }
+      });
+    }
+    const max = document.documentElement.scrollHeight - innerHeight;
+    document.querySelectorAll('[data-progress]').forEach(el => { el.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0).toFixed(4) + ')'; });
+    if (this._rm) return;
+    document.querySelectorAll('[data-parallax]').forEach(el => {
+      const r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+      const off = (r.top + r.height / 2 - innerHeight / 2) * +el.getAttribute('data-parallax');
+      el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0) scale(1.18)';
+    });
+  }
+  motionStop() { this._map && this._map.forEach(l => l.forEach(el => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = ''; })); this._io && this._io.disconnect(); this._io = null; removeEventListener('scroll', this._onScroll); removeEventListener('resize', this._onScroll); }
+
+
+  renderVals() {
+    const pt = this.state.lang === 'pt';
+    return {
+      ptBg: pt ? '#ECEBE6' : 'transparent', enBg: pt ? 'transparent' : '#ECEBE6',
+      ptColor: pt ? '#0B0E13' : '#9AA1AB', enColor: pt ? '#9AA1AB' : '#0B0E13',
+      setPT: () => { this.setState({ lang: 'pt' }); window.dsI18n && window.dsI18n.set('pt'); }, setEN: () => { this.setState({ lang: 'en' }); window.dsI18n && window.dsI18n.set('en'); }
+    };
+  }
+}
+</script>
+</body>
+</html>

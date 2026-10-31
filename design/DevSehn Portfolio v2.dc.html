@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='3 2 60 60'%3E%3Crect x='3' y='2' width='60' height='60' rx='13' fill='%230D0E11'/%3E%3Cpath fill='%23EFEDE7' d='M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z'/%3E%3Ccircle cx='34' cy='32' r='3.5' fill='%23EFEDE7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+@media (max-width:860px){header nav{display:none!important}}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0B0E13;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:#3D6BFF}
+*{box-sizing:border-box}
+::selection{background:#3D6BFF;color:#FFFFFF}
+</style>
+<script src="i18n.js"></script>
+<script src="motion.js"></script>
+</helmet>
+
+<div style="background:#0B0E13;color:#ECEBE6;min-height:100vh;overflow-x:clip">
+
+<header style="position:sticky;top:0;z-index:50;background:#0B0E13;border-bottom:1px solid #22272F">
+  <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,3vw,40px);height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#top" aria-label="DevSehn, início" style="display:flex;align-items:center;gap:9px;color:#ECEBE6"><svg viewBox="12 10 42 44" width="23" height="24" aria-hidden="true" style="display:block;flex:none"><path fill="#ECEBE6" d="M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z"></path><circle cx="34" cy="32" r="3.5" fill="#2F4BF0"></circle></svg><span style="font-family:'Geist',system-ui,sans-serif;font-size:22px;line-height:1;letter-spacing:-0.04em"><span style="font-weight:600">Dev</span><span style="font-weight:300">Sehn</span></span></a>
+    <nav style="display:flex;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
+      <a href="#trabalhos" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">01</span>Trabalhos</a>
+      <a href="Sobre.dc.html" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">02</span>Sobre</a>
+      <a href="Contato.dc.html" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">03</span>Contato</a>
+      <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">↓</span>CV</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px"><div style="display:flex;border:1px solid #2C323B;border-radius:4px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500">
+      <button onClick="{{ setPT }}" style="background:{{ ptBg }};color:{{ ptColor }};border:none;cursor:pointer;font:inherit;padding:6px 10px">PT</button>
+      <button onClick="{{ setEN }}" style="background:{{ enBg }};color:{{ enColor }};border:none;cursor:pointer;font:inherit;padding:6px 10px">EN</button>
+    </div><button data-menu-toggle="" aria-expanded="false" aria-label="Abrir menu" style="height:32px;padding:0 12px;display:flex;align-items:center;gap:10px;border:1px solid #2C323B;border-radius:4px;background:transparent;color:#ECEBE6;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:border-color .2s" style-hover="border-color:#ECEBE6">Menu<span style="display:flex;flex-direction:column;gap:4px"><span data-ml="" style="display:block;width:16px;height:1px;background:currentColor"></span><span data-ml="" style="display:block;width:16px;height:1px;background:currentColor"></span></span></button></div>
+  </div>
+  <span data-progress="" style="position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:#3D6BFF;transform-origin:0 50%;transform:scaleX(0)"></span>
+</header>
+
+<section id="top" data-screen-label="Hero" style="position:relative;isolation:isolate">
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute;width:0;height:0"><filter id="ds-tritone" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"></feColorMatrix><feComponentTransfer><feFuncR type="table" tableValues="0.043 0.043 0.184 0.925"></feFuncR><feFuncG type="table" tableValues="0.055 0.055 0.294 0.922"></feFuncG><feFuncB type="table" tableValues="0.075 0.075 0.941 0.902"></feFuncB></feComponentTransfer></filter></svg>
+  <div aria-hidden="true" data-i18n-skip="" style="position:absolute;inset:0;z-index:-1;overflow:clip;pointer-events:none">
+    <div data-scrub-track="" style="position:absolute;inset:0;overflow:hidden;background:#0B0E13">
+      <video data-autoplay="" data-hero-bg="" src="assets/hero/bg.mp4" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:url(#ds-tritone) contrast(1.08)"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,14,19,0.86) 0%,rgba(11,14,19,0.5) 45%,rgba(11,14,19,0.25) 100%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(rgba(11,14,19,0),#0B0E13)"></div>
+    </div>
+  </div>
+  <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,3vw,40px) clamp(56px,7vw,96px);display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+    
+    <div style="overflow:hidden"><h1 data-reveal="line" aria-label="DevSehn" data-i18n-skip="" style="margin:0;padding-bottom:0.22em;display:flex;align-items:baseline;font-size:clamp(48px,8.6vw,132px);line-height:0.94;letter-spacing:-0.045em;font-weight:500"><svg data-logo-d="" viewBox="12 10 42 44" aria-hidden="true" style="position:relative;z-index:1;display:block;flex:none;width:0.69em;height:0.72em;margin-right:0.035em"><path fill="#ECEBE6" d="M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z" style="filter: drop-shadow(0px 1px 3px #3d6bff)"></path><circle cx="34" cy="32" r="3.5" fill="#2F4BF0"></circle></svg><span data-logo-word="" aria-hidden="true" style="position: relative; display: block; overflow: hidden; white-space: nowrap; padding: 0.14em 0.04em 0.1em 0; margin: -0.14em 0 -0.1em 0; text-shadow: 0px 1px 17px #3d6bff">evSehn</span></h1></div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,64px);align-items:flex-end">
+      <div style="flex:1 1 340px;max-width:480px;display:flex;flex-direction:column;gap:32px">
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Oi, sou o Dérik. Engenheiro de software com experiência em sistemas corporativos, cloud, DevOps e integrações. Já desenvolvi soluções para indústria, logística, comércio e saúde, do código à infraestrutura em produção.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="#trabalhos" style="display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 22px;border-radius:4px;background:#ECEBE6;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:background .2s" style-hover="background:#3D6BFF;color:#FFFFFF">Ver meus projetos<span>→</span></a>
+          <a href="#contato" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:4px;border:1px solid #3A414B;color:#ECEBE6;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:border-color .2s" style-hover="border-color:#ECEBE6;color:#FFFFFF">Entre em contato</a>
+        </div>
+      </div>
+      <sc-if value="{{ showHeroImage }}" hint-placeholder-val="{{ true }}">
+        <figure style="flex:1.4 1 420px;min-width:0;margin:0;display:flex;flex-direction:column;gap:12px">
+          <div style="position:relative;border:1px solid #22272F;background:#0B0E13">
+            <div ref="{{ heroWrap }}" style="position:relative;aspect-ratio:911/809;overflow:hidden;font-family:'Schibsted Grotesk',system-ui,sans-serif;color:#ECEBE6">
+              <div style="position:absolute;left:0;top:0;width:911px;height:809px;transform-origin:0 0;transform:scale({{ heroScale }})">
+
+                <div aria-hidden="{{ a0.hid }}" style="position:absolute;inset:0;opacity:{{ a0.op }};z-index:{{ a0.z }};transition:opacity 1.2s ease">
+                  <img src="assets/hero_right.png" alt="Vista isométrica de uma planta de refrigeração industrial com painel de telemetria" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:{{ a0.tf }};transition:{{ a0.tr }};transform-origin:60% 55%">
+                </div>
+
+                <div aria-hidden="{{ a1.hid }}" style="position:absolute;inset:0;opacity:{{ a1.op }};z-index:{{ a1.z }};transition:opacity 1.2s ease;overflow:hidden">
+                  <div style="position:absolute;inset:0;transform:{{ a1.tf }};transition:{{ a1.tr }};transform-origin:50% 60%;background:radial-gradient(ellipse 70% 55% at 50% 62%,#13234A 0%,#0D1528 45%,#0B0E13 80%)">
+                    <div style="position:absolute;left:-420px;top:360px;width:1751px;height:760px;transform:perspective(620px) rotateX(62deg);transform-origin:50% 0;background-image:linear-gradient(rgba(84,124,255,0.26) 1px,transparent 1px),linear-gradient(90deg,rgba(84,124,255,0.26) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 25%,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 25%,#000 60%,transparent 100%)"></div>
+                    <div style="position:absolute;left:255px;top:430px;width:400px;height:160px;border-radius:50%;background:radial-gradient(closest-side,rgba(61,107,255,0.35),rgba(61,107,255,0))"></div>
+                  </div>
+                  <svg viewBox="0 0 911 809" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible" fill="none">
+                    <g stroke="rgba(120,155,255,0.35)" stroke-width="1" stroke-dasharray="3 6">
+                      <path d="M455 505 Q 270 370 130 612"></path>
+                      <path d="M455 505 Q 650 360 790 588"></path>
+                      <path d="M455 505 Q 540 620 520 728"></path>
+                    </g>
+                    <g stroke="#5B86FF" stroke-width="2" stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="{{ a1.dash }}" style="transition:{{ a1.dtr }}">
+                      <path d="M455 505 Q 270 370 130 612"></path>
+                      <path d="M455 505 Q 650 360 790 588"></path>
+                      <path d="M455 505 Q 540 620 520 728"></path>
+                    </g>
+                  </svg>
+                  <span style="position:absolute;left:116px;top:598px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(91,134,255,0.55);display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#5B86FF;box-shadow:0 0 12px #5B86FF"></span></span>
+                  <span style="position:absolute;left:776px;top:574px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(91,134,255,0.55);display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#5B86FF;box-shadow:0 0 12px #5B86FF"></span></span>
+                  <span style="position:absolute;left:506px;top:714px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(91,134,255,0.55);display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#5B86FF;box-shadow:0 0 12px #5B86FF"></span></span>
+                  <div style="position:absolute;left:52px;top:640px;padding:10px 14px;border-radius:10px;background:rgba(13,20,34,0.86);border:1px solid rgba(96,140,255,0.38);display:flex;flex-direction:column;gap:2px;opacity:{{ a1.cop }};transform:{{ a1.ctf }};transition:{{ a1.c3 }}"><span style="font-size:17px;font-weight:600">Importação</span><span style="font-size:13px;color:#9FB0CF">42 processos abertos</span></div>
+                  <div style="position:absolute;left:690px;top:614px;padding:10px 14px;border-radius:10px;background:rgba(13,20,34,0.86);border:1px solid rgba(96,140,255,0.38);display:flex;flex-direction:column;gap:2px;opacity:{{ a1.cop }};transform:{{ a1.ctf }};transition:{{ a1.c3 }}"><span style="font-size:17px;font-weight:600">Exportação</span><span style="font-size:13px;color:#9FB0CF">27 embarques</span></div>
+                  <div style="position:absolute;left:548px;top:704px;padding:10px 14px;border-radius:10px;background:rgba(13,20,34,0.86);border:1px solid rgba(96,140,255,0.38);display:flex;flex-direction:column;gap:2px;opacity:{{ a1.cop }};transform:{{ a1.ctf }};transition:{{ a1.c3 }}"><span style="font-size:17px;font-weight:600">Compra de peças</span><span style="font-size:13px;color:#9FB0CF">86 pedidos</span></div>
+                  <div style="position:absolute;left:383px;top:468px;width:144px;height:74px;border-radius:14px;background:rgba(13,20,34,0.92);border:1px solid rgba(96,140,255,0.5);box-shadow:0 0 40px -6px rgba(61,107,255,0.55);display:grid;place-items:center"><img src="assets/ford_logo.png" alt="Ford" style="width:104px;height:auto"></div>
+                  <span style="position:absolute;left:454px;top:262px;width:2px;height:206px;background:linear-gradient(#5B86FF,rgba(91,134,255,0.3));transform-origin:50% 0;transform:{{ a1.lsc }};transition:{{ a1.c2 }}"></span>
+                  <div style="position:absolute;left:186px;top:44px;width:540px;padding:22px 24px 18px;border-radius:16px;background:rgba(13,20,34,0.86);border:1px solid rgba(96,140,255,0.42);box-shadow:0 24px 60px -24px rgba(0,0,0,0.8);display:flex;flex-direction:column;gap:16px;opacity:{{ a1.cop }};transform:{{ a1.ctf }};transition:{{ a1.c1 }}">
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:24px;font-weight:600;letter-spacing:-0.01em">Logística global</span><span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#5BD69A"><span style="width:8px;height:8px;border-radius:50%;background:#2FBF71"></span>Operação ativa</span></div>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(120,150,210,0.2);border-bottom:1px solid rgba(120,150,210,0.2)">
+                      <div style="padding:14px 0;display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;color:#9FB0CF">Embarques ativos</span><span style="font-size:30px;font-weight:600">1.284</span></div>
+                      <div style="padding:14px 16px;border-left:1px solid rgba(120,150,210,0.2);display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;color:#9FB0CF">Em trânsito</span><span style="font-size:30px;font-weight:600">312</span></div>
+                      <div style="padding:14px 16px;border-left:1px solid rgba(120,150,210,0.2);display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;color:#9FB0CF">No prazo</span><span style="font-size:30px;font-weight:600">97,8%</span></div>
+                    </div>
+                    <svg viewBox="0 0 490 54" preserveAspectRatio="none" style="width:100%;height:54px"><path d="M0 44 L35 40 L70 42 L105 33 L140 36 L175 27 L210 31 L245 22 L280 26 L315 17 L350 21 L385 13 L420 16 L455 8 L490 10 L490 54 L0 54 Z" fill="rgba(61,107,255,0.22)"></path><path d="M0 44 L35 40 L70 42 L105 33 L140 36 L175 27 L210 31 L245 22 L280 26 L315 17 L350 21 L385 13 L420 16 L455 8 L490 10" stroke="#5B86FF" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"></path></svg>
+                  </div>
+                  <div style="position:absolute;left:36px;top:300px;width:300px;padding:16px 18px;border-radius:14px;background:rgba(13,20,34,0.88);border:1px solid rgba(96,140,255,0.38);display:flex;align-items:center;gap:14px;opacity:{{ a1.cop }};transform:{{ a1.ctf }};transition:{{ a1.c4 }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ECEBE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"></path></svg><span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font-size:18px;font-weight:600">Desembaraço concluído</span><span style="font-size:13px;color:#9FB0CF">Lote IMP-0418 liberado</span></span><span style="font-size:20px;color:#5B86FF">→</span></div>
+                </div>
+
+                <div aria-hidden="{{ a2.hid }}" style="position:absolute;inset:0;opacity:{{ a2.op }};z-index:{{ a2.z }};transition:opacity 1.2s ease;overflow:hidden">
+                  <div style="position:absolute;inset:0;transform:{{ a2.tf }};transition:{{ a2.tr }};transform-origin:40% 60%">
+                    <img src="assets/hospital.png" alt="Fachada de hospital com painel de pronto atendimento sobreposto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:25% 50%;filter:saturate(0.45) brightness(0.62) contrast(1.08)">
+                    <div style="position:absolute;inset:0;background:#1C3C9A;mix-blend-mode:color;opacity:0.42"></div>
+                    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,19,0.55) 0%,rgba(11,14,19,0) 38%,rgba(11,14,19,0.2) 62%,rgba(11,14,19,0.92) 100%),linear-gradient(90deg,rgba(11,14,19,0.55) 0%,rgba(11,14,19,0) 35%)"></div>
+                    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(120,155,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,155,255,0.07) 1px,transparent 1px);background-size:56px 56px"></div>
+                  </div>
+                  <span style="position:absolute;left:510px;top:500px;width:26px;height:26px;border-left:2px solid #8FB0FF;border-top:2px solid #8FB0FF;opacity:{{ a2.cop }};transition:{{ a2.c2 }}"></span>
+                  <span style="position:absolute;left:640px;top:500px;width:26px;height:26px;border-right:2px solid #8FB0FF;border-top:2px solid #8FB0FF;opacity:{{ a2.cop }};transition:{{ a2.c2 }}"></span>
+                  <span style="position:absolute;left:510px;top:660px;width:26px;height:26px;border-left:2px solid #8FB0FF;border-bottom:2px solid #8FB0FF;opacity:{{ a2.cop }};transition:{{ a2.c2 }}"></span>
+                  <span style="position:absolute;left:640px;top:660px;width:26px;height:26px;border-right:2px solid #8FB0FF;border-bottom:2px solid #8FB0FF;opacity:{{ a2.cop }};transition:{{ a2.c2 }}"></span>
+                  <span style="position:absolute;left:574px;top:580px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(143,176,255,0.7);display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#5B86FF;box-shadow:0 0 14px #5B86FF"></span></span>
+                  <span style="position:absolute;left:587px;top:300px;width:2px;height:280px;background:linear-gradient(#5B86FF,rgba(91,134,255,0.35));transform-origin:50% 0;transform:{{ a2.lsc }};transition:{{ a2.c2 }}"></span>
+                  <div style="position:absolute;left:360px;top:40px;width:520px;padding:22px 24px 20px;border-radius:16px;background:rgba(13,20,34,0.86);border:1px solid rgba(96,140,255,0.42);box-shadow:0 24px 60px -24px rgba(0,0,0,0.8);display:flex;flex-direction:column;gap:16px;opacity:{{ a2.cop }};transform:{{ a2.ctf }};transition:{{ a2.c1 }}">
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:24px;font-weight:600;letter-spacing:-0.01em">Pronto Atendimento</span><span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#5BD69A"><span style="width:8px;height:8px;border-radius:50%;background:#2FBF71"></span>Fila ao vivo</span></div>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(120,150,210,0.2);border-bottom:1px solid rgba(120,150,210,0.2)">
+                      <div style="padding:14px 0;display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;color:#9FB0CF">Em espera</span><span style="font-size:30px;font-weight:600">14</span></div>
+                      <div style="padding:14px 16px;border-left:1px solid rgba(120,150,210,0.2);display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;color:#9FB0CF">Tempo médio</span><span style="font-size:30px;font-weight:600">22 min</span></div>
+                      <div style="padding:14px 16px;border-left:1px solid rgba(120,150,210,0.2);display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;color:#9FB0CF">Atendidos hoje</span><span style="font-size:30px;font-weight:600">186</span></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                      <span style="font-size:14px;color:#9FB0CF">Classificação de risco</span>
+                      <div style="display:flex;gap:3px;height:10px"><span style="flex:1;border-radius:2px;background:#E5484D"></span><span style="flex:3;border-radius:2px;background:#F2811D"></span><span style="flex:6;border-radius:2px;background:#E8C21C"></span><span style="flex:3;border-radius:2px;background:#2FBF71"></span><span style="flex:1;border-radius:2px;background:#3D7BFF"></span></div>
+                      <div style="display:flex;justify-content:space-between;font-size:13px;color:#C9D3E6"><span>Emergência 1</span><span>Muito urgente 3</span><span>Urgente 6</span><span>Pouco urgente 3</span><span>Não urgente 1</span></div>
+                    </div>
+                  </div>
+                  <div style="position:absolute;left:36px;top:330px;width:250px;padding:16px 18px;border-radius:14px;background:rgba(13,20,34,0.88);border:1px solid rgba(96,140,255,0.38);display:flex;flex-direction:column;gap:10px;opacity:{{ a2.cop }};transform:{{ a2.ctf }};transition:{{ a2.c3 }}"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:15px;color:#9FB0CF">Ocupação de leitos</span><span style="font-size:24px;font-weight:600">78%</span></div><div style="height:6px;border-radius:3px;background:rgba(120,150,210,0.2)"><div style="width:78%;height:100%;border-radius:3px;background:#5B86FF"></div></div><span style="font-size:13px;color:#9FB0CF">94 de 120 leitos</span></div>
+                  <div style="position:absolute;left:36px;top:690px;width:340px;padding:16px 18px;border-radius:14px;background:rgba(13,20,34,0.88);border:1px solid rgba(96,140,255,0.38);display:flex;align-items:center;gap:14px;opacity:{{ a2.cop }};transform:{{ a2.ctf }};transition:{{ a2.c4 }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ECEBE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"></path></svg><span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font-size:18px;font-weight:600">Manutenção preventiva</span><span style="font-size:13px;color:#9FB0CF">Autoclave 02 · revisão em 3 dias</span></span><span style="font-size:20px;color:#5B86FF">→</span></div>
+                </div>
+
+              </div>
+            </div>
+            <sc-if value="{{ showMarks }}" hint-placeholder-val="{{ true }}">
+              <span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span>
+              <span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span>
+              <span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span>
+              <span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span>
+            </sc-if>
+          </div>
+          <figcaption style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#9AA1AB"><span style="white-space:nowrap">{{ figNum }}</span><span style="text-align:right">{{ figCap }}</span></figcaption>
+        </figure>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="trabalhos" data-screen-label="Trabalhos" style="background:#EFEEE9;color:#0B0E13">
+  
+<div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,3vw,40px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px">
+      <div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500">O Software completo que entrego</h2></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(01) Pensou em escalar? eu entrego o sistema de ponta a ponta, pronto para o futuro.<br></span>
+    </div>
+
+    <div data-screen-label="Cases bento" style="display:flex;flex-wrap:wrap;gap:16px;align-items:stretch">
+      <a data-reveal="clip" href="Eli%20Control%20Case.dc.html" style="position:relative;flex:7 1 560px;min-width:0;display:flex;flex-direction:column;border:1px solid #0B0E13;background:#0B0E13;color:#ECEBE6;overflow:hidden;transition:border-color .25s" style-hover="border-color:#3D6BFF;color:#ECEBE6">
+        <span style="position:absolute;left:0;top:0;z-index:2;padding:8px 12px;background:#EFEEE9;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border-right:1px solid #0B0E13;border-bottom:1px solid #0B0E13">01 · Projeto em destaque</span>
+        <div style="position:relative;flex:1 1 auto;min-height:clamp(240px,30vw,420px);overflow:hidden;background:#0B1424">
+          <img src="assets/eli_central.png" alt="Eli Control: central operacional na web e tela da empresa no app, com dados de exemplo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 40%;display:block;will-change:transform" data-parallax="-0.1">
+        </div>
+        <div style="padding:clamp(20px,2.4vw,32px);display:flex;flex-direction:column;gap:18px;border-top:1px solid #22272F">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+            <span style="display:flex;align-items:center;gap:14px"><img src="assets/eli_mark.png" alt="" style="height:clamp(34px,3vw,44px);width:auto"><span style="font-size:clamp(32px,3.6vw,52px);letter-spacing:-0.035em;font-weight:500;line-height:1">Eli Control</span></span>
+            <span style="display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 20px;border-radius:4px;background:#ECEBE6;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Ver case<span>→</span></span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px clamp(24px,3vw,48px);align-items:baseline">
+            <p style="flex:1.4 1 300px;margin:0;font-size:17px;line-height:1.55;color:#B4BAC2;text-wrap:pretty">Uma plataforma de monitoramento de refrigeração industrial com telemetria de equipamentos, alarmes, dashboards e operações multiempresa.</p>
+            <span style="flex:1 1 200px;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.7;color:#9AA1AB">Next.js · NestJS · TypeScript · PostgreSQL · MQTT</span>
+          </div>
+        </div>
+      </a>
+      <div style="flex:5 1 400px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <a data-reveal="fade" data-delay="150" href="Eli%20Pecas%20Case.dc.html" style="flex:1 1 auto;display:flex;flex-wrap:wrap;border:1px solid #0B0E13;background:#EFEEE9;color:#0B0E13;transition:background .25s" style-hover="background:#E5E3DC;color:#0B0E13">
+          <div style="position:relative;flex:1 1 180px;min-height:150px;overflow:hidden;background:#16130F;outline:1px solid #0B0E13"><img src="assets/elipecas_hero_v2.png" alt="Eli Peças: dossiê do pedido no painel e carrinho no app" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:100% 30%;display:block;will-change:transform" data-parallax="0.07"></div>
+          <div style="flex:1.3 1 220px;min-width:0;padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">02 · E-commerce</span>
+            <span style="display:flex;align-items:center;gap:10px"><img src="assets/elipecas/mark_ink.png" alt="" style="height:26px;width:auto"><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">Eli Peças</span></span>
+            <span style="font-size:15px;line-height:1.5;color:#3A3F46;text-wrap:pretty">Loja de peças de refrigeração com pedidos, pagamentos e painel integrado ao WhatsApp.</span>
+            <span style="margin-top:auto;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Ver case<span style="font-size:15px">→</span></span>
+          </div>
+        </a>
+        <a data-reveal="fade" data-delay="250" href="Cultura%20Verde%20Case.dc.html" style="flex:1 1 auto;display:flex;flex-wrap:wrap;border:1px solid #0B0E13;background:#EFEEE9;color:#0B0E13;transition:background .25s" style-hover="background:#E5E3DC;color:#0B0E13">
+          <div style="position:relative;flex:1 1 180px;min-height:150px;overflow:hidden;background:#16130F;outline:1px solid #0B0E13"><video data-autoplay="" src="assets/culturaverde/site.mp4" autoplay="" muted="" loop="" playsinline="" preload="metadata" aria-label="Navegação pelo site da Cultura Verde" data-parallax="-0.05" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block;will-change:transform"></video></div>
+          <div style="flex:1.3 1 220px;min-width:0;padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">03 · Site e painel</span>
+            <span style="display:flex;align-items:center;gap:10px"><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">Cultura Verde</span></span>
+            <span style="font-size:15px;line-height:1.5;color:#3A3F46;text-wrap:pretty">Site e painel de paisagismo, com projetos em antes e depois editáveis pela equipe.</span>
+            <span style="margin-top:auto;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Ver case<span style="font-size:15px">→</span></span>
+          </div>
+        </a>
+        <a data-reveal="fade" data-delay="350" href="Daniela%20Bosing%20Case.dc.html" style="flex:1 1 auto;display:flex;flex-wrap:wrap;border:1px solid #0B0E13;background:#EFEEE9;color:#0B0E13;transition:background .25s" style-hover="background:#E5E3DC;color:#0B0E13">
+          <div style="position:relative;flex:1 1 180px;min-height:150px;overflow:hidden;background:#16130F;outline:1px solid #0B0E13"><video data-autoplay="" src="assets/danibosing/site.mp4" autoplay="" muted="" loop="" playsinline="" preload="metadata" aria-label="Navegação pelo site da Cheff Daniela Bosing" data-parallax="0.09" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block;will-change:transform"></video></div>
+          <div style="flex:1.3 1 220px;min-width:0;padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">04 · Gastronomia</span>
+            <span style="display:flex;align-items:center;gap:10px"><img src="assets/danibosing/logo_ink.png" alt="" style="height:30px;width:auto"><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.03em;line-height:1.05">Daniela Bosing</span></span>
+            <span style="font-size:15px;line-height:1.5;color:#3A3F46;text-wrap:pretty">Cardápio online e gestão de eventos, com orçamento, margem e etapas de produção.</span>
+            <span style="margin-top:auto;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Ver case<span style="font-size:15px">→</span></span>
+          </div>
+        </a>
+      </div>
+      <a data-reveal="fade" data-delay="200" href="Ford%20Case.dc.html" style="flex:1 1 100%;display:flex;flex-wrap:wrap;border:1px solid #0B0E13;background:#EFEEE9;color:#0B0E13;transition:background .25s" style-hover="background:#E5E3DC;color:#0B0E13">
+        <div style="position:relative;flex:7 1 520px;min-height:clamp(220px,26vw,360px);overflow:hidden;background:#00095B;outline:1px solid #0B0E13">
+          <img src="assets/ford/01-home.png" alt="Ford: tela inicial do portal de suprimentos de protótipos" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0;display:block;will-change:transform" data-parallax="-0.08">
+          <span style="position:absolute;left:0;top:0;z-index:2;padding:8px 12px;background:#EFEEE9;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border-right:1px solid #0B0E13;border-bottom:1px solid #0B0E13">05 · Engenharia automotiva</span>
+        </div>
+        <div style="flex:5 1 360px;min-width:0;padding:clamp(20px,2.4vw,32px);display:flex;flex-direction:column;gap:16px">
+          <span style="display:flex;align-items:center;gap:14px"><img src="assets/ford_logo.png" alt="" style="height:clamp(28px,2.6vw,40px);width:auto"><span style="font-size:clamp(32px,3.6vw,52px);letter-spacing:-0.035em;font-weight:500;line-height:1">Ford</span></span>
+          <span style="font-size:17px;line-height:1.55;color:#3A3F46;text-wrap:pretty">Plataforma que leva peças de protótipo do pedido à planta, com aprovações por etapa e rastreio ponta a ponta.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.7;color:#5A5F66">Angular · Spring Boot · PostgreSQL · Cloud</span>
+          <span style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 20px;border-radius:4px;background:#0B0E13;color:#ECEBE6;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Ver case<span>→</span></span>
+        </div>
+      </a>
+    </div>
+
+
+
+
+    <div style="margin: 0 auto; width: 100%">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px">
+      <div style="overflow:hidden"><h2 data-reveal="line" style="margin: 0 auto; padding-bottom: 0.22em; font-size: clamp(36px,5.4vw,80px); line-height: 0.98; letter-spacing: -0.04em; font-weight: 500; max-width: 1360px">Onde já trabalhei</h2></div>
+      <a href="Sobre.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0B0E13" style-hover="color:#2A52E0">(02) Mais sobre mim →</a>
+    </div>
+    <div data-screen-label="Experiência cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <article data-reveal="fade" data-delay="0" style="display:flex;flex-direction:column;border:1px solid #0B0E13;background:#EFEEE9;min-width:0;transition:border-color .25s" style-hover="border-color:#3D6BFF">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid #0B0E13"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;background:#00095B"><g fill="#3B5BD9" opacity="0.55"><circle cx="20" cy="20" r="1.4"></circle><circle cx="20" cy="60" r="1.4"></circle><circle cx="20" cy="100" r="1.4"></circle><circle cx="20" cy="140" r="1.4"></circle><circle cx="20" cy="180" r="1.4"></circle><circle cx="20" cy="220" r="1.4"></circle><circle cx="20" cy="260" r="1.4"></circle><circle cx="60" cy="20" r="1.4"></circle><circle cx="60" cy="60" r="1.4"></circle><circle cx="60" cy="100" r="1.4"></circle><circle cx="60" cy="140" r="1.4"></circle><circle cx="60" cy="180" r="1.4"></circle><circle cx="60" cy="220" r="1.4"></circle><circle cx="60" cy="260" r="1.4"></circle><circle cx="100" cy="20" r="1.4"></circle><circle cx="100" cy="60" r="1.4"></circle><circle cx="100" cy="100" r="1.4"></circle><circle cx="100" cy="140" r="1.4"></circle><circle cx="100" cy="180" r="1.4"></circle><circle cx="100" cy="220" r="1.4"></circle><circle cx="100" cy="260" r="1.4"></circle><circle cx="140" cy="20" r="1.4"></circle><circle cx="140" cy="60" r="1.4"></circle><circle cx="140" cy="100" r="1.4"></circle><circle cx="140" cy="140" r="1.4"></circle><circle cx="140" cy="180" r="1.4"></circle><circle cx="140" cy="220" r="1.4"></circle><circle cx="140" cy="260" r="1.4"></circle><circle cx="180" cy="20" r="1.4"></circle><circle cx="180" cy="60" r="1.4"></circle><circle cx="180" cy="100" r="1.4"></circle><circle cx="180" cy="140" r="1.4"></circle><circle cx="180" cy="180" r="1.4"></circle><circle cx="180" cy="220" r="1.4"></circle><circle cx="180" cy="260" r="1.4"></circle><circle cx="220" cy="20" r="1.4"></circle><circle cx="220" cy="60" r="1.4"></circle><circle cx="220" cy="100" r="1.4"></circle><circle cx="220" cy="140" r="1.4"></circle><circle cx="220" cy="180" r="1.4"></circle><circle cx="220" cy="220" r="1.4"></circle><circle cx="220" cy="260" r="1.4"></circle><circle cx="260" cy="20" r="1.4"></circle><circle cx="260" cy="60" r="1.4"></circle><circle cx="260" cy="100" r="1.4"></circle><circle cx="260" cy="140" r="1.4"></circle><circle cx="260" cy="180" r="1.4"></circle><circle cx="260" cy="220" r="1.4"></circle><circle cx="260" cy="260" r="1.4"></circle><circle cx="300" cy="20" r="1.4"></circle><circle cx="300" cy="60" r="1.4"></circle><circle cx="300" cy="100" r="1.4"></circle><circle cx="300" cy="140" r="1.4"></circle><circle cx="300" cy="180" r="1.4"></circle><circle cx="300" cy="220" r="1.4"></circle><circle cx="300" cy="260" r="1.4"></circle><circle cx="340" cy="20" r="1.4"></circle><circle cx="340" cy="60" r="1.4"></circle><circle cx="340" cy="100" r="1.4"></circle><circle cx="340" cy="140" r="1.4"></circle><circle cx="340" cy="180" r="1.4"></circle><circle cx="340" cy="220" r="1.4"></circle><circle cx="340" cy="260" r="1.4"></circle><circle cx="380" cy="20" r="1.4"></circle><circle cx="380" cy="60" r="1.4"></circle><circle cx="380" cy="100" r="1.4"></circle><circle cx="380" cy="140" r="1.4"></circle><circle cx="380" cy="180" r="1.4"></circle><circle cx="380" cy="220" r="1.4"></circle><circle cx="380" cy="260" r="1.4"></circle></g>
+<g fill="none" stroke="#2A3FA8" stroke-width="1"><path d="M-10 230 L120 150 L260 190 L410 90"></path><path d="M-10 90 L100 120 L220 60 L410 140"></path><path d="M60 310 L140 150 L220 60"></path></g>
+<g fill="none" stroke="#8FB0FF" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="10 14"><path d="M-10 230 L120 150 L260 190 L410 90"><animate attributeName="stroke-dashoffset" from="0" to="-240" dur="6s" repeatCount="indefinite"></animate></path><path d="M-10 90 L100 120 L220 60 L410 140"><animate attributeName="stroke-dashoffset" from="0" to="-240" dur="8s" repeatCount="indefinite"></animate></path></g>
+<circle cx="120" cy="150" r="5" fill="#FFFFFF"></circle><circle cx="120" cy="150" r="5" fill="none" stroke="#8FB0FF" stroke-width="1.5"><animate attributeName="r" values="5;18;5" dur="3s" begin="0s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="1;0;1" dur="3s" begin="0s" repeatCount="indefinite"></animate></circle><circle cx="260" cy="190" r="5" fill="#FFFFFF"></circle><circle cx="260" cy="190" r="5" fill="none" stroke="#8FB0FF" stroke-width="1.5"><animate attributeName="r" values="5;18;5" dur="3s" begin="0.7s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="1;0;1" dur="3s" begin="0.7s" repeatCount="indefinite"></animate></circle><circle cx="220" cy="60" r="5" fill="#FFFFFF"></circle><circle cx="220" cy="60" r="5" fill="none" stroke="#8FB0FF" stroke-width="1.5"><animate attributeName="r" values="5;18;5" dur="3s" begin="1.4s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="1;0;1" dur="3s" begin="1.4s" repeatCount="indefinite"></animate></circle><circle cx="100" cy="120" r="5" fill="#FFFFFF"></circle><circle cx="100" cy="120" r="5" fill="none" stroke="#8FB0FF" stroke-width="1.5"><animate attributeName="r" values="5;18;5" dur="3s" begin="2.0999999999999996s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="1;0;1" dur="3s" begin="2.0999999999999996s" repeatCount="indefinite"></animate></circle></svg>
+          <span style="position:absolute;left:14px;bottom:14px;height:44px;padding:0 12px;display:flex;align-items:center;background:#FFFFFF;border:1px solid #0B0E13"><img src="assets/ford_logo.png" alt="Ford" style="height:26px;width:auto"></span>
+        </div>
+        <div style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#3A3F46"><span>Fev 2025 – atual</span><span style="display:flex;align-items:center;gap:8px;letter-spacing:0.08em;text-transform:uppercase;color:#0B0E13"><span style="width:7px;height:7px;border-radius:50%;background:#3D6BFF"></span>Atual</span></div>
+          <h3 style="margin:0;font-size:clamp(22px,1.9vw,26px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Ford Motor Company</h3>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5A5F66">Sistemas de Logística · Angular · Spring Boot · GCP</span>
+        </div>
+      </article>
+      <article data-reveal="fade" data-delay="100" style="display:flex;flex-direction:column;border:1px solid #0B0E13;background:#EFEEE9;min-width:0;transition:border-color .25s" style-hover="border-color:#3D6BFF">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid #0B0E13"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;background:#0B0E13"><g><rect x="50" y="36" width="120" height="9" rx="2" fill="#3D6BFF"></rect><text x="18" y="44" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">01</text><rect x="70" y="62" width="200" height="9" rx="2" fill="#3A414B"></rect><text x="18" y="70" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">02</text><rect x="70" y="88" width="150" height="9" rx="2" fill="#3A414B"></rect><text x="18" y="96" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">03</text><rect x="90" y="114" width="90" height="9" rx="2" fill="#9AA1AB"></rect><text x="18" y="122" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">04</text><rect x="90" y="140" width="180" height="9" rx="2" fill="#3A414B"></rect><text x="18" y="148" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">05</text><rect x="70" y="166" width="110" height="9" rx="2" fill="#3A414B"></rect><text x="18" y="174" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">06</text><rect x="50" y="192" width="60" height="9" rx="2" fill="#3D6BFF"></rect><text x="18" y="200" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">07</text><rect x="50" y="218" width="140" height="9" rx="2" fill="#3A414B"></rect><text x="18" y="226" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">08</text><rect x="70" y="244" width="210" height="9" rx="2" fill="#3A414B"></rect><text x="18" y="252" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4B525C">09</text></g>
+<rect x="180" y="114" width="7" height="12" fill="#ECEBE6"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite"></animate></rect>
+<text x="300" y="190" font-family="IBM Plex Mono, monospace" font-size="120" fill="#3D6BFF" opacity="0.9">}</text></svg>
+          <span style="position:absolute;left:14px;bottom:14px;height:44px;padding:0 12px;display:flex;align-items:center;background:#FFFFFF;border:1px solid #0B0E13"><span style="display:flex;align-items:center;gap:7px;color:#0B0E13"><svg viewBox="12 10 42 44" width="18" height="19" aria-hidden="true" style="display:block;flex:none"><path fill="#0B0E13" d="M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z"></path><circle cx="34" cy="32" r="3.5" fill="#2F4BF0"></circle></svg><span style="font-family:'Geist',system-ui,sans-serif;font-size:18px;line-height:1;letter-spacing:-0.04em"><span style="font-weight:600">Dev</span><span style="font-weight:300">Sehn</span></span></span></span>
+        </div>
+        <div style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#3A3F46"><span>Mar 2024 – atual</span><span style="display:flex;align-items:center;gap:8px;letter-spacing:0.08em;text-transform:uppercase;color:#0B0E13"><span style="width:7px;height:7px;border-radius:50%;background:#3D6BFF"></span>Atual</span></div>
+          <h3 style="margin:0;font-size:clamp(22px,1.9vw,26px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">DevSehn</h3>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5A5F66">Aplicações web · APIs · Integrações</span>
+        </div>
+      </article>
+      <article data-reveal="fade" data-delay="200" style="display:flex;flex-direction:column;border:1px solid #0B0E13;background:#EFEEE9;min-width:0;transition:border-color .25s" style-hover="border-color:#3D6BFF">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid #0B0E13"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;background:#FF8A3D"><g fill="#FFFFFF" opacity="0.28"><circle cx="10" cy="10" r="1"></circle><circle cx="10" cy="30" r="1"></circle><circle cx="10" cy="50" r="1"></circle><circle cx="10" cy="70" r="1"></circle><circle cx="10" cy="90" r="1"></circle><circle cx="10" cy="110" r="1"></circle><circle cx="10" cy="130" r="1"></circle><circle cx="10" cy="150" r="1"></circle><circle cx="10" cy="170" r="1"></circle><circle cx="10" cy="190" r="1"></circle><circle cx="10" cy="210" r="1"></circle><circle cx="10" cy="230" r="1"></circle><circle cx="10" cy="250" r="1"></circle><circle cx="10" cy="270" r="1"></circle><circle cx="10" cy="290" r="1"></circle><circle cx="30" cy="10" r="1"></circle><circle cx="30" cy="30" r="1"></circle><circle cx="30" cy="50" r="1"></circle><circle cx="30" cy="70" r="1"></circle><circle cx="30" cy="90" r="1"></circle><circle cx="30" cy="110" r="1"></circle><circle cx="30" cy="130" r="1"></circle><circle cx="30" cy="150" r="1"></circle><circle cx="30" cy="170" r="1"></circle><circle cx="30" cy="190" r="1"></circle><circle cx="30" cy="210" r="1"></circle><circle cx="30" cy="230" r="1"></circle><circle cx="30" cy="250" r="1"></circle><circle cx="30" cy="270" r="1"></circle><circle cx="30" cy="290" r="1"></circle><circle cx="50" cy="10" r="1"></circle><circle cx="50" cy="30" r="1"></circle><circle cx="50" cy="50" r="1"></circle><circle cx="50" cy="70" r="1"></circle><circle cx="50" cy="90" r="1"></circle><circle cx="50" cy="110" r="1"></circle><circle cx="50" cy="130" r="1"></circle><circle cx="50" cy="150" r="1"></circle><circle cx="50" cy="170" r="1"></circle><circle cx="50" cy="190" r="1"></circle><circle cx="50" cy="210" r="1"></circle><circle cx="50" cy="230" r="1"></circle><circle cx="50" cy="250" r="1"></circle><circle cx="50" cy="270" r="1"></circle><circle cx="50" cy="290" r="1"></circle><circle cx="70" cy="10" r="1"></circle><circle cx="70" cy="30" r="1"></circle><circle cx="70" cy="50" r="1"></circle><circle cx="70" cy="70" r="1"></circle><circle cx="70" cy="90" r="1"></circle><circle cx="70" cy="110" r="1"></circle><circle cx="70" cy="130" r="1"></circle><circle cx="70" cy="150" r="1"></circle><circle cx="70" cy="170" r="1"></circle><circle cx="70" cy="190" r="1"></circle><circle cx="70" cy="210" r="1"></circle><circle cx="70" cy="230" r="1"></circle><circle cx="70" cy="250" r="1"></circle><circle cx="70" cy="270" r="1"></circle><circle cx="70" cy="290" r="1"></circle><circle cx="90" cy="10" r="1"></circle><circle cx="90" cy="30" r="1"></circle><circle cx="90" cy="50" r="1"></circle><circle cx="90" cy="70" r="1"></circle><circle cx="90" cy="90" r="1"></circle><circle cx="90" cy="110" r="1"></circle><circle cx="90" cy="130" r="1"></circle><circle cx="90" cy="150" r="1"></circle><circle cx="90" cy="170" r="1"></circle><circle cx="90" cy="190" r="1"></circle><circle cx="90" cy="210" r="1"></circle><circle cx="90" cy="230" r="1"></circle><circle cx="90" cy="250" r="1"></circle><circle cx="90" cy="270" r="1"></circle><circle cx="90" cy="290" r="1"></circle><circle cx="110" cy="10" r="1"></circle><circle cx="110" cy="30" r="1"></circle><circle cx="110" cy="50" r="1"></circle><circle cx="110" cy="70" r="1"></circle><circle cx="110" cy="90" r="1"></circle><circle cx="110" cy="110" r="1"></circle><circle cx="110" cy="130" r="1"></circle><circle cx="110" cy="150" r="1"></circle><circle cx="110" cy="170" r="1"></circle><circle cx="110" cy="190" r="1"></circle><circle cx="110" cy="210" r="1"></circle><circle cx="110" cy="230" r="1"></circle><circle cx="110" cy="250" r="1"></circle><circle cx="110" cy="270" r="1"></circle><circle cx="110" cy="290" r="1"></circle><circle cx="130" cy="10" r="1"></circle><circle cx="130" cy="30" r="1"></circle><circle cx="130" cy="50" r="1"></circle><circle cx="130" cy="70" r="1"></circle><circle cx="130" cy="90" r="1"></circle><circle cx="130" cy="110" r="1"></circle><circle cx="130" cy="130" r="1"></circle><circle cx="130" cy="150" r="1"></circle><circle cx="130" cy="170" r="1"></circle><circle cx="130" cy="190" r="1"></circle><circle cx="130" cy="210" r="1"></circle><circle cx="130" cy="230" r="1"></circle><circle cx="130" cy="250" r="1"></circle><circle cx="130" cy="270" r="1"></circle><circle cx="130" cy="290" r="1"></circle><circle cx="150" cy="10" r="1"></circle><circle cx="150" cy="30" r="1"></circle><circle cx="150" cy="50" r="1"></circle><circle cx="150" cy="70" r="1"></circle><circle cx="150" cy="90" r="1"></circle><circle cx="150" cy="110" r="1"></circle><circle cx="150" cy="130" r="1"></circle><circle cx="150" cy="150" r="1"></circle><circle cx="150" cy="170" r="1"></circle><circle cx="150" cy="190" r="1"></circle><circle cx="150" cy="210" r="1"></circle><circle cx="150" cy="230" r="1"></circle><circle cx="150" cy="250" r="1"></circle><circle cx="150" cy="270" r="1"></circle><circle cx="150" cy="290" r="1"></circle><circle cx="170" cy="10" r="1"></circle><circle cx="170" cy="30" r="1"></circle><circle cx="170" cy="50" r="1"></circle><circle cx="170" cy="70" r="1"></circle><circle cx="170" cy="90" r="1"></circle><circle cx="170" cy="110" r="1"></circle><circle cx="170" cy="130" r="1"></circle><circle cx="170" cy="150" r="1"></circle><circle cx="170" cy="170" r="1"></circle><circle cx="170" cy="190" r="1"></circle><circle cx="170" cy="210" r="1"></circle><circle cx="170" cy="230" r="1"></circle><circle cx="170" cy="250" r="1"></circle><circle cx="170" cy="270" r="1"></circle><circle cx="170" cy="290" r="1"></circle><circle cx="190" cy="10" r="1"></circle><circle cx="190" cy="30" r="1"></circle><circle cx="190" cy="50" r="1"></circle><circle cx="190" cy="70" r="1"></circle><circle cx="190" cy="90" r="1"></circle><circle cx="190" cy="110" r="1"></circle><circle cx="190" cy="130" r="1"></circle><circle cx="190" cy="150" r="1"></circle><circle cx="190" cy="170" r="1"></circle><circle cx="190" cy="190" r="1"></circle><circle cx="190" cy="210" r="1"></circle><circle cx="190" cy="230" r="1"></circle><circle cx="190" cy="250" r="1"></circle><circle cx="190" cy="270" r="1"></circle><circle cx="190" cy="290" r="1"></circle><circle cx="210" cy="10" r="1"></circle><circle cx="210" cy="30" r="1"></circle><circle cx="210" cy="50" r="1"></circle><circle cx="210" cy="70" r="1"></circle><circle cx="210" cy="90" r="1"></circle><circle cx="210" cy="110" r="1"></circle><circle cx="210" cy="130" r="1"></circle><circle cx="210" cy="150" r="1"></circle><circle cx="210" cy="170" r="1"></circle><circle cx="210" cy="190" r="1"></circle><circle cx="210" cy="210" r="1"></circle><circle cx="210" cy="230" r="1"></circle><circle cx="210" cy="250" r="1"></circle><circle cx="210" cy="270" r="1"></circle><circle cx="210" cy="290" r="1"></circle><circle cx="230" cy="10" r="1"></circle><circle cx="230" cy="30" r="1"></circle><circle cx="230" cy="50" r="1"></circle><circle cx="230" cy="70" r="1"></circle><circle cx="230" cy="90" r="1"></circle><circle cx="230" cy="110" r="1"></circle><circle cx="230" cy="130" r="1"></circle><circle cx="230" cy="150" r="1"></circle><circle cx="230" cy="170" r="1"></circle><circle cx="230" cy="190" r="1"></circle><circle cx="230" cy="210" r="1"></circle><circle cx="230" cy="230" r="1"></circle><circle cx="230" cy="250" r="1"></circle><circle cx="230" cy="270" r="1"></circle><circle cx="230" cy="290" r="1"></circle><circle cx="250" cy="10" r="1"></circle><circle cx="250" cy="30" r="1"></circle><circle cx="250" cy="50" r="1"></circle><circle cx="250" cy="70" r="1"></circle><circle cx="250" cy="90" r="1"></circle><circle cx="250" cy="110" r="1"></circle><circle cx="250" cy="130" r="1"></circle><circle cx="250" cy="150" r="1"></circle><circle cx="250" cy="170" r="1"></circle><circle cx="250" cy="190" r="1"></circle><circle cx="250" cy="210" r="1"></circle><circle cx="250" cy="230" r="1"></circle><circle cx="250" cy="250" r="1"></circle><circle cx="250" cy="270" r="1"></circle><circle cx="250" cy="290" r="1"></circle><circle cx="270" cy="10" r="1"></circle><circle cx="270" cy="30" r="1"></circle><circle cx="270" cy="50" r="1"></circle><circle cx="270" cy="70" r="1"></circle><circle cx="270" cy="90" r="1"></circle><circle cx="270" cy="110" r="1"></circle><circle cx="270" cy="130" r="1"></circle><circle cx="270" cy="150" r="1"></circle><circle cx="270" cy="170" r="1"></circle><circle cx="270" cy="190" r="1"></circle><circle cx="270" cy="210" r="1"></circle><circle cx="270" cy="230" r="1"></circle><circle cx="270" cy="250" r="1"></circle><circle cx="270" cy="270" r="1"></circle><circle cx="270" cy="290" r="1"></circle><circle cx="290" cy="10" r="1"></circle><circle cx="290" cy="30" r="1"></circle><circle cx="290" cy="50" r="1"></circle><circle cx="290" cy="70" r="1"></circle><circle cx="290" cy="90" r="1"></circle><circle cx="290" cy="110" r="1"></circle><circle cx="290" cy="130" r="1"></circle><circle cx="290" cy="150" r="1"></circle><circle cx="290" cy="170" r="1"></circle><circle cx="290" cy="190" r="1"></circle><circle cx="290" cy="210" r="1"></circle><circle cx="290" cy="230" r="1"></circle><circle cx="290" cy="250" r="1"></circle><circle cx="290" cy="270" r="1"></circle><circle cx="290" cy="290" r="1"></circle><circle cx="310" cy="10" r="1"></circle><circle cx="310" cy="30" r="1"></circle><circle cx="310" cy="50" r="1"></circle><circle cx="310" cy="70" r="1"></circle><circle cx="310" cy="90" r="1"></circle><circle cx="310" cy="110" r="1"></circle><circle cx="310" cy="130" r="1"></circle><circle cx="310" cy="150" r="1"></circle><circle cx="310" cy="170" r="1"></circle><circle cx="310" cy="190" r="1"></circle><circle cx="310" cy="210" r="1"></circle><circle cx="310" cy="230" r="1"></circle><circle cx="310" cy="250" r="1"></circle><circle cx="310" cy="270" r="1"></circle><circle cx="310" cy="290" r="1"></circle><circle cx="330" cy="10" r="1"></circle><circle cx="330" cy="30" r="1"></circle><circle cx="330" cy="50" r="1"></circle><circle cx="330" cy="70" r="1"></circle><circle cx="330" cy="90" r="1"></circle><circle cx="330" cy="110" r="1"></circle><circle cx="330" cy="130" r="1"></circle><circle cx="330" cy="150" r="1"></circle><circle cx="330" cy="170" r="1"></circle><circle cx="330" cy="190" r="1"></circle><circle cx="330" cy="210" r="1"></circle><circle cx="330" cy="230" r="1"></circle><circle cx="330" cy="250" r="1"></circle><circle cx="330" cy="270" r="1"></circle><circle cx="330" cy="290" r="1"></circle><circle cx="350" cy="10" r="1"></circle><circle cx="350" cy="30" r="1"></circle><circle cx="350" cy="50" r="1"></circle><circle cx="350" cy="70" r="1"></circle><circle cx="350" cy="90" r="1"></circle><circle cx="350" cy="110" r="1"></circle><circle cx="350" cy="130" r="1"></circle><circle cx="350" cy="150" r="1"></circle><circle cx="350" cy="170" r="1"></circle><circle cx="350" cy="190" r="1"></circle><circle cx="350" cy="210" r="1"></circle><circle cx="350" cy="230" r="1"></circle><circle cx="350" cy="250" r="1"></circle><circle cx="350" cy="270" r="1"></circle><circle cx="350" cy="290" r="1"></circle><circle cx="370" cy="10" r="1"></circle><circle cx="370" cy="30" r="1"></circle><circle cx="370" cy="50" r="1"></circle><circle cx="370" cy="70" r="1"></circle><circle cx="370" cy="90" r="1"></circle><circle cx="370" cy="110" r="1"></circle><circle cx="370" cy="130" r="1"></circle><circle cx="370" cy="150" r="1"></circle><circle cx="370" cy="170" r="1"></circle><circle cx="370" cy="190" r="1"></circle><circle cx="370" cy="210" r="1"></circle><circle cx="370" cy="230" r="1"></circle><circle cx="370" cy="250" r="1"></circle><circle cx="370" cy="270" r="1"></circle><circle cx="370" cy="290" r="1"></circle><circle cx="390" cy="10" r="1"></circle><circle cx="390" cy="30" r="1"></circle><circle cx="390" cy="50" r="1"></circle><circle cx="390" cy="70" r="1"></circle><circle cx="390" cy="90" r="1"></circle><circle cx="390" cy="110" r="1"></circle><circle cx="390" cy="130" r="1"></circle><circle cx="390" cy="150" r="1"></circle><circle cx="390" cy="170" r="1"></circle><circle cx="390" cy="190" r="1"></circle><circle cx="390" cy="210" r="1"></circle><circle cx="390" cy="230" r="1"></circle><circle cx="390" cy="250" r="1"></circle><circle cx="390" cy="270" r="1"></circle><circle cx="390" cy="290" r="1"></circle></g>
+<g fill="none" stroke="#FFFFFF" stroke-linejoin="round"><path d="M200.0 104.0L243.7 135.8L227.0 187.2L173.0 187.2L156.3 135.8Z" stroke-width="6" opacity="1"><animateTransform attributeName="transform" type="rotate" from="0 200 150" to="360 200 150" dur="30s" repeatCount="indefinite"></animateTransform></path><path d="M200.0 68.0L278.0 124.7L248.2 216.3L151.8 216.3L122.0 124.7Z" stroke-width="1.4" opacity="0.75"><animateTransform attributeName="transform" type="rotate" from="360 200 150" to="0 200 150" dur="42s" repeatCount="indefinite"></animateTransform></path><path d="M200.0 32.0L312.2 113.5L269.4 245.5L130.6 245.5L87.8 113.5Z" stroke-width="1.4" opacity="0.5"><animateTransform attributeName="transform" type="rotate" from="0 200 150" to="360 200 150" dur="54s" repeatCount="indefinite"></animateTransform></path><path d="M200.0 -4.0L346.5 102.4L290.5 274.6L109.5 274.6L53.5 102.4Z" stroke-width="1.4" opacity="0.3"><animateTransform attributeName="transform" type="rotate" from="360 200 150" to="0 200 150" dur="66s" repeatCount="indefinite"></animateTransform></path></g>
+<circle cx="200" cy="150" r="4" fill="#FFFFFF"></circle></svg>
+          <span style="position:absolute;left:14px;bottom:14px;height:44px;padding:0 12px;display:flex;align-items:center;background:#FFFFFF;border:1px solid #0B0E13"><span style="display:flex;align-items:center;gap:8px"><img src="assets/maxxi_logo.png" alt="" style="height:26px;width:26px;border-radius:4px"><span style="font-size:15px;font-weight:600;color:#0B0E13">Maxxi</span></span></span>
+        </div>
+        <div style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#3A3F46"><span>Set 2025 - Ago - 2026</span></div>
+          <h3 style="margin:0;font-size:clamp(22px,1.9vw,26px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Maxxi Data Informática</h3>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5A5F66">CloudOps · Data &amp; AI · Clean Architecture</span>
+        </div>
+      </article>
+      <article data-reveal="fade" data-delay="300" style="display:flex;flex-direction:column;border:1px solid #0B0E13;background:#EFEEE9;min-width:0;transition:border-color .25s" style-hover="border-color:#3D6BFF">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid #0B0E13"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;background:#00995D"><g stroke="#FFFFFF" stroke-width="1.4" opacity="0.22"><path d="M35 30h10M40 25v10"></path><path d="M35 90h10M40 85v10"></path><path d="M35 150h10M40 145v10"></path><path d="M35 210h10M40 205v10"></path><path d="M35 270h10M40 265v10"></path><path d="M95 30h10M100 25v10"></path><path d="M95 90h10M100 85v10"></path><path d="M95 150h10M100 145v10"></path><path d="M95 210h10M100 205v10"></path><path d="M95 270h10M100 265v10"></path><path d="M155 30h10M160 25v10"></path><path d="M155 90h10M160 85v10"></path><path d="M155 150h10M160 145v10"></path><path d="M155 210h10M160 205v10"></path><path d="M155 270h10M160 265v10"></path><path d="M215 30h10M220 25v10"></path><path d="M215 90h10M220 85v10"></path><path d="M215 150h10M220 145v10"></path><path d="M215 210h10M220 205v10"></path><path d="M215 270h10M220 265v10"></path><path d="M275 30h10M280 25v10"></path><path d="M275 90h10M280 85v10"></path><path d="M275 150h10M280 145v10"></path><path d="M275 210h10M280 205v10"></path><path d="M275 270h10M280 265v10"></path><path d="M335 30h10M340 25v10"></path><path d="M335 90h10M340 85v10"></path><path d="M335 150h10M340 145v10"></path><path d="M335 210h10M340 205v10"></path><path d="M335 270h10M340 265v10"></path></g>
+<path d="M-10 170 L70 170 L85 170 L95 150 L105 170 L125 170 L135 190 L150 80 L165 215 L178 170 L210 170 L225 155 L245 170 L300 170 L315 150 L325 170 L345 170 L355 190 L370 80 L385 215 L398 170 L420 170" fill="none" stroke="#0A6B42" stroke-width="2" opacity="0.6"></path>
+<path d="M-10 170 L70 170 L85 170 L95 150 L105 170 L125 170 L135 190 L150 80 L165 215 L178 170 L210 170 L225 155 L245 170 L300 170 L315 150 L325 170 L345 170 L355 190 L370 80 L385 215 L398 170 L420 170" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="180 900"><animate attributeName="stroke-dashoffset" from="180" to="-900" dur="3.2s" repeatCount="indefinite"></animate></path></svg>
+          <span style="position:absolute;left:14px;bottom:14px;height:44px;padding:0 12px;display:flex;align-items:center;background:#FFFFFF;border:1px solid #0B0E13"><img src="assets/unimed_logo.png" alt="Unimed" style="height:24px;width:auto"></span>
+        </div>
+        <div style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#3A3F46"><span>Ago 2022 – Mar 2024</span></div>
+          <h3 style="margin:0;font-size:clamp(22px,1.9vw,26px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Unimed Vale do Caí</h3>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5A5F66">Sistemas de Gestão Hospitalar</span>
+        </div>
+      </article>
+    </div>
+  </div>
+  </div></section><section id="formacao" data-screen-label="Formação" style="background:#EFEEE9;color:#0B0E13;border-top:1px solid #0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,3vw,40px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px">
+      <div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500">Courses &amp; Certifications</h2></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(03) Formação e cursos</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+        <button onClick="{{ f.pick }}" style="display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:4px;border:1px solid #0B0E13;background:{{ f.bg }};color:{{ f.fg }};font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s">{{ f.label }}<span style="opacity:0.6">{{ f.count }}</span></button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px">
+      <sc-for list="{{ courses }}" as="c" hint-placeholder-count="9">
+        <article data-liquid="" style="position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:16px;padding:20px 20px 22px;border:1px solid #0B0E13;background:#EFEEE9;min-width:0;transition:border-color .25s" style-hover="border-color:#3D6BFF">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
+            <span style="display:inline-flex;align-items:center;gap:8px;padding:5px 9px;border:1px solid #0B0E13;background:{{ c.tagBg }};color:{{ c.tagFg }}">{{ c.type }}</span>
+            <span style="color:#5A5F66">{{ c.year }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h3 style="margin:0;font-size:clamp(20px,1.7vw,24px);font-weight:500;letter-spacing:-0.025em;line-height:1.12;text-wrap:balance">{{ c.title }}</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5A5F66">{{ c.meta }}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A3F46">
+            <span style="letter-spacing:0.06em;text-transform:uppercase;color:#5A5F66">Level:</span>
+            <span style="display:flex;gap:4px"><sc-for list="{{ c.dots }}" as="d" hint-placeholder-count="3"><span style="width:8px;height:8px;border-radius:50%;background:{{ d.bg }}"></span></sc-for></span>
+            <span>{{ c.level }}</span>
+          </div>
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#5A5F66">Skills:</span>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ c.skills }}" as="s" hint-placeholder-count="3"><span style="padding:4px 9px;border:1px solid #C4C2BA;font-size:13px;line-height:1.4;color:#0B0E13">{{ s }}</span></sc-for>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+    <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ toggleAll }}" style="align-self:center;display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 22px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s" style-hover="background:#0B0E13;color:#ECEBE6">{{ moreLabel }}</button>
+    </sc-if>
+  </div>
+</section>
+
+<footer id="contato" data-screen-label="Contato" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,10vw,144px) clamp(20px,3vw,40px) 32px;display:flex;flex-direction:column;gap:clamp(56px,7vw,104px)">
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">(04) Contato</span>
+      <div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;max-width:12ch;font-size:clamp(48px,8.6vw,132px);line-height:0.94;letter-spacing:-0.045em;font-weight:500;text-wrap:balance">Tem um projeto em mente?</h2></div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,5vw,96px);align-items:flex-end">
+        <p style="flex:1 1 320px;max-width:460px;margin:0;font-size:18px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Estou aberto a conversar sobre oportunidades em engenharia de software e projetos que precisam de desenvolvimento prático.</p>
+        <a href="mailto:contato@devsehn.com" style="flex:1 1 360px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:12px;border-bottom:2px solid #ECEBE6;font-size:clamp(24px,3vw,44px);font-weight:500;letter-spacing:-0.03em;color:#ECEBE6;transition:color .2s,border-color .2s" style-hover="color:#3D6BFF;border-color:#3D6BFF">derik@devsehn.com<span>↗</span></a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;padding-top:24px;border-top:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA1AB">
+      <span>© 2026 · Derik Sehn — Engenheiro de software</span>
+      <div style="display:flex;gap:28px;flex-wrap:wrap">
+        <a href="#" style="color:#ECEBE6" style-hover="color:#3D6BFF">LinkedIn ↗</a>
+        <a href="https://github.com/DerikSehn" target="_blank" rel="noopener" style="color:#ECEBE6" style-hover="color:#3D6BFF">GitHub ↗</a>
+        <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="color:#ECEBE6" style-hover="color:#3D6BFF">CV ↓</a>
+        <a href="#top" style="color:#9AA1AB" style-hover="color:#ECEBE6">Topo ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showHeroImage&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showGridMarks&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;slideSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6.5,&quot;min&quot;:3,&quot;max&quot;:12,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'pt', slide: 0, heroScale: 1, cf: 'all', cAll: false };
+  heroWrap = React.createRef();
+  static COURSES = [
+    ['course','React Advanced Concepts','Rocketseat','2023','40h','advanced',['React','Context API','Hooks','+1']],
+    ['bootcamp','NLW Java Journey','Rocketseat','2023','1 week','intermediate',['Java','Spring Boot','REST APIs','+1']],
+    ['course','Next.js Best Practices','Next.js ORG','2024','30h','advanced',['Next.js','SSR','API Routes','+1']],
+    ['certification','EF SET C1 Advanced Certificate','EF Education First','2024','','advanced',['English','Business Communication','Technical Writing']],
+    ['course','Web Development, Mobile and Games','UniRitter','2024','60h','intermediate',['React Native','Game Development','UI/UX']],
+    ['course','Computational Solutions Programming','UniRitter','2024','45h','intermediate',['Algorithms','Data Structures','Problem Solving']],
+    ['certification','Ford Angular.js Mastery','Ford Motor Company','2025','','advanced',['Angular','TypeScript','Enterprise Development']],
+    ['certification','Ford Spring Boot Mastery','Ford Motor Company','2025','','advanced',['Spring Boot','Microservices','REST APIs']],
+    ['certification','Certified Scrum Developer','Ford Motor Company','2025','','intermediate',['Scrum','Agile','Project Management']],
+    ['certification','42Crunch API Security Mastery','Ford Motor Company','2025','','advanced',['API Security','Cybersecurity','REST APIs']],
+    ['course','Clean Architecture','Ford Motor Company','2025','','advanced',['Clean Architecture','Software Design','SOLID Principles']],
+    ['course','Developer Cybersecurity','Ford Motor Company','2025','','advanced',['Cybersecurity','Secure Coding','OWASP']],
+    ['certification','Entra ID Identity & Access Management','Microsoft Learn','2025','','intermediate',['Entra ID','IAM','Azure']],
+    ['course','Spring Boot Deployment on Azure','Microsoft Learn','2025','','intermediate',['Spring Boot','Azure','DevOps']],
+    ['course','MFA Security','Microsoft Learn','2025','','intermediate',['MFA','Security','Authentication']],
+    ['course','SSPR (Self-Service Password Reset)','Microsoft Learn','2025','','intermediate',['SSPR','Password Reset','Security']],
+    ['course','User & Group Management','Microsoft Learn','2025','','intermediate',['User Management','Group Management','Azure']],
+    ['certification','AWS Certified Cloud Practitioner','AWS','2023','','beginner',['AWS','Cloud Computing','Cloud Services']],
+    ['course','Usability & Game Dev','UniRitter','2024','60h','intermediate',['Usability','Game Development','UI/UX']],
+    ['course','UX/UI','UniRitter','2024','60h','intermediate',['UX','UI','Design']]
+  ];
+  courseVals() {
+    const all = Component.COURSES, cf = this.state.cf, LV = { beginner: 1, intermediate: 2, advanced: 3 };
+    const TAG = { course: ['#EFEEE9', '#0B0E13'], bootcamp: ['#3D6BFF', '#FFFFFF'], certification: ['#0B0E13', '#ECEBE6'] };
+    const f = all.filter(c => cf === 'all' || c[0] === cf), lim = 9, show = this.state.cAll ? f : f.slice(0, lim);
+    const filters = [['all', 'All'], ['course', 'Course'], ['bootcamp', 'Bootcamp'], ['certification', 'Certification']].map(([k, label]) => ({
+      label, count: k === 'all' ? all.length : all.filter(c => c[0] === k).length,
+      bg: cf === k ? '#0B0E13' : 'transparent', fg: cf === k ? '#ECEBE6' : '#0B0E13',
+      pick: () => this.setState({ cf: k, cAll: false })
+    }));
+    const courses = show.map(([type, title, org, year, dur, level, skills]) => ({
+      type, title, year, level, skills, tagBg: TAG[type][0], tagFg: TAG[type][1],
+      meta: [org, year, dur].filter(Boolean).join(' • '),
+      dots: [1, 2, 3].map(i => ({ bg: i <= LV[level] ? '#2A52E0' : '#C4C2BA' }))
+    }));
+    return { filters, courses, hasMore: f.length > lim, moreLabel: this.state.cAll ? 'Mostrar menos ↑' : 'Mostrar todos (' + f.length + ') ↓', toggleAll: () => this.setState(s => ({ cAll: !s.cAll })) };
+  }
+  componentDidMount() {
+    const L0 = window.dsI18n && window.dsI18n.lang; if (L0 && L0 !== this.state.lang) this.setState({ lang: L0 });
+    this.rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.ro = new ResizeObserver(() => this.fitHero());
+    this.observe();
+    this.motionInit();
+    document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v._ap) return; v._ap = 1; v.muted = true; v.defaultMuted = true; const go = () => { const p = v.play(); p && p.catch(() => {}); }; v.addEventListener('canplay', go); v.addEventListener('loadeddata', go); go(); });
+    this.timer = setInterval(() => { if (!document.hidden) this.setState(s => ({ slide: (s.slide + 1) % 3 })); }, this.props.slideSeconds ? this.props.slideSeconds * 1000 : 6500);
+  }
+  componentDidUpdate() { this.observe(); this.motionInit(); }
+  componentWillUnmount() { clearInterval(this.timer); this.ro && this.ro.disconnect(); this.motionStop(); }
+
+  motionInit() {
+    if (!this._io) {
+      this._rm = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) || this.props.motion === false;
+      this._map = new Map(); this._seen = new WeakSet(); this._seenC = new WeakSet();
+      this._io = new IntersectionObserver(es => es.forEach(e => {
+        this._ioFired = 1;
+        if (!e.isIntersecting) return;
+        const list = this._map.get(e.target) || [];
+        this._map.delete(e.target); this._io.unobserve(e.target);
+        list.forEach(el => { if (el._to !== undefined) this.countUp(el); else this.reveal(el); });
+      }), { threshold: 0.01, rootMargin: '0px 0px -6% 0px' });
+      this._watch = el => {
+        const k = el.getAttribute('data-reveal');
+        const t = (k === 'line' || k === 'clip') ? el.parentElement : el;
+        if (!this._map.has(t)) { this._map.set(t, []); this._io.observe(t); }
+        this._map.get(t).push(el);
+      };
+      setTimeout(() => { if (!this._ioFired) { this._map.forEach(l => l.forEach(el => el._to !== undefined ? this.countUp(el) : this.reveal(el))); this._map.clear(); } }, 1500);
+      this._onScroll = () => { if (!this._raf) this._raf = requestAnimationFrame(() => { this._raf = 0; this.scrollFx(); }); };
+      addEventListener('scroll', this._onScroll, { passive: true });
+      addEventListener('resize', this._onScroll);
+    }
+    const rm = this._rm;
+    document.querySelectorAll('[data-reveal-legacy]').forEach(el => {
+      if (this._seen.has(el)) return; this._seen.add(el); if (rm) return;
+      const k = el.getAttribute('data-reveal'), S = el.style;
+      if (k === 'clip') S.clipPath = 'inset(0 0 100% 0)';
+      else if (k === 'line') S.transform = 'translateY(105%)';
+      else if (k === 'grow') { S.transform = 'scaleX(0)'; S.transformOrigin = '0 50%'; }
+      else { S.opacity = '0'; S.transform = 'translateY(' + (k === 'rise' ? 72 : 28) + 'px)'; }
+      this._watch(el);
+    });
+    document.querySelectorAll('[data-count]').forEach(el => {
+      if (this._seenC.has(el)) return; this._seenC.add(el);
+      const n = el.firstChild; if (rm || !n || n.nodeType !== 3) return;
+      el._to = parseFloat(el.getAttribute('data-count')); n.nodeValue = '0'; this._watch(el);
+    });
+    document.querySelectorAll('[data-marquee]').forEach(el => {
+      if (el._mq || rm || !el.animate) return;
+      el._mq = el.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }], { duration: +el.getAttribute('data-marquee') || 40000, iterations: Infinity });
+    });
+    document.querySelectorAll('[data-autoscroll]').forEach(el => {
+      if (el._as || rm || !el.animate) return;
+      const d = +el.getAttribute('data-autoscroll');
+      el._as = el.animate([{ transform: 'translateY(0)', offset: 0 }, { transform: 'translateY(0)', offset: 0.1 }, { transform: 'translateY(-' + d + 'px)', offset: 0.9 }, { transform: 'translateY(-' + d + 'px)', offset: 1 }], { duration: 28000, iterations: Infinity, direction: 'alternate', easing: 'cubic-bezier(.45,0,.55,1)' });
+    });
+    this.scrollFx();
+    clearTimeout(this._kick); this._kick = setTimeout(() => this.scrollFx(), 400);
+  }
+  reveal(el) {
+    const d = +(el.getAttribute('data-delay') || 0), k = el.getAttribute('data-reveal'), E = 'cubic-bezier(.16,1,.3,1)';
+    el.style.transition = 'opacity .9s ' + E + ' ' + d + 'ms, transform ' + (k === 'line' ? 1.1 : k === 'grow' ? 1.4 : 1) + 's ' + E + ' ' + d + 'ms, clip-path 1.3s cubic-bezier(.77,0,.18,1) ' + d + 'ms';
+    requestAnimationFrame(() => requestAnimationFrame(() => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = ''; }));
+  }
+  countUp(el) {
+    const n = el.firstChild, to = el._to, t0 = performance.now(), dur = 1600;
+    const f = t => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4); n.nodeValue = Math.round(to * e).toLocaleString('pt-BR'); if (p < 1) requestAnimationFrame(f); };
+    requestAnimationFrame(f);
+  }
+  scrollFx() {
+    if (this._map && this._map.size) {
+      const vh = innerHeight;
+      this._map.forEach((list, t) => {
+        const r = t.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) { this._map.delete(t); this._io && this._io.unobserve(t); list.forEach(el => el._to !== undefined ? this.countUp(el) : this.reveal(el)); }
+      });
+    }
+    const max = document.documentElement.scrollHeight - innerHeight;
+    document.querySelectorAll('[data-progress]').forEach(el => { el.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0).toFixed(4) + ')'; });
+    if (this._rm) return;
+    document.querySelectorAll('[data-parallax]').forEach(el => {
+      const r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+      const lim = r.height * 0.085, off = Math.max(-lim, Math.min(lim, (r.top + r.height / 2 - innerHeight / 2) * +el.getAttribute('data-parallax')));
+      el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0) scale(1.18)';
+    });
+  }
+  motionStop() { this._map && this._map.forEach(l => l.forEach(el => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = ''; })); this._io && this._io.disconnect(); this._io = null; removeEventListener('scroll', this._onScroll); removeEventListener('resize', this._onScroll); }
+
+  observe() {
+    const el = this.heroWrap.current;
+    if (el && el !== this._obs) { this._obs = el; this.ro.observe(el); this.fitHero(); }
+  }
+  fitHero() {
+    const el = this.heroWrap.current; if (!el) return;
+    const s = el.clientWidth / 911;
+    if (Math.abs(s - this.state.heroScale) > 0.001) this.setState({ heroScale: s });
+  }
+  slideVals(k) {
+    const on = this.state.slide === k, rm = this.rm;
+    const d = n => on ? `opacity .8s ease ${0.55 + n * 0.18}s, transform .9s cubic-bezier(.2,.7,.2,1) ${0.55 + n * 0.18}s` : 'opacity .35s ease, transform .35s ease';
+    return {
+      op: on ? 1 : 0, z: on ? 2 : 1, hid: on ? 'false' : 'true',
+      tf: on || rm ? 'scale(1)' : 'scale(1.07)',
+      tr: on ? `transform ${rm ? 0 : 8}s linear` : 'transform 0s linear 1.3s',
+      cop: on ? 1 : 0, ctf: on || rm ? 'translateY(0)' : 'translateY(16px)',
+      c1: d(0), c2: d(1), c3: d(2), c4: d(3),
+      lsc: on ? 'scaleY(1)' : 'scaleY(0)',
+      dash: on ? 0 : 700,
+      dtr: on ? 'stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1) .7s' : 'stroke-dashoffset .3s ease'
+    };
+  }
+  renderVals() {
+    const pt = this.state.lang === 'pt';
+    const caps = ['Telemetria de refrigeração industrial', 'Logística de importação e exportação', 'Gestão hospitalar e pronto atendimento'];
+    return {
+      ...this.courseVals(),
+      heroWrap: this.heroWrap,
+      heroScale: this.state.heroScale,
+      a0: this.slideVals(0), a1: this.slideVals(1), a2: this.slideVals(2),
+      figNum: 'Fig. 0' + (this.state.slide + 1) + ' / 03',
+      figCap: caps[this.state.slide],
+      showHeroImage: this.props.showHeroImage ?? true,
+      showMarks: this.props.showGridMarks ?? true,
+      ptBg: pt ? '#ECEBE6' : 'transparent',
+      enBg: pt ? 'transparent' : '#ECEBE6',
+      ptColor: pt ? '#0B0E13' : '#9AA1AB',
+      enColor: pt ? '#9AA1AB' : '#0B0E13',
+      setPT: () => { this.setState({ lang: 'pt' }); window.dsI18n && window.dsI18n.set('pt'); },
+      setEN: () => { this.setState({ lang: 'en' }); window.dsI18n && window.dsI18n.set('en'); },
+      cases: [
+        { n: '02', name: 'Ford', logo: 'assets/ford_logo.png', radius: '0', sector: 'Fev 2025 - atual', desc: 'Plataforma global de logística com Angular, Spring Boot, PostgreSQL e Kubernetes no GCP.' },
+        { n: '03', name: 'Maxxi', logo: 'assets/maxxi_logo.png', radius: '8px', sector: 'inovação bayer, eztime · Full-stack', desc: 'Migrations, IA, controle de colheita, registro e sistema de ponto.' },
+        { n: '04', name: 'Unimed', logo: 'assets/unimed_logo.png', radius: '6px', sector: 'Saúde e gestão hospitalar · Full-stack', desc: 'Módulo de manutenção preventiva e UniChat para +850 colaboradores.' }
+      ],
+      jobs: [
+        { period: 'Fev 2025 – atual', company: 'Ford Motor Company', focus: 'Logística · Angular · Spring Boot · GCP', logo: 'assets/ford_logo.png', mono: false, current: true },
+        { period: 'Mar 2024 – atual', company: 'DevSehn', focus: 'Aplicações web · APIs · Integrações', logo: '', mono: true, current: true },
+        { period: 'Ago 2022 – Mar 2024', company: 'Unimed Vale do Caí', focus: 'Manutenção preventiva · UniChat', logo: 'assets/unimed_logo.png', mono: false, current: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='3 2 60 60'%3E%3Crect x='3' y='2' width='60' height='60' rx='13' fill='%230D0E11'/%3E%3Cpath fill='%23EFEDE7' d='M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z'/%3E%3Ccircle cx='34' cy='32' r='3.5' fill='%23EFEDE7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Raleway:wght@400;500;600;700&display=swap">
+<style>
+@media (max-width:860px){header nav{display:none!important}}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0B0E13;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:#3D6BFF}
+*{box-sizing:border-box}
+::selection{background:#3D6BFF;color:#FFFFFF}
+</style>
+<script src="i18n.js"></script>
+<script src="motion.js"></script>
+</helmet>
+
+<div style="background:#0B0E13;color:#ECEBE6;min-height:100vh;overflow-x:clip">
+
+<header style="position:sticky;top:0;z-index:50;background:#0B0E13;border-bottom:1px solid #22272F">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="DevSehn%20Portfolio%20v2.dc.html" aria-label="DevSehn, início" style="display:flex;align-items:center;gap:9px;color:#ECEBE6"><svg viewBox="12 10 42 44" width="23" height="24" aria-hidden="true" style="display:block;flex:none"><path fill="#ECEBE6" d="M12 10H32A22 22 0 0 1 32 54H12V35H27.68A7 7 0 1 0 27.68 29H12Z"></path><circle cx="34" cy="32" r="3.5" fill="#2F4BF0"></circle></svg><span style="font-family:'Geist',system-ui,sans-serif;font-size:22px;line-height:1;letter-spacing:-0.04em"><span style="font-weight:600">Dev</span><span style="font-weight:300">Sehn</span></span></a>
+    <nav style="display:flex;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
+      <a href="DevSehn%20Portfolio%20v2.dc.html#trabalhos" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">01</span>Trabalhos</a>
+      <a href="Sobre.dc.html" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">02</span>Sobre</a>
+      <a href="Contato.dc.html" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">03</span>Contato</a>
+      <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="display:flex;gap:8px;color:#C9CDD3" style-hover="color:#FFFFFF"><span style="color:#6E7681">↓</span>CV</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px"><div style="display:flex;border:1px solid #2C323B;border-radius:4px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500">
+      <button onClick="{{ setPT }}" style="background:{{ ptBg }};color:{{ ptColor }};border:none;cursor:pointer;font:inherit;padding:6px 10px">PT</button>
+      <button onClick="{{ setEN }}" style="background:{{ enBg }};color:{{ enColor }};border:none;cursor:pointer;font:inherit;padding:6px 10px">EN</button>
+    </div><button data-menu-toggle="" aria-expanded="false" aria-label="Abrir menu" style="height:32px;padding:0 12px;display:flex;align-items:center;gap:10px;border:1px solid #2C323B;border-radius:4px;background:transparent;color:#ECEBE6;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:border-color .2s" style-hover="border-color:#ECEBE6">Menu<span style="display:flex;flex-direction:column;gap:4px"><span data-ml="" style="display:block;width:16px;height:1px;background:currentColor"></span><span data-ml="" style="display:block;width:16px;height:1px;background:currentColor"></span></span></button></div>
+  </div>
+  <span data-progress="" style="position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:#3D6BFF;transform-origin:0 50%;transform:scaleX(0)"></span>
+</header>
+
+<section id="top" data-screen-label="Case hero" style="background:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,5vw,64px);display:flex;flex-direction:column;gap:clamp(36px,5vw,64px)">
+    <div data-reveal="fade" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #22272F;padding-bottom:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">
+      <a href="DevSehn%20Portfolio%20v2.dc.html#trabalhos" style="color:#9AA1AB" style-hover="color:#ECEBE6">← Trabalhos</a>
+      <span>Case 04 · Gastronomia para eventos</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:clamp(16px,2vw,28px);overflow:hidden">
+      <img data-reveal="fade" src="assets/danibosing/logo_white.png" alt="" style="height:clamp(56px,7.4vw,112px);width:auto">
+      <h1 data-reveal="line" data-delay="80" style="margin:0;padding:0.06em 0 0.24em;font-size:clamp(44px,7.6vw,120px);line-height:0.94;letter-spacing:-0.045em;font-weight:500">Daniela Bosing</h1>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,5vw,96px);align-items:flex-start">
+      <p data-reveal="fade" data-delay="200" style="flex:1.4 1 420px;max-width:720px;margin:0;font-size:18px;line-height:1.6;color:#B4BAC2;text-wrap:pretty;font-size:clamp(18px,1.6vw,21px)">Site e sistema de gestão da Cheff Daniela Bosing, gastronomia para eventos no Rio Grande do Sul. O cliente monta o cardápio do evento no site, e a chef recebe o pedido em um painel com <span style="color:#ECEBE6">orçamento, margem de lucro, agenda e etapas de produção</span>.</p>
+      <dl data-reveal="fade" data-delay="320" style="flex:1 1 320px;margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);font-family:'IBM Plex Mono',monospace;font-size:13px;border-top:1px solid #22272F">
+        <dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Cliente</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Cheff Daniela Bosing</dd>
+        <dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Papel</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Desenvolvimento full-stack</dd>
+        <dt style="padding:12px 20px 12px 0;border-bottom:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6E7681">Entrega</dt><dd style="margin:0;padding:12px 0;border-bottom:1px solid #22272F;color:#ECEBE6">Site, cardápio online e sistema de gestão</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Vídeo" style="background:#0B0E13">
+  <div style="max-width:1600px;margin:0 auto;padding:0 clamp(20px,3vw,40px) clamp(64px,8vw,112px)">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+      <div data-reveal="clip" data-delay="250" style="view-transition-name:case-media;position:relative;border:1px solid #22272F;background:#16130F">
+        <div style="position:relative;aspect-ratio:{{ videoRatio }};overflow:hidden">
+          <video data-autoplay="" data-ratio="" src="assets/danibosing/site.mp4" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-label="Navegação pelo site da Cheff Daniela Bosing" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+        </div>
+        <span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span>
+      </div>
+      <figcaption data-reveal="fade" data-delay="300" style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#9AA1AB"><span style="white-space:nowrap">Fig. 01</span><span style="text-align:right">Navegação pelo site, do início ao cardápio</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="Contexto" style="background:#EFEEE9;color:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(56px,7vw,96px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Do cardápio escolhido ao evento servido</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(01) Contexto</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px clamp(32px,5vw,96px)">
+      <p data-reveal="fade" style="flex:1 1 360px;margin:0;font-size:18px;line-height:1.6;color:#3A3F46;text-wrap:pretty">A Cheff Daniela Bosing atende eventos de todos os tipos e tamanhos, do planejamento do cardápio à execução no dia, com opções para diferentes dietas e restrições alimentares.</p>
+      <p data-reveal="fade" data-delay="120" style="flex:1 1 360px;margin:0;font-size:18px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Os pedidos chegavam por conversa, e cada orçamento era montado à mão. O site passou a receber o cardápio já escolhido pelo cliente, e o sistema transforma esse pedido em orçamento, agenda e produção.</p>
+    </div>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px;min-width:0"><div data-reveal="clip" style="position:relative;border:1px solid #0B0E13;background:#FFFFFF"><div style="display:flex;flex-direction:column;overflow:hidden"><div style="height:34px;flex:none;background:#E7E9EF;border-bottom:1px solid #D5D9E2;display:flex;align-items:center;gap:8px;padding:0 12px;font-family:'Schibsted Grotesk',system-ui,sans-serif"><span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span><span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span><span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span><span style="margin-left:14px;max-width:360px;flex:1;height:22px;border-radius:5px;background:#FFFFFF;font-size:12px;color:#5D6B85;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden">cheffdanielabosing.com.br</span></div><img src="assets/danibosing/home.png" alt="Página inicial do site da Cheff Daniela Bosing" style="display:block;width:100%;height:auto"></div><span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span></div><figcaption data-reveal="fade" data-delay="300" style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#5A5F66"><span style="white-space:nowrap">Fig. 02</span><span style="text-align:right">Página inicial, com a chamada para montar o cardápio</span></figcaption></figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-top:1px solid #0B0E13">
+      <div data-reveal="fade" data-delay="0" style="display:flex;flex-direction:column;gap:12px;padding:28px 24px 28px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">01</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Serviço completo</span><span style="font-size:15px;line-height:1.55;color:#3A3F46;text-wrap:pretty">Do planejamento do cardápio à execução no evento, com toda a logística e o preparo.</span></div>
+      <div data-reveal="fade" data-delay="100" style="display:flex;flex-direction:column;gap:12px;padding:28px 24px 28px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">02</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Cardápios personalizados</span><span style="font-size:15px;line-height:1.55;color:#3A3F46;text-wrap:pretty">Montados de acordo com o tema, as preferências dos convidados e restrições alimentares.</span></div>
+      <div data-reveal="fade" data-delay="200" style="display:flex;flex-direction:column;gap:12px;padding:28px 24px 28px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">03</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Atendimento especial</span><span style="font-size:15px;line-height:1.55;color:#3A3F46;text-wrap:pretty">Equipe disponível para dúvidas, sugestões e ajustes antes e durante o evento.</span></div>
+      <div data-reveal="fade" data-delay="300" style="display:flex;flex-direction:column;gap:12px;padding:28px 24px 28px 0;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5F66">04</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1.1">Pratos e bebidas</span><span style="font-size:15px;line-height:1.55;color:#3A3F46;text-wrap:pretty">De finger food para coquetéis a menus completos para jantares.</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Cardápio" style="background:#EFEEE9;color:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">Um mostruário completo, organizado por categoria</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(02) Cardápio online</span></div>
+    <p data-reveal="fade" style="max-width:760px;margin:0;font-size:18px;line-height:1.6;color:#3A3F46;text-wrap:pretty">O cardápio reúne pratos agrupados por categoria, cada um com foto, descrição e preço. O cliente escolhe os itens e envia o pedido para orçamento, que chega direto ao painel da chef.</p>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+      <div data-reveal="clip" style="position:relative;border:1px solid #0B0E13;background:#16130F"><div style="position:relative;aspect-ratio:16/9;overflow:hidden"><div data-fit="1600" style="position:absolute;inset:0;overflow:hidden"><div style="position:relative;width:1600px;height:900px;transform-origin:0 0;background:#16130F;background-image:radial-gradient(ellipse 60% 55% at 50% 45%,rgba(255,166,43,0.10),rgba(255,166,43,0) 70%)"><div style="position:absolute;left:240px;top:50px;width:1120px;height:800px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#1A1A1A;box-shadow:0 40px 80px -30px rgba(0,0,0,0.7)"><div style="height:34px;flex:none;background:#E7E9EF;border-bottom:1px solid #D5D9E2;display:flex;align-items:center;gap:8px;padding:0 12px;font-family:'Schibsted Grotesk',system-ui,sans-serif"><span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span><span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span><span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span><span style="margin-left:14px;max-width:360px;flex:1;height:22px;border-radius:5px;background:#FFFFFF;font-size:12px;color:#5D6B85;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden">cheffdanielabosing.com.br/cardapio</span></div><div style="position:relative;flex:1;overflow:hidden"><img data-autoscroll="9173" data-dur="70000" src="assets/danibosing/menu.png" alt="Cardápio completo do site, com pratos por categoria" style="display:block;width:1120px;height:auto"></div></div></div></div></div><span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span></div>
+      <figcaption data-reveal="fade" data-delay="300" style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#5A5F66"><span style="white-space:nowrap">Fig. 03</span><span style="text-align:right">Cardápio completo, com rolagem automática</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="Painel" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #ECEBE6;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">A operação inteira em um painel</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">(03) Sistema de gestão</span></div>
+    <p data-reveal="fade" style="max-width:680px;margin:0;font-size:18px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">A tela inicial mostra a receita dos últimos 30 dias, atalhos para compartilhar o cardápio, criar pedidos, agendar, ver o financeiro e os clientes, além do total de pedidos, dos eventos agendados e da atividade recente.</p>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px;min-width:0"><div data-reveal="clip" style="position:relative;border:1px solid #22272F;background:#FFFFFF"><div style="display:flex;flex-direction:column;overflow:hidden"><div style="height:34px;flex:none;background:#E7E9EF;border-bottom:1px solid #D5D9E2;display:flex;align-items:center;gap:8px;padding:0 12px;font-family:'Schibsted Grotesk',system-ui,sans-serif"><span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span><span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span><span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span><span style="margin-left:14px;max-width:360px;flex:1;height:22px;border-radius:5px;background:#FFFFFF;font-size:12px;color:#5D6B85;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden">cheffdanielabosing.com.br/painel</span></div><img src="assets/danibosing/dashboard.png" alt="Tela inicial do sistema com receita, atalhos e atividade recente" style="display:block;width:100%;height:auto"></div><span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat"></span></div><figcaption data-reveal="fade" data-delay="300" style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#9AA1AB"><span style="white-space:nowrap">Fig. 04</span><span style="text-align:right">Início do painel · dados de exemplo</span></figcaption></figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));border-top:1px solid #ECEBE6">
+      <div data-reveal="fade" data-delay="150" style="display:flex;flex-direction:column;gap:10px;padding:24px 20px 24px 0;border-bottom:1px solid #22272F"><span style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB"><span style="width:9px;height:9px;border-radius:50%;background:#FFA62B"></span>01</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1">Pendente</span><span style="font-size:14px;color:#9AA1AB">Aguardando confirmação</span></div>
+      <div data-reveal="fade" data-delay="270" style="display:flex;flex-direction:column;gap:10px;padding:24px 20px 24px 0;border-bottom:1px solid #22272F"><span style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB"><span style="width:9px;height:9px;border-radius:50%;background:#ECEBE6"></span>02</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1">Confirmado</span><span style="font-size:14px;color:#9AA1AB">Pedido confirmado</span></div>
+      <div data-reveal="fade" data-delay="390" style="display:flex;flex-direction:column;gap:10px;padding:24px 20px 24px 0;border-bottom:1px solid #22272F"><span style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB"><span style="width:9px;height:9px;border-radius:50%;background:#ECEBE6"></span>03</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1">Produção</span><span style="font-size:14px;color:#9AA1AB">Sendo produzido</span></div>
+      <div data-reveal="fade" data-delay="510" style="display:flex;flex-direction:column;gap:10px;padding:24px 20px 24px 0;border-bottom:1px solid #22272F"><span style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB"><span style="width:9px;height:9px;border-radius:50%;background:#ECEBE6"></span>04</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1">Pronto</span><span style="font-size:14px;color:#9AA1AB">Pronto para entrega</span></div>
+      <div data-reveal="fade" data-delay="630" style="display:flex;flex-direction:column;gap:10px;padding:24px 20px 24px 0;border-bottom:1px solid #22272F"><span style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA1AB"><span style="width:9px;height:9px;border-radius:50%;background:#ECEBE6"></span>05</span><span style="font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-0.025em;line-height:1">Entregue</span><span style="font-size:14px;color:#9AA1AB">Entregue ao cliente</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Orçamento" style="background:#EFEEE9;color:#0B0E13">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(72px,9vw,128px);padding-bottom:clamp(72px,9vw,128px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #0B0E13;padding-bottom:24px"><div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.04em;font-weight:500;text-wrap:balance;max-width:16ch">O orçamento mostra o lucro antes de confirmar</h2></div><span data-reveal="fade" data-delay="200" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">(04) Orçamento</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px clamp(32px,5vw,80px);align-items:flex-start">
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:20px">
+        <p data-reveal="fade" style="margin:0;font-size:18px;line-height:1.6;color:#3A3F46;text-wrap:pretty">Cada pedido tem detalhes, orçamento, calendário, itens e histórico. No orçamento, a chef define preço total e custo do evento com ajustes rápidos. Os dois têm como mínimo a soma dos itens, e o sistema calcula lucro e margem na hora. O orçamento pode ser baixado ou enviado em PDF.</p>
+        <p data-reveal="fade" data-delay="100" style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6;color:#5A5F66">Experimente: ajuste o preço e o custo ao lado.</p>
+      </div>
+      <div data-reveal="fade" data-delay="150" style="flex:1.3 1 420px;min-width:0;border:1px solid #0B0E13;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #0B0E13"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0B0E13">Pedido de exemplo</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5F66">Itens: R$ 75,00 · custo R$ 37,50</span></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Preço total</span><span style="font-size:clamp(36px,3.6vw,52px);font-weight:500;letter-spacing:-0.04em;line-height:1">{{ priceFmt }}</span><div style="display:flex;flex-wrap:wrap;gap:6px"><button onClick="{{ pM50 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">−50</button><button onClick="{{ pM10 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">−10</button><button onClick="{{ pP10 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">+10</button><button onClick="{{ pP50 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">+50</button></div></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid #CFCDC4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Custo do evento</span><span style="font-size:clamp(36px,3.6vw,52px);font-weight:500;letter-spacing:-0.04em;line-height:1">{{ costFmt }}</span><div style="display:flex;flex-wrap:wrap;gap:6px"><button onClick="{{ cM50 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">−50</button><button onClick="{{ cM10 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">−10</button><button onClick="{{ cP10 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">+10</button><button onClick="{{ cP50 }}" style="height:32px;min-width:52px;padding:0 10px;border-radius:4px;border:1px solid #0B0E13;background:transparent;color:#0B0E13;font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer" style-hover="background:#0B0E13;color:#ECEBE6">+50</button></div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Lucro estimado</span><span style="font-size:28px;font-weight:500;letter-spacing:-0.03em">{{ profitFmt }}</span></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Margem</span><span style="font-size:28px;font-weight:500;letter-spacing:-0.03em">{{ marginFmt }}</span></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5F66">Situação</span><span style="display:flex;align-items:center;gap:8px;font-size:18px;font-weight:500"><span style="width:9px;height:9px;border-radius:50%;background:{{ healthDot }}"></span>{{ healthTxt }}</span></div>
+        </div>
+      </div>
+    </div>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px;min-width:0"><div data-reveal="clip" style="position:relative;border:1px solid #0B0E13;background:#FFFFFF"><div style="display:flex;flex-direction:column;overflow:hidden"><div style="height:34px;flex:none;background:#E7E9EF;border-bottom:1px solid #D5D9E2;display:flex;align-items:center;gap:8px;padding:0 12px;font-family:'Schibsted Grotesk',system-ui,sans-serif"><span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span><span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span><span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span><span style="margin-left:14px;max-width:360px;flex:1;height:22px;border-radius:5px;background:#FFFFFF;font-size:12px;color:#5D6B85;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden">cheffdanielabosing.com.br/painel/pedidos/107</span></div><img src="assets/danibosing/order.png" alt="Tela de orçamento de um pedido com preço, custo, lucro e margem" style="display:block;width:100%;height:auto"></div><span style="position:absolute;left:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;top:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;left:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span><span style="position:absolute;right:-6px;bottom:-6px;width:11px;height:11px;background:linear-gradient(#0B0E13,#0B0E13) center/1px 100% no-repeat,linear-gradient(#0B0E13,#0B0E13) center/100% 1px no-repeat"></span></div><figcaption data-reveal="fade" data-delay="300" style="display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#5A5F66"><span style="white-space:nowrap">Fig. 05</span><span style="text-align:right">Orçamento de um pedido no painel</span></figcaption></figure>
+  </div>
+</section>
+
+<section data-screen-label="Próximo case" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(56px,7vw,96px)">
+    <a href="Ford%20Case.dc.html" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:32px 0;border-top:1px solid #22272F;border-bottom:1px solid #22272F;color:#ECEBE6;transition:color .2s" style-hover="color:#3D6BFF">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">Próximo case · 05</span>
+        <span style="display:flex;align-items:center;gap:clamp(16px,2vw,28px)"><img src="assets/ford_logo.png" alt="" style="height:clamp(36px,4vw,56px);width:auto"><span style="font-size:clamp(48px,7vw,104px);font-weight:500;letter-spacing:-0.045em;line-height:0.94">Ford</span></span>
+      </div>
+      <span style="font-size:clamp(40px,5vw,72px);line-height:1">→</span>
+    </a>
+  </div>
+</section>
+
+<footer id="contato" data-screen-label="Contato" style="background:#0B0E13;color:#ECEBE6">
+  <div style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,3vw,40px);padding-right:clamp(20px,3vw,40px);padding-top:clamp(80px,10vw,144px);padding-bottom:32px;display:flex;flex-direction:column;gap:clamp(56px,7vw,104px)">
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9AA1AB">(08) Contato</span>
+      <div style="overflow:hidden"><h2 data-reveal="line" style="margin:0;padding-bottom:0.22em;max-width:12ch;font-size:clamp(48px,8.6vw,132px);line-height:0.94;letter-spacing:-0.045em;font-weight:500;text-wrap:balance">Tem um projeto em mente?</h2></div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,5vw,96px);align-items:flex-end">
+        <p style="flex:1 1 320px;max-width:460px;margin:0;font-size:18px;line-height:1.6;color:#B4BAC2;text-wrap:pretty">Estou aberto a conversar sobre oportunidades em engenharia de software e projetos que precisam de desenvolvimento prático.</p>
+        <a href="mailto:derik@devsehn.com" style="flex:1 1 360px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:12px;border-bottom:2px solid #ECEBE6;font-size:clamp(24px,3vw,44px);font-weight:500;letter-spacing:-0.03em;color:#ECEBE6;transition:color .2s,border-color .2s" style-hover="color:#3D6BFF;border-color:#3D6BFF">derik@devsehn.com<span>↗</span></a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;padding-top:24px;border-top:1px solid #22272F;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA1AB">
+      <span>© 2026 · Derik Sehn — Engenheiro de software</span>
+      <div style="display:flex;gap:28px;flex-wrap:wrap">
+        <a href="#" style="color:#ECEBE6" style-hover="color:#3D6BFF">LinkedIn ↗</a>
+        <a href="https://github.com/DerikSehn" target="_blank" rel="noopener" style="color:#ECEBE6" style-hover="color:#3D6BFF">GitHub ↗</a>
+        <a href="https://docs.google.com/document/d/1bCk5xYPFQ3WOpzAvrsFbf4y7sXdSpJFS/edit?usp=sharing&amp;ouid=107891843000990713036&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" style="color:#ECEBE6" style-hover="color:#3D6BFF">CV ↓</a>
+        <a href="#top" style="color:#9AA1AB" style-hover="color:#ECEBE6">Topo ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'pt', price: 75, cost: 37.5, ratio: '1920/954' };
+  componentDidMount() {
+    const L0 = window.dsI18n && window.dsI18n.lang; if (L0 && L0 !== this.state.lang) this.setState({ lang: L0 });
+    this.ro = new ResizeObserver(es => es.forEach(e => this.fit(e.target)));
+    this.scan();
+    this.motionInit();
+    document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v._ap) return; v._ap = 1; v.muted = true; v.defaultMuted = true; v.addEventListener('loadedmetadata', () => { if (v.videoWidth) this.setState({ ratio: v.videoWidth + '/' + v.videoHeight }); }); const go = () => { const p = v.play(); p && p.catch(() => {}); }; v.addEventListener('canplay', go); v.addEventListener('loadeddata', go); go(); });
+  }
+  componentDidUpdate() { this.scan(); this.motionInit(); }
+  componentWillUnmount() { this.ro && this.ro.disconnect(); this.motionStop(); }
+  scan() {
+    document.querySelectorAll('[data-fit]').forEach(el => {
+      if (!el._fitObs) { el._fitObs = 1; this.ro.observe(el); }
+      this.fit(el);
+    });
+  }
+  fit(el) {
+    const w = +el.getAttribute('data-fit'), c = el.firstElementChild;
+    if (c && w) c.style.transform = 'scale(' + (el.clientWidth / w) + ')';
+  }
+
+  motionInit() {
+    if (!this._io) {
+      this._rm = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) || this.props.motion === false;
+      this._map = new Map(); this._seen = new WeakSet(); this._seenC = new WeakSet();
+      this._io = new IntersectionObserver(es => es.forEach(e => {
+        this._ioFired = 1;
+        if (!e.isIntersecting) return;
+        const list = this._map.get(e.target) || [];
+        this._map.delete(e.target); this._io.unobserve(e.target);
+        list.forEach(el => { if (el._to !== undefined) this.countUp(el); else this.reveal(el); });
+      }), { threshold: 0.01, rootMargin: '0px 0px -6% 0px' });
+      this._watch = el => {
+        const k = el.getAttribute('data-reveal');
+        const t = (k === 'line' || k === 'clip') ? el.parentElement : el;
+        if (!this._map.has(t)) { this._map.set(t, []); this._io.observe(t); }
+        this._map.get(t).push(el);
+      };
+      setTimeout(() => { if (!this._ioFired) { this._map.forEach(l => l.forEach(el => el._to !== undefined ? this.countUp(el) : this.reveal(el))); this._map.clear(); } }, 1500);
+      this._onScroll = () => { if (!this._raf) this._raf = requestAnimationFrame(() => { this._raf = 0; this.scrollFx(); }); };
+      addEventListener('scroll', this._onScroll, { passive: true });
+      addEventListener('resize', this._onScroll);
+    }
+    const rm = this._rm;
+    document.querySelectorAll('[data-reveal-legacy]').forEach(el => {
+      if (this._seen.has(el)) return; this._seen.add(el); if (rm) return;
+      const k = el.getAttribute('data-reveal'), S = el.style;
+      if (k === 'clip') S.clipPath = 'inset(0 0 100% 0)';
+      else if (k === 'line') S.transform = 'translateY(105%)';
+      else if (k === 'grow') { S.transform = 'scaleX(0)'; S.transformOrigin = '0 50%'; }
+      else { S.opacity = '0'; S.transform = 'translateY(' + (k === 'rise' ? 72 : 28) + 'px)'; }
+      this._watch(el);
+    });
+    document.querySelectorAll('[data-count]').forEach(el => {
+      if (this._seenC.has(el)) return; this._seenC.add(el);
+      const n = el.firstChild; if (rm || !n || n.nodeType !== 3) return;
+      el._to = parseFloat(el.getAttribute('data-count')); n.nodeValue = '0'; this._watch(el);
+    });
+    document.querySelectorAll('[data-marquee]').forEach(el => {
+      if (el._mq || rm || !el.animate) return;
+      el._mq = el.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }], { duration: +el.getAttribute('data-marquee') || 40000, iterations: Infinity });
+    });
+    document.querySelectorAll('[data-autoscroll]').forEach(el => {
+      if (el._as || rm || !el.animate) return;
+      const d = +el.getAttribute('data-autoscroll');
+      el._as = el.animate([{ transform: 'translateY(0)', offset: 0 }, { transform: 'translateY(0)', offset: 0.1 }, { transform: 'translateY(-' + d + 'px)', offset: 0.9 }, { transform: 'translateY(-' + d + 'px)', offset: 1 }], { duration: +el.getAttribute('data-dur') || 28000, iterations: Infinity, direction: 'alternate', easing: 'cubic-bezier(.45,0,.55,1)' });
+    });
+    this.scrollFx();
+    clearTimeout(this._kick); this._kick = setTimeout(() => this.scrollFx(), 400);
+  }
+  reveal(el) {
+    const d = +(el.getAttribute('data-delay') || 0), k = el.getAttribute('data-reveal'), E = 'cubic-bezier(.16,1,.3,1)';
+    el.style.transition = 'opacity .9s ' + E + ' ' + d + 'ms, transform ' + (k === 'line' ? 1.1 : k === 'grow' ? 1.4 : 1) + 's ' + E + ' ' + d + 'ms, clip-path 1.3s cubic-bezier(.77,0,.18,1) ' + d + 'ms';
+    requestAnimationFrame(() => requestAnimationFrame(() => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = ''; }));
+  }
+  countUp(el) {
+    const n = el.firstChild, to = el._to, t0 = performance.now(), dur = 1600;
+    const f = t => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4); n.nodeValue = Math.round(to * e).toLocaleString('pt-BR'); if (p < 1) requestAnimationFrame(f); };
+    requestAnimationFrame(f);
+  }
+  scrollFx() {
+    if (this._map && this._map.size) {
+      const vh = innerHeight;
+      this._map.forEach((list, t) => {
+        const r = t.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) { this._map.delete(t); this._io && this._io.unobserve(t); list.forEach(el => el._to !== undefined ? this.countUp(el) : this.reveal(el)); }
+      });
+    }
+    const max = document.documentElement.scrollHeight - innerHeight;
+    document.querySelectorAll('[data-progress]').forEach(el => { el.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0).toFixed(4) + ')'; });
+    if (this._rm) return;
+    document.querySelectorAll('[data-parallax]').forEach(el => {
+      const r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+      const off = (r.top + r.height / 2 - innerHeight / 2) * +el.getAttribute('data-parallax');
+      el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0) scale(1.18)';
+    });
+  }
+  motionStop() { this._map && this._map.forEach(l => l.forEach(el => { el.style.opacity = ''; el.style.transform = ''; el.style.clipPath = ''; })); this._io && this._io.disconnect(); this._io = null; removeEventListener('scroll', this._onScroll); removeEventListener('resize', this._onScroll); }
+
+  budget() {
+    const { price, cost } = this.state, MINP = 75, MINC = 37.5;
+    const brl = v => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const profit = price - cost, margin = price > 0 ? profit / price * 100 : 0;
+    const set = (k, d, min) => () => this.setState(s => ({ [k]: Math.max(min, s[k] + d) }));
+    const loss = profit < 0, ok = margin >= 30, low = margin < 15;
+    return {
+      priceFmt: brl(price), costFmt: brl(cost), profitFmt: brl(profit),
+      marginFmt: margin.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %',
+      healthTxt: loss ? 'Prejuízo' : ok ? 'Saudável' : low ? 'Margem baixa' : 'Atenção',
+      healthDot: loss ? '#C8261E' : ok ? '#22A06B' : low ? '#E5484D' : '#F59E0B',
+      pM50: set('price', -50, MINP), pM10: set('price', -10, MINP), pP10: set('price', 10, MINP), pP50: set('price', 50, MINP),
+      cM50: set('cost', -50, MINC), cM10: set('cost', -10, MINC), cP10: set('cost', 10, MINC), cP50: set('cost', 50, MINC)
+    };
+  }
+  renderVals() {
+    const pt = this.state.lang === 'pt';
+    return {
+      videoRatio: this.state.ratio,
+      ...this.budget(),
+      ptBg: pt ? '#ECEBE6' : 'transparent', enBg: pt ? 'transparent' : '#ECEBE6',
+      ptColor: pt ? '#0B0E13' : '#9AA1AB', enColor: pt ? '#9AA1AB' : '#0B0E13',
+      setPT: () => { this.setState({ lang: 'pt' }); window.dsI18n && window.dsI18n.set('pt'); }, setEN: () => { this.setState({ lang: 'en' }); window.dsI18n && window.dsI18n.set('en'); },
+      showDiagram: this.props.showDiagram ?? true,
+      showCallouts: this.props.showCallouts ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

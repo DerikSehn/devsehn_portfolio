@@ -26,8 +26,11 @@
 import { execFileSync } from 'node:child_process';
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
+const HERE = fileURLToPath(import.meta.url);
+
+const ROOT = resolve(dirname(HERE), '..');
 const ROUTES_FILE = join(ROOT, 'design.routes.json');
 
 // slug da rota → nomes derivados: "/" → home, "/cases/eli-control" → eli-control / EliControlView
@@ -404,4 +407,4 @@ function main() {
   else console.log('\nTudo certo: design, rotas e menu batem.');
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === resolve(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))) main();
+if (process.argv[1] && resolve(process.argv[1]) === resolve(HERE)) main();
