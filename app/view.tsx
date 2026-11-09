@@ -6,7 +6,7 @@ import React from 'react';
 import { useDC } from '@/lib/dc';
 import Logic from '@/lib/logic/home';
 
-const CSS = "@media (max-width:860px){header nav{display:none!important}}\nhtml{scroll-behavior:smooth}\nbody{margin:0;background:#0B0E13;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}\na{color:inherit;text-decoration:none}\na:hover{color:#3D6BFF}\n*{box-sizing:border-box}\n::selection{background:#3D6BFF;color:#FFFFFF}\n.dh1:hover{color:#FFFFFF !important}\n.dh2:hover{color:#FFFFFF !important}\n.dh3:hover{color:#FFFFFF !important}\n.dh4:hover{color:#FFFFFF !important}\n.dh5:hover{border-color:#ECEBE6 !important}\n.dh6:hover{background:#3D6BFF !important;color:#FFFFFF !important}\n.dh7:hover{border-color:#ECEBE6 !important;color:#FFFFFF !important}\n.dh8:hover{border-color:#3D6BFF !important;color:#ECEBE6 !important}\n.dh9:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh10:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh11:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh12:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh13:hover{color:#2A52E0 !important}\n.dh14:hover{border-color:#3D6BFF !important}\n.dh15:hover{border-color:#3D6BFF !important}\n.dh16:hover{border-color:#3D6BFF !important}\n.dh17:hover{border-color:#3D6BFF !important}\n.dh18:hover{border-color:#3D6BFF !important}\n.dh19:hover{background:#0B0E13 !important;color:#ECEBE6 !important}\n.dh20:hover{color:#3D6BFF !important;border-color:#3D6BFF !important}\n.dh21:hover{color:#3D6BFF !important}\n.dh22:hover{color:#3D6BFF !important}\n.dh23:hover{color:#3D6BFF !important}\n.dh24:hover{color:#ECEBE6 !important}";
+const CSS = "@media (max-width:860px){header nav{display:none!important}}\nhtml{scroll-behavior:smooth}\nbody{margin:0;background:#0B0E13;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}\na{color:inherit;text-decoration:none}\na:hover{color:#3D6BFF}\n*{box-sizing:border-box}\n::selection{background:#3D6BFF;color:#FFFFFF}\n/* 3D marquee no fundo do hero: colunas em diagonal a partir do canto superior esquerdo */\n.ds-mq{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent);mask-image:linear-gradient(to bottom,#000 72%,transparent);--mq-s:.7}\n.ds-mq-stage{position:absolute;left:calc(-120px - var(--mq-s) * 1629px);top:calc(-66px + var(--mq-s) * 764px);width:2304px;transform-origin:0 0;transform:scale(var(--mq-s))}\n.ds-mq-plane{display:grid;grid-template-columns:repeat(7,1fr);gap:34px;align-items:start;transform-origin:0 0;transform:rotateX(62deg) rotateY(0deg) rotateZ(-45deg);transform-style:preserve-3d}\n.ds-mq-col{position:relative;display:flex;flex-direction:column;gap:34px;animation:ds-mq-a 14s ease-in-out infinite alternate}\n.ds-mq-col:nth-child(even){animation-name:ds-mq-b;animation-duration:19s}\n.ds-mq-col:nth-child(1){margin-top:2004px}\n.ds-mq-col:nth-child(2){margin-top:1670px}\n.ds-mq-col:nth-child(3){margin-top:1336px}\n.ds-mq-col:nth-child(4){margin-top:1002px}\n.ds-mq-col:nth-child(5){margin-top:668px}\n.ds-mq-col:nth-child(6){margin-top:334px}\n.ds-mq-col::before{content:'';position:absolute;left:-17px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(236,235,230,0.16) 50%,transparent 0) 0 0/1px 10px repeat-y}\n.ds-mq-item{position:relative}\n.ds-mq-item::before{content:'';position:absolute;top:-17px;left:-24px;right:-24px;height:1px;background:linear-gradient(to right,rgba(236,235,230,0.16) 50%,transparent 0) 0 0/10px 1px repeat-x}\n.ds-mq-item img{display:block;width:100%;height:auto;outline:1px solid rgba(236,235,230,0.1);filter:brightness(0.14);transition:filter .5s ease,transform .3s ease;pointer-events:auto}\n.ds-mq-item img:hover{filter:none;transform:translateY(-10px)}\n.ds-hero-c{z-index:1;pointer-events:none}\n.ds-hero-c a,.ds-hero-c button,.ds-hero-c p,.ds-hero-c figure{pointer-events:auto}\n@keyframes ds-mq-a{to{transform:translateY(-120px)}}\n@keyframes ds-mq-b{from{transform:translateY(-120px)}to{transform:translateY(0)}}\n@media (max-width:1024px){.ds-mq{--mq-s:.55}}\n@media (max-width:640px){.ds-mq{--mq-s:.42}}\n@media (prefers-reduced-motion:reduce){.ds-mq-col{animation:none}}\n/* Folha impressa (desktop): fundo do hero fixo e conteúdo como uma folha mais estreita */\n@media (min-width:1024px) and (pointer:fine){[data-hero-layer]{position:fixed !important;inset:0 !important;height:100vh}#trabalhos,#formacao,#contato{position:relative;z-index:1;max-width:min(1440px,calc(100% - 96px));margin-left:auto;margin-right:auto;box-shadow:0 0 0 1px rgba(236,235,230,0.06),0 40px 120px -20px rgba(0,0,0,0.7)}}\n.dh1:hover{color:#FFFFFF !important}\n.dh2:hover{color:#FFFFFF !important}\n.dh3:hover{color:#FFFFFF !important}\n.dh4:hover{color:#FFFFFF !important}\n.dh5:hover{border-color:#ECEBE6 !important}\n.dh6:hover{background:#3D6BFF !important;color:#FFFFFF !important}\n.dh7:hover{border-color:#ECEBE6 !important;color:#FFFFFF !important}\n.dh8:hover{border-color:#3D6BFF !important;color:#ECEBE6 !important}\n.dh9:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh10:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh11:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh12:hover{background:#E5E3DC !important;color:#0B0E13 !important}\n.dh13:hover{color:#2A52E0 !important}\n.dh14:hover{border-color:#3D6BFF !important}\n.dh15:hover{border-color:#3D6BFF !important}\n.dh16:hover{border-color:#3D6BFF !important}\n.dh17:hover{border-color:#3D6BFF !important}\n.dh18:hover{border-color:#3D6BFF !important}\n.dh19:hover{background:#0B0E13 !important;color:#ECEBE6 !important}\n.dh20:hover{color:#3D6BFF !important;border-color:#3D6BFF !important}\n.dh21:hover{color:#3D6BFF !important}\n.dh22:hover{color:#3D6BFF !important}\n.dh23:hover{color:#3D6BFF !important}\n.dh24:hover{color:#ECEBE6 !important}";
 
 const FONTS: string[] = [
   "https://fonts.googleapis.com/css2?family=Geist:wght@300;600&display=swap",
@@ -116,7 +116,7 @@ export default function HomeView(props: Record<string, unknown>) {
             </filter>
           </svg>
           {"\n  "}
-          <div aria-hidden={"true"} data-i18n-skip={""} style={{ position: "absolute", inset: "0", zIndex: "-1", overflow: "clip", pointerEvents: "none" }}>
+          <div data-hero-layer={""} aria-hidden={"true"} data-i18n-skip={""} style={{ position: "absolute", inset: "0", zIndex: "-1", overflow: "clip", pointerEvents: "none" }}>
             {"\n    "}
             <div data-scrub-track={""} style={{ position: "absolute", inset: "0", overflow: "hidden", background: "#0B0E13" }}>
               {"\n      "}
@@ -130,7 +130,301 @@ export default function HomeView(props: Record<string, unknown>) {
             {"\n  "}
           </div>
           {"\n  "}
-          <div style={{ position: "relative", maxWidth: "1360px", margin: "0 auto", padding: "clamp(48px,7vw,96px) clamp(20px,3vw,40px) clamp(56px,7vw,96px)", display: "flex", flexDirection: "column", gap: "clamp(40px,5vw,72px)" }}>
+          <div className={"ds-mq"} data-mq={""} aria-hidden={"true"} data-i18n-skip={""}>
+            <div className={"ds-mq-stage"}>
+              <div className={"ds-mq-plane"}>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-enterprise.webp"} alt={""} width={"560"} height={"277"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-site.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-busca.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-carrinho.webp"} alt={""} width={"560"} height={"727"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-widgets.webp"} alt={""} width={"560"} height={"383"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-pedido.webp"} alt={""} width={"560"} height={"281"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-home.webp"} alt={""} width={"560"} height={"271"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-home.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-central.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-home.webp"} alt={""} width={"560"} height={"279"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-tipos.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-checklist.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-relatorios.webp"} alt={""} width={"560"} height={"699"} decoding={"async"} />
+                  </div>
+                </div>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-checklist.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-relatorios.webp"} alt={""} width={"560"} height={"699"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-cardapio.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-catalogo.webp"} alt={""} width={"560"} height={"648"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-aprovacao.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-mobile.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-novo.webp"} alt={""} width={"560"} height={"555"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-admin.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-logistica.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-rastreio.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-dashboard.webp"} alt={""} width={"560"} height={"276"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-modal.webp"} alt={""} width={"560"} height={"584"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-assistente.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                </div>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-modal.webp"} alt={""} width={"560"} height={"584"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-assistente.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-enterprise.webp"} alt={""} width={"560"} height={"277"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-site.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-busca.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-carrinho.webp"} alt={""} width={"560"} height={"727"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-widgets.webp"} alt={""} width={"560"} height={"383"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-pedido.webp"} alt={""} width={"560"} height={"281"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-home.webp"} alt={""} width={"560"} height={"271"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-home.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-central.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-home.webp"} alt={""} width={"560"} height={"279"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-tipos.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                </div>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-home.webp"} alt={""} width={"560"} height={"279"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-tipos.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-checklist.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-relatorios.webp"} alt={""} width={"560"} height={"699"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-cardapio.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-catalogo.webp"} alt={""} width={"560"} height={"648"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-aprovacao.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-mobile.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-novo.webp"} alt={""} width={"560"} height={"555"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-admin.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-logistica.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-rastreio.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-dashboard.webp"} alt={""} width={"560"} height={"276"} decoding={"async"} />
+                  </div>
+                </div>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-rastreio.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-dashboard.webp"} alt={""} width={"560"} height={"276"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-modal.webp"} alt={""} width={"560"} height={"584"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-assistente.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-enterprise.webp"} alt={""} width={"560"} height={"277"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-site.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-busca.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-carrinho.webp"} alt={""} width={"560"} height={"727"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-widgets.webp"} alt={""} width={"560"} height={"383"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-pedido.webp"} alt={""} width={"560"} height={"281"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-home.webp"} alt={""} width={"560"} height={"271"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-home.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-central.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                </div>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-home.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-central.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-home.webp"} alt={""} width={"560"} height={"279"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-tipos.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-checklist.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-relatorios.webp"} alt={""} width={"560"} height={"699"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-cardapio.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-catalogo.webp"} alt={""} width={"560"} height={"648"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-aprovacao.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-mobile.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-novo.webp"} alt={""} width={"560"} height={"555"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-admin.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-logistica.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                </div>
+                <div className={"ds-mq-col"}>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-admin.webp"} alt={""} width={"560"} height={"315"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-logistica.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-rastreio.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-dashboard.webp"} alt={""} width={"560"} height={"276"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-modal.webp"} alt={""} width={"560"} height={"584"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ford-assistente.webp"} alt={""} width={"560"} height={"384"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-enterprise.webp"} alt={""} width={"560"} height={"277"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-site.webp"} alt={""} width={"560"} height={"728"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-busca.webp"} alt={""} width={"560"} height={"437"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-carrinho.webp"} alt={""} width={"560"} height={"727"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ec-widgets.webp"} alt={""} width={"560"} height={"383"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/db-pedido.webp"} alt={""} width={"560"} height={"281"} decoding={"async"} />
+                  </div>
+                  <div className={"ds-mq-item"}>
+                    <img src={"/assets/marquee/ep-home.webp"} alt={""} width={"560"} height={"271"} decoding={"async"} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {"\n  "}
+          <div className={"ds-hero-c"} style={{ position: "relative", maxWidth: "1360px", margin: "0 auto", padding: "clamp(48px,7vw,96px) clamp(20px,3vw,40px) clamp(56px,7vw,96px)", display: "flex", flexDirection: "column", gap: "clamp(40px,5vw,72px)" }}>
             {"\n    \n    "}
             <div style={{ overflow: "hidden" }}>
               <h1 data-reveal={"line"} aria-label={"DevSehn"} data-i18n-skip={""} style={{ margin: "0", paddingBottom: "0.22em", display: "flex", alignItems: "baseline", fontSize: "clamp(48px,8.6vw,132px)", lineHeight: "0.94", letterSpacing: "-0.045em", fontWeight: "500" }}>
@@ -172,341 +466,7 @@ export default function HomeView(props: Record<string, unknown>) {
               {v?.showHeroImage ? (
                 <>
                   {"\n        "}
-                  <figure style={{ flex: "1.4 1 420px", minWidth: "0", margin: "0", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    {"\n          "}
-                    <div style={{ position: "relative", border: "1px solid #22272F", background: "#0B0E13" }}>
-                      {"\n            "}
-                      <div ref={v?.heroWrap} style={{ position: "relative", aspectRatio: "911/809", overflow: "hidden", fontFamily: "'Schibsted Grotesk',system-ui,sans-serif", color: "#ECEBE6" }}>
-                        {"\n              "}
-                        <div style={{ position: "absolute", left: "0", top: "0", width: "911px", height: "809px", transformOrigin: "0 0", transform: (`scale(${v?.heroScale ?? ""})` as any) }}>
-                          {"\n\n                "}
-                          <div aria-hidden={v?.a0?.hid} style={{ position: "absolute", inset: "0", opacity: (`${v?.a0?.op ?? ""}` as any), zIndex: (`${v?.a0?.z ?? ""}` as any), transition: "opacity 1.2s ease" }}>
-                            {"\n                  "}
-                            <img src={"/assets/hero_right.png"} alt={"Vista isométrica de uma planta de refrigeração industrial com painel de telemetria"} style={{ position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", transform: (`${v?.a0?.tf ?? ""}` as any), transition: (`${v?.a0?.tr ?? ""}` as any), transformOrigin: "60% 55%" }} />
-                            {"\n                "}
-                          </div>
-                          {"\n\n                "}
-                          <div aria-hidden={v?.a1?.hid} style={{ position: "absolute", inset: "0", opacity: (`${v?.a1?.op ?? ""}` as any), zIndex: (`${v?.a1?.z ?? ""}` as any), transition: "opacity 1.2s ease", overflow: "hidden" }}>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", inset: "0", transform: (`${v?.a1?.tf ?? ""}` as any), transition: (`${v?.a1?.tr ?? ""}` as any), transformOrigin: "50% 60%", background: "radial-gradient(ellipse 70% 55% at 50% 62%,#13234A 0%,#0D1528 45%,#0B0E13 80%)" }}>
-                              {"\n                    "}
-                              <div style={{ position: "absolute", left: "-420px", top: "360px", width: "1751px", height: "760px", transform: "perspective(620px) rotateX(62deg)", transformOrigin: "50% 0", backgroundImage: "linear-gradient(rgba(84,124,255,0.26) 1px,transparent 1px),linear-gradient(90deg,rgba(84,124,255,0.26) 1px,transparent 1px)", backgroundSize: "64px 64px", WebkitMaskImage: "linear-gradient(to bottom,transparent 0%,#000 25%,#000 60%,transparent 100%)", maskImage: "linear-gradient(to bottom,transparent 0%,#000 25%,#000 60%,transparent 100%)" }} />
-                              {"\n                    "}
-                              <div style={{ position: "absolute", left: "255px", top: "430px", width: "400px", height: "160px", borderRadius: "50%", background: "radial-gradient(closest-side,rgba(61,107,255,0.35),rgba(61,107,255,0))" }} />
-                              {"\n                  "}
-                            </div>
-                            {"\n                  "}
-                            <svg viewBox={"0 0 911 809"} style={{ position: "absolute", inset: "0", width: "100%", height: "100%", overflow: "visible" }} fill={"none"}>
-                              {"\n                    "}
-                              <g stroke={"rgba(120,155,255,0.35)"} strokeWidth={"1"} strokeDasharray={"3 6"}>
-                                {"\n                      "}
-                                <path d={"M455 505 Q 270 370 130 612"} />
-                                {"\n                      "}
-                                <path d={"M455 505 Q 650 360 790 588"} />
-                                {"\n                      "}
-                                <path d={"M455 505 Q 540 620 520 728"} />
-                                {"\n                    "}
-                              </g>
-                              {"\n                    "}
-                              <g stroke={"#5B86FF"} strokeWidth={"2"} strokeLinecap={"round"} strokeDasharray={"700"} strokeDashoffset={v?.a1?.dash} style={{ transition: (`${v?.a1?.dtr ?? ""}` as any) }}>
-                                {"\n                      "}
-                                <path d={"M455 505 Q 270 370 130 612"} />
-                                {"\n                      "}
-                                <path d={"M455 505 Q 650 360 790 588"} />
-                                {"\n                      "}
-                                <path d={"M455 505 Q 540 620 520 728"} />
-                                {"\n                    "}
-                              </g>
-                              {"\n                  "}
-                            </svg>
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "116px", top: "598px", width: "28px", height: "28px", borderRadius: "50%", border: "1px solid rgba(91,134,255,0.55)", display: "grid", placeItems: "center" }}>
-                              <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#5B86FF", boxShadow: "0 0 12px #5B86FF" }} />
-                            </span>
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "776px", top: "574px", width: "28px", height: "28px", borderRadius: "50%", border: "1px solid rgba(91,134,255,0.55)", display: "grid", placeItems: "center" }}>
-                              <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#5B86FF", boxShadow: "0 0 12px #5B86FF" }} />
-                            </span>
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "506px", top: "714px", width: "28px", height: "28px", borderRadius: "50%", border: "1px solid rgba(91,134,255,0.55)", display: "grid", placeItems: "center" }}>
-                              <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#5B86FF", boxShadow: "0 0 12px #5B86FF" }} />
-                            </span>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "52px", top: "640px", padding: "10px 14px", borderRadius: "10px", background: "rgba(13,20,34,0.86)", border: "1px solid rgba(96,140,255,0.38)", display: "flex", flexDirection: "column", gap: "2px", opacity: (`${v?.a1?.cop ?? ""}` as any), transform: (`${v?.a1?.ctf ?? ""}` as any), transition: (`${v?.a1?.c3 ?? ""}` as any) }}>
-                              <span style={{ fontSize: "17px", fontWeight: "600" }}>
-                                {"Importação"}
-                              </span>
-                              <span style={{ fontSize: "13px", color: "#9FB0CF" }}>
-                                {"42 processos abertos"}
-                              </span>
-                            </div>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "690px", top: "614px", padding: "10px 14px", borderRadius: "10px", background: "rgba(13,20,34,0.86)", border: "1px solid rgba(96,140,255,0.38)", display: "flex", flexDirection: "column", gap: "2px", opacity: (`${v?.a1?.cop ?? ""}` as any), transform: (`${v?.a1?.ctf ?? ""}` as any), transition: (`${v?.a1?.c3 ?? ""}` as any) }}>
-                              <span style={{ fontSize: "17px", fontWeight: "600" }}>
-                                {"Exportação"}
-                              </span>
-                              <span style={{ fontSize: "13px", color: "#9FB0CF" }}>
-                                {"27 embarques"}
-                              </span>
-                            </div>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "548px", top: "704px", padding: "10px 14px", borderRadius: "10px", background: "rgba(13,20,34,0.86)", border: "1px solid rgba(96,140,255,0.38)", display: "flex", flexDirection: "column", gap: "2px", opacity: (`${v?.a1?.cop ?? ""}` as any), transform: (`${v?.a1?.ctf ?? ""}` as any), transition: (`${v?.a1?.c3 ?? ""}` as any) }}>
-                              <span style={{ fontSize: "17px", fontWeight: "600" }}>
-                                {"Compra de peças"}
-                              </span>
-                              <span style={{ fontSize: "13px", color: "#9FB0CF" }}>
-                                {"86 pedidos"}
-                              </span>
-                            </div>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "383px", top: "468px", width: "144px", height: "74px", borderRadius: "14px", background: "rgba(13,20,34,0.92)", border: "1px solid rgba(96,140,255,0.5)", boxShadow: "0 0 40px -6px rgba(61,107,255,0.55)", display: "grid", placeItems: "center" }}>
-                              <img src={"/assets/ford_logo.png"} alt={"Ford"} style={{ width: "104px", height: "auto" }} />
-                            </div>
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "454px", top: "262px", width: "2px", height: "206px", background: "linear-gradient(#5B86FF,rgba(91,134,255,0.3))", transformOrigin: "50% 0", transform: (`${v?.a1?.lsc ?? ""}` as any), transition: (`${v?.a1?.c2 ?? ""}` as any) }} />
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "186px", top: "44px", width: "540px", padding: "22px 24px 18px", borderRadius: "16px", background: "rgba(13,20,34,0.86)", border: "1px solid rgba(96,140,255,0.42)", boxShadow: "0 24px 60px -24px rgba(0,0,0,0.8)", display: "flex", flexDirection: "column", gap: "16px", opacity: (`${v?.a1?.cop ?? ""}` as any), transform: (`${v?.a1?.ctf ?? ""}` as any), transition: (`${v?.a1?.c1 ?? ""}` as any) }}>
-                              {"\n                    "}
-                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
-                                <span style={{ fontSize: "24px", fontWeight: "600", letterSpacing: "-0.01em" }}>
-                                  {"Logística global"}
-                                </span>
-                                <span style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#5BD69A" }}>
-                                  <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#2FBF71" }} />
-                                  {"Operação ativa"}
-                                </span>
-                              </div>
-                              {"\n                    "}
-                              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", borderTop: "1px solid rgba(120,150,210,0.2)", borderBottom: "1px solid rgba(120,150,210,0.2)" }}>
-                                {"\n                      "}
-                                <div style={{ padding: "14px 0", display: "flex", flexDirection: "column", gap: "6px" }}>
-                                  <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                    {"Embarques ativos"}
-                                  </span>
-                                  <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                                    {"1.284"}
-                                  </span>
-                                </div>
-                                {"\n                      "}
-                                <div style={{ padding: "14px 16px", borderLeft: "1px solid rgba(120,150,210,0.2)", display: "flex", flexDirection: "column", gap: "6px" }}>
-                                  <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                    {"Em trânsito"}
-                                  </span>
-                                  <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                                    {"312"}
-                                  </span>
-                                </div>
-                                {"\n                      "}
-                                <div style={{ padding: "14px 16px", borderLeft: "1px solid rgba(120,150,210,0.2)", display: "flex", flexDirection: "column", gap: "6px" }}>
-                                  <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                    {"No prazo"}
-                                  </span>
-                                  <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                                    {"97,8%"}
-                                  </span>
-                                </div>
-                                {"\n                    "}
-                              </div>
-                              {"\n                    "}
-                              <svg viewBox={"0 0 490 54"} preserveAspectRatio={"none"} style={{ width: "100%", height: "54px" }}>
-                                <path d={"M0 44 L35 40 L70 42 L105 33 L140 36 L175 27 L210 31 L245 22 L280 26 L315 17 L350 21 L385 13 L420 16 L455 8 L490 10 L490 54 L0 54 Z"} fill={"rgba(61,107,255,0.22)"} />
-                                <path d={"M0 44 L35 40 L70 42 L105 33 L140 36 L175 27 L210 31 L245 22 L280 26 L315 17 L350 21 L385 13 L420 16 L455 8 L490 10"} stroke={"#5B86FF"} strokeWidth={"2"} fill={"none"} vectorEffect={"non-scaling-stroke"} />
-                              </svg>
-                              {"\n                  "}
-                            </div>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "36px", top: "300px", width: "300px", padding: "16px 18px", borderRadius: "14px", background: "rgba(13,20,34,0.88)", border: "1px solid rgba(96,140,255,0.38)", display: "flex", alignItems: "center", gap: "14px", opacity: (`${v?.a1?.cop ?? ""}` as any), transform: (`${v?.a1?.ctf ?? ""}` as any), transition: (`${v?.a1?.c4 ?? ""}` as any) }}>
-                              <svg width={"22"} height={"22"} viewBox={"0 0 24 24"} fill={"none"} stroke={"#ECEBE6"} strokeWidth={"1.8"} strokeLinecap={"round"} strokeLinejoin={"round"}>
-                                <path d={"M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"} />
-                              </svg>
-                              <span style={{ flex: "1", display: "flex", flexDirection: "column", gap: "3px" }}>
-                                <span style={{ fontSize: "18px", fontWeight: "600" }}>
-                                  {"Desembaraço concluído"}
-                                </span>
-                                <span style={{ fontSize: "13px", color: "#9FB0CF" }}>
-                                  {"Lote IMP-0418 liberado"}
-                                </span>
-                              </span>
-                              <span style={{ fontSize: "20px", color: "#5B86FF" }}>
-                                {"→"}
-                              </span>
-                            </div>
-                            {"\n                "}
-                          </div>
-                          {"\n\n                "}
-                          <div aria-hidden={v?.a2?.hid} style={{ position: "absolute", inset: "0", opacity: (`${v?.a2?.op ?? ""}` as any), zIndex: (`${v?.a2?.z ?? ""}` as any), transition: "opacity 1.2s ease", overflow: "hidden" }}>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", inset: "0", transform: (`${v?.a2?.tf ?? ""}` as any), transition: (`${v?.a2?.tr ?? ""}` as any), transformOrigin: "40% 60%" }}>
-                              {"\n                    "}
-                              <img src={"/assets/hospital.png"} alt={"Fachada de hospital com painel de pronto atendimento sobreposto"} style={{ position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", objectPosition: "25% 50%", filter: "saturate(0.45) brightness(0.62) contrast(1.08)" }} />
-                              {"\n                    "}
-                              <div style={{ position: "absolute", inset: "0", background: "#1C3C9A", mixBlendMode: "color", opacity: "0.42" }} />
-                              {"\n                    "}
-                              <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg,rgba(11,14,19,0.55) 0%,rgba(11,14,19,0) 38%,rgba(11,14,19,0.2) 62%,rgba(11,14,19,0.92) 100%),linear-gradient(90deg,rgba(11,14,19,0.55) 0%,rgba(11,14,19,0) 35%)" }} />
-                              {"\n                    "}
-                              <div style={{ position: "absolute", inset: "0", backgroundImage: "linear-gradient(rgba(120,155,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,155,255,0.07) 1px,transparent 1px)", backgroundSize: "56px 56px" }} />
-                              {"\n                  "}
-                            </div>
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "510px", top: "500px", width: "26px", height: "26px", borderLeft: "2px solid #8FB0FF", borderTop: "2px solid #8FB0FF", opacity: (`${v?.a2?.cop ?? ""}` as any), transition: (`${v?.a2?.c2 ?? ""}` as any) }} />
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "640px", top: "500px", width: "26px", height: "26px", borderRight: "2px solid #8FB0FF", borderTop: "2px solid #8FB0FF", opacity: (`${v?.a2?.cop ?? ""}` as any), transition: (`${v?.a2?.c2 ?? ""}` as any) }} />
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "510px", top: "660px", width: "26px", height: "26px", borderLeft: "2px solid #8FB0FF", borderBottom: "2px solid #8FB0FF", opacity: (`${v?.a2?.cop ?? ""}` as any), transition: (`${v?.a2?.c2 ?? ""}` as any) }} />
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "640px", top: "660px", width: "26px", height: "26px", borderRight: "2px solid #8FB0FF", borderBottom: "2px solid #8FB0FF", opacity: (`${v?.a2?.cop ?? ""}` as any), transition: (`${v?.a2?.c2 ?? ""}` as any) }} />
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "574px", top: "580px", width: "28px", height: "28px", borderRadius: "50%", border: "1px solid rgba(143,176,255,0.7)", display: "grid", placeItems: "center" }}>
-                              <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#5B86FF", boxShadow: "0 0 14px #5B86FF" }} />
-                            </span>
-                            {"\n                  "}
-                            <span style={{ position: "absolute", left: "587px", top: "300px", width: "2px", height: "280px", background: "linear-gradient(#5B86FF,rgba(91,134,255,0.35))", transformOrigin: "50% 0", transform: (`${v?.a2?.lsc ?? ""}` as any), transition: (`${v?.a2?.c2 ?? ""}` as any) }} />
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "360px", top: "40px", width: "520px", padding: "22px 24px 20px", borderRadius: "16px", background: "rgba(13,20,34,0.86)", border: "1px solid rgba(96,140,255,0.42)", boxShadow: "0 24px 60px -24px rgba(0,0,0,0.8)", display: "flex", flexDirection: "column", gap: "16px", opacity: (`${v?.a2?.cop ?? ""}` as any), transform: (`${v?.a2?.ctf ?? ""}` as any), transition: (`${v?.a2?.c1 ?? ""}` as any) }}>
-                              {"\n                    "}
-                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
-                                <span style={{ fontSize: "24px", fontWeight: "600", letterSpacing: "-0.01em" }}>
-                                  {"Pronto Atendimento"}
-                                </span>
-                                <span style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#5BD69A" }}>
-                                  <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#2FBF71" }} />
-                                  {"Fila ao vivo"}
-                                </span>
-                              </div>
-                              {"\n                    "}
-                              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", borderTop: "1px solid rgba(120,150,210,0.2)", borderBottom: "1px solid rgba(120,150,210,0.2)" }}>
-                                {"\n                      "}
-                                <div style={{ padding: "14px 0", display: "flex", flexDirection: "column", gap: "6px" }}>
-                                  <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                    {"Em espera"}
-                                  </span>
-                                  <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                                    {"14"}
-                                  </span>
-                                </div>
-                                {"\n                      "}
-                                <div style={{ padding: "14px 16px", borderLeft: "1px solid rgba(120,150,210,0.2)", display: "flex", flexDirection: "column", gap: "6px" }}>
-                                  <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                    {"Tempo médio"}
-                                  </span>
-                                  <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                                    {"22 min"}
-                                  </span>
-                                </div>
-                                {"\n                      "}
-                                <div style={{ padding: "14px 16px", borderLeft: "1px solid rgba(120,150,210,0.2)", display: "flex", flexDirection: "column", gap: "6px" }}>
-                                  <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                    {"Atendidos hoje"}
-                                  </span>
-                                  <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                                    {"186"}
-                                  </span>
-                                </div>
-                                {"\n                    "}
-                              </div>
-                              {"\n                    "}
-                              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                                {"\n                      "}
-                                <span style={{ fontSize: "14px", color: "#9FB0CF" }}>
-                                  {"Classificação de risco"}
-                                </span>
-                                {"\n                      "}
-                                <div style={{ display: "flex", gap: "3px", height: "10px" }}>
-                                  <span style={{ flex: "1", borderRadius: "2px", background: "#E5484D" }} />
-                                  <span style={{ flex: "3", borderRadius: "2px", background: "#F2811D" }} />
-                                  <span style={{ flex: "6", borderRadius: "2px", background: "#E8C21C" }} />
-                                  <span style={{ flex: "3", borderRadius: "2px", background: "#2FBF71" }} />
-                                  <span style={{ flex: "1", borderRadius: "2px", background: "#3D7BFF" }} />
-                                </div>
-                                {"\n                      "}
-                                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", color: "#C9D3E6" }}>
-                                  <span>
-                                    {"Emergência 1"}
-                                  </span>
-                                  <span>
-                                    {"Muito urgente 3"}
-                                  </span>
-                                  <span>
-                                    {"Urgente 6"}
-                                  </span>
-                                  <span>
-                                    {"Pouco urgente 3"}
-                                  </span>
-                                  <span>
-                                    {"Não urgente 1"}
-                                  </span>
-                                </div>
-                                {"\n                    "}
-                              </div>
-                              {"\n                  "}
-                            </div>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "36px", top: "330px", width: "250px", padding: "16px 18px", borderRadius: "14px", background: "rgba(13,20,34,0.88)", border: "1px solid rgba(96,140,255,0.38)", display: "flex", flexDirection: "column", gap: "10px", opacity: (`${v?.a2?.cop ?? ""}` as any), transform: (`${v?.a2?.ctf ?? ""}` as any), transition: (`${v?.a2?.c3 ?? ""}` as any) }}>
-                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                                <span style={{ fontSize: "15px", color: "#9FB0CF" }}>
-                                  {"Ocupação de leitos"}
-                                </span>
-                                <span style={{ fontSize: "24px", fontWeight: "600" }}>
-                                  {"78%"}
-                                </span>
-                              </div>
-                              <div style={{ height: "6px", borderRadius: "3px", background: "rgba(120,150,210,0.2)" }}>
-                                <div style={{ width: "78%", height: "100%", borderRadius: "3px", background: "#5B86FF" }} />
-                              </div>
-                              <span style={{ fontSize: "13px", color: "#9FB0CF" }}>
-                                {"94 de 120 leitos"}
-                              </span>
-                            </div>
-                            {"\n                  "}
-                            <div style={{ position: "absolute", left: "36px", top: "690px", width: "340px", padding: "16px 18px", borderRadius: "14px", background: "rgba(13,20,34,0.88)", border: "1px solid rgba(96,140,255,0.38)", display: "flex", alignItems: "center", gap: "14px", opacity: (`${v?.a2?.cop ?? ""}` as any), transform: (`${v?.a2?.ctf ?? ""}` as any), transition: (`${v?.a2?.c4 ?? ""}` as any) }}>
-                              <svg width={"22"} height={"22"} viewBox={"0 0 24 24"} fill={"none"} stroke={"#ECEBE6"} strokeWidth={"1.8"} strokeLinecap={"round"} strokeLinejoin={"round"}>
-                                <path d={"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"} />
-                              </svg>
-                              <span style={{ flex: "1", display: "flex", flexDirection: "column", gap: "3px" }}>
-                                <span style={{ fontSize: "18px", fontWeight: "600" }}>
-                                  {"Manutenção preventiva"}
-                                </span>
-                                <span style={{ fontSize: "13px", color: "#9FB0CF" }}>
-                                  {"Autoclave 02 · revisão em 3 dias"}
-                                </span>
-                              </span>
-                              <span style={{ fontSize: "20px", color: "#5B86FF" }}>
-                                {"→"}
-                              </span>
-                            </div>
-                            {"\n                "}
-                          </div>
-                          {"\n\n              "}
-                        </div>
-                        {"\n            "}
-                      </div>
-                      {"\n            "}
-                      {v?.showMarks ? (
-                        <>
-                          {"\n              "}
-                          <span style={{ position: "absolute", left: "-6px", top: "-6px", width: "11px", height: "11px", background: "linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat" }} />
-                          {"\n              "}
-                          <span style={{ position: "absolute", right: "-6px", top: "-6px", width: "11px", height: "11px", background: "linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat" }} />
-                          {"\n              "}
-                          <span style={{ position: "absolute", left: "-6px", bottom: "-6px", width: "11px", height: "11px", background: "linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat" }} />
-                          {"\n              "}
-                          <span style={{ position: "absolute", right: "-6px", bottom: "-6px", width: "11px", height: "11px", background: "linear-gradient(#ECEBE6,#ECEBE6) center/1px 100% no-repeat,linear-gradient(#ECEBE6,#ECEBE6) center/100% 1px no-repeat" }} />
-                          {"\n            "}
-                        </>
-                      ) : null}
-                      {"\n          "}
-                    </div>
-                    {"\n          "}
-                    <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "12px", fontFamily: "'IBM Plex Mono',monospace", fontSize: "12px", letterSpacing: "0.04em", color: "#9AA1AB" }}>
-                      <span style={{ whiteSpace: "nowrap" }}>
-                        {H(v?.figNum)}
-                      </span>
-                      <span style={{ textAlign: "right" }}>
-                        {H(v?.figCap)}
-                      </span>
-                    </figcaption>
-                    {"\n        "}
-                  </figure>
+                  <div data-machine-anchor={""} aria-hidden={"true"} style={{ flex: "1.4 1 420px", minWidth: "0", aspectRatio: "911/760" }} />
                   {"\n      "}
                 </>
               ) : null}

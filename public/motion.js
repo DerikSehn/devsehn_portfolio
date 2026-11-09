@@ -60,6 +60,7 @@ a:hover .ds-arrow.ds-down { transform: translateY(4px); }
 .ds-media:hover img, .ds-media:hover video { scale: 1.045; }
 #ds-cursor { position: fixed; left: 0; top: 0; z-index: 90; width: 88px; height: 88px; margin: -44px 0 0 -44px; border-radius: 50%; background: #3D6BFF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font: 500 12px/1 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; pointer-events: none; transform: scale(0); transition: transform .45s ${EASE}; }
 #ds-cursor.on { transform: scale(1); }
+#ds-cursor.ds-cur-ext { text-align: center; line-height: 1.3; font-size: 11px; }
 #ds-menu { position: fixed; inset: 0; z-index: 80; background: #0B0E13; color: #ECEBE6; font-family: 'Schibsted Grotesk', system-ui, sans-serif; clip-path: polygon(0 0,100% 0,100% 0,0 0); visibility: hidden; display: flex; flex-direction: column; overflow-y: auto; }
 #ds-menu a { color: inherit; text-decoration: none; }
 #ds-menu .ds-mono { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #9AA1AB; }
@@ -222,6 +223,8 @@ a:hover .ds-arrow.ds-down { transform: translateY(4px); }
     decorate(header);
     buildMenu(gsap, Split);
     heroVideo();
+    heroMachine();
+    printerMouth();
     if (FINE) cursor(gsap);
     if (FINE && !RM) liquid();
     magnetic(gsap);
@@ -259,7 +262,7 @@ a:hover .ds-arrow.ds-down { transform: translateY(4px); }
           if (inner) tl.from(inner, { scale: 1.28, duration: 2.2, clearProps: 'scale' }, .8);
         }
       }
-      const sec = outermost([...hero.querySelectorAll('p, dl, figcaption, a, img, [data-reveal]')].filter(el => !(h1 && (h1.contains(el) || el.contains(h1))) && !(heroMediaFrame && heroMediaFrame.contains(el)) && !el.closest('figure > div')));
+      const sec = outermost([...hero.querySelectorAll('p, dl, figcaption, a, img, [data-reveal]')].filter(el => !(h1 && (h1.contains(el) || el.contains(h1))) && !(heroMediaFrame && heroMediaFrame.contains(el)) && !el.closest('figure > div') && !el.closest('[data-mq]')));
       sec.forEach(el => el.removeAttribute('data-reveal'));
       if (sec.length) tl.from(sec, { y: 26, opacity: 0, duration: 1.1, stagger: .07, clearProps: 'transform,opacity' }, 1);
       // Parallax positivo: grupos do hero sobem mais rápido que a rolagem
@@ -329,6 +332,183 @@ a:hover .ds-arrow.ds-down { transform: translateY(4px); }
   }
 
 
+  // Boca da impressora (só desktop, só na landing): no primeiro scroll para baixo ela sobe pela base
+  // da tela e o resto da página "sai impresso" por ela, com a mesma luz azul de holograma da máquina.
+  // A carcaça é a máquina vista de cima, em leve perspectiva: os feixes e as partículas sobem
+  // inclinando para o centro, como se a câmera estivesse acima da impressora.
+  function printerMouth() {
+    if (!isHome || RM || !matchMedia('(min-width: 1024px) and (pointer: fine)').matches) return;
+    const LIP = 92;
+    const st = document.createElement('style');
+    st.textContent = `
+#ds-printer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; pointer-events: none; --pi: 0; --sl: 48px; --sr: 48px; }
+#ds-printer > * { position: absolute; }
+#ds-printer .pr-holo, #ds-printer .pr-tint, #ds-printer .pr-scan { left: var(--sl); right: var(--sr); bottom: ${LIP - 4}px; height: 20vh; opacity: 0; transition: opacity .6s ease; }
+#ds-printer .pr-fx { left: 0; right: 0; bottom: ${LIP - 4}px; height: 46vh; width: 100%; opacity: 0; transition: opacity .6s ease; }
+#ds-printer.on .pr-holo, #ds-printer.on .pr-tint, #ds-printer.on .pr-scan, #ds-printer.on .pr-fx { opacity: 1; }
+#ds-printer .pr-holo { -webkit-backdrop-filter: grayscale(1) contrast(1.15) brightness(1.08); backdrop-filter: grayscale(1) contrast(1.15) brightness(1.08);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 12%, transparent 100%); mask-image: linear-gradient(to top, #000 0%, #000 12%, transparent 100%); }
+#ds-printer .pr-tint { background: linear-gradient(to top, rgba(47,75,240,.92) 0%, rgba(61,107,255,.45) 14%, rgba(61,107,255,0) 60%); mix-blend-mode: color; }
+#ds-printer .pr-scan { mix-blend-mode: screen;
+  background: repeating-linear-gradient(to top, rgba(140,155,255,calc(.10 + var(--pi) * .16)) 0 1px, transparent 1px 3px),
+              linear-gradient(to top, rgba(47,75,240,calc(.26 + var(--pi) * .26)) 0%, rgba(47,75,240,.05) 16%, rgba(47,75,240,0) 45%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 10%, transparent 70%); mask-image: linear-gradient(to top, #000 0%, #000 10%, transparent 70%); }
+#ds-printer .pr-mouth { left: 0; right: 0; bottom: 0; height: ${LIP}px; transform: translateY(110%); transition: transform .9s cubic-bezier(.16,1,.3,1); }
+#ds-printer.on .pr-mouth { transform: none; }
+#ds-printer .pr-mouth svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; overflow: visible; }
+#ds-printer .pr-boot { position: fixed; inset: 0; pointer-events: none; opacity: 0; }
+#ds-printer .pr-boot.go { animation: pr-boot 1.25s cubic-bezier(.65,0,.35,1) forwards; }
+#ds-printer .pr-boot::before, #ds-printer .pr-boot::after { content: ''; position: absolute; left: 0; right: 0; height: 34vh; top: 100%; }
+#ds-printer .pr-boot::before { background: linear-gradient(to top, rgba(47,75,240,0), #2F4BF0 50%, rgba(47,75,240,0)); mix-blend-mode: color; }
+#ds-printer .pr-boot::after { background: linear-gradient(to top, rgba(47,75,240,0), rgba(61,107,255,.5) 46%, rgba(140,155,255,.9) 50%, rgba(61,107,255,.5) 54%, rgba(47,75,240,0)); mix-blend-mode: screen; }
+#ds-printer .pr-boot.go::before, #ds-printer .pr-boot.go::after { animation: pr-sweep 1.25s cubic-bezier(.65,0,.35,1) forwards; }
+@keyframes pr-boot { 0% { opacity: 0 } 8% { opacity: 1 } 85% { opacity: 1 } 100% { opacity: 0 } }
+@keyframes pr-sweep { from { transform: translateY(0) } to { transform: translateY(calc(-100vh - 34vh)) } }
+#ds-printer.on .pr-holo { animation: pr-flicker 1s steps(1) 1; }
+@keyframes pr-flicker { 0% { opacity: 0 } 10% { opacity: .7 } 18% { opacity: .1 } 30% { opacity: 1 } 42% { opacity: .4 } 55% { opacity: 1 } }
+body.ds-menu-open #ds-printer { opacity: 0; }
+`;
+    document.head.appendChild(st);
+
+    const el = document.createElement('div'); el.id = 'ds-printer'; el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<div class="pr-holo"></div><div class="pr-tint"></div><div class="pr-scan"></div><canvas class="pr-fx"></canvas><div class="pr-boot"></div><div class="pr-mouth"><svg xmlns="http://www.w3.org/2000/svg"></svg></div>';
+    document.body.appendChild(el);
+    const svg = el.querySelector('.pr-mouth svg'), boot = el.querySelector('.pr-boot');
+    const cv = el.querySelector('.pr-fx'), cx = cv.getContext('2d');
+    const sheetEl = document.querySelector('section[data-screen-label]:not(:first-of-type)');
+    const GLY = '{}()<>=;:/*#@λ∑01x+-[]'.split(''), COL = ['#8C9BFF', '#EFEDE7', '#8D9099', '#5BD69A', '#3D6BFF'];
+    let W = 0, CXc = 0, SL = 48, SR = 48, parts = [];
+    let canal, node, pupil, leds = [], scanBar, strip, laser, panelX = 0, panelW = 0;
+
+    // Carcaça desenhada em pixels reais (sem esticar): trapézio suave, como a máquina vista de cima
+    function build() {
+      W = document.documentElement.clientWidth || innerWidth; CXc = W / 2; // sem a barra de rolagem
+      if (sheetEl) { const r = sheetEl.getBoundingClientRect(); SL = Math.max(0, r.left); SR = Math.max(0, W - r.right); } else { SL = SR = 48; }
+      el.style.setProperty('--sl', SL + 'px'); el.style.setProperty('--sr', SR + 'px');
+      const H = LIP, x0 = SL - 26, x1 = W - SR + 26, R = 18;
+      const body = `M ${x0 + R} 0 L ${x1 - R} 0 Q ${x1} 0 ${x1 + 4} ${R} L ${W + 40} ${H} L -40 ${H} L ${x0 - 4} ${R} Q ${x0} 0 ${x0 + R} 0 Z`;
+      const inner = `M ${x0 + R + 6} 8 L ${x1 - R - 6} 8 Q ${x1 - 6} 8 ${x1 - 3} ${R + 8} L ${W - 6} ${H - 6}`;
+      const innerL = `M ${x0 + R + 6} 8 Q ${x0 + 6} 8 ${x0 + 3} ${R + 8} L 6 ${H - 6}`;
+      panelW = Math.min(300, (x1 - x0) * 0.22); panelX = CXc - panelW / 2;
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = `
+<defs>
+  <linearGradient id="pr-g-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2E37"/><stop offset=".18" stop-color="#1B1E24"/><stop offset="1" stop-color="#0B0D11"/></linearGradient>
+  <linearGradient id="pr-g-sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3D6BFF" stop-opacity="0"/><stop offset=".5" stop-color="#3D6BFF" stop-opacity=".22"/><stop offset="1" stop-color="#3D6BFF" stop-opacity="0"/></linearGradient>
+  <linearGradient id="pr-g-slot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#020306"/><stop offset="1" stop-color="#10131A"/></linearGradient>
+  <linearGradient id="pr-g-panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D2CEC4"/><stop offset="1" stop-color="#A9A59C"/></linearGradient>
+</defs>
+<path d="${body}" fill="url(#pr-g-body)"/>
+<rect x="${x0}" y="26" width="${x1 - x0}" height="10" fill="url(#pr-g-sheen)"/>
+<rect x="${SL}" y="0" width="${W - SL - SR}" height="12" rx="2" fill="url(#pr-g-slot)"/>
+<rect x="${SL}" y="12" width="${W - SL - SR}" height="1.2" fill="#3A414B"/>
+<rect class="pr-laser" x="${SL}" y="-1" width="${W - SL - SR}" height="2" fill="#8C9BFF"/>
+<path class="pr-strip" d="${inner}" fill="none" stroke="#8C9BFF" stroke-width="1.4" opacity=".5"/>
+<path class="pr-strip" d="${innerL}" fill="none" stroke="#8C9BFF" stroke-width="1.4" opacity=".5"/>
+<rect x="${panelX}" y="44" width="${panelW}" height="22" rx="4" fill="url(#pr-g-panel)"/>
+<rect x="${panelX}" y="44" width="${panelW}" height="1" fill="#ffffff" opacity=".5"/>
+<rect class="pr-scanbar" x="${panelX + 8}" y="47" width="3" height="16" rx="1.5" fill="#8C9BFF"/>
+<g transform="translate(${panelX + panelW + 18} 49)">
+  <rect class="pr-led" x="0" y="0" width="16" height="6" rx="3" fill="#8C9BFF" opacity=".25"/><rect class="pr-led" x="24" y="0" width="16" height="6" rx="3" fill="#8C9BFF" opacity=".25"/><rect class="pr-led" x="48" y="0" width="16" height="6" rx="3" fill="#8C9BFF" opacity=".25"/>
+</g>
+<g transform="translate(${x0 + 30} 34)">
+  <rect x="0" y="12" width="56" height="10" rx="2" fill="#07080B"/>
+  <rect class="pr-canal" x="4" y="15.5" width="48" height="3" rx="1.5" fill="#2F4BF0"/>
+  <circle cx="68" cy="17" r="17" fill="#07080B"/>
+  <g class="pr-eyeball"><circle class="pr-node" cx="68" cy="17" r="9.5" fill="#2F4BF0"/><circle class="pr-pupil" cx="68" cy="17" r="4.2" fill="#07080B"/><circle cx="64.6" cy="13.4" r="1.6" fill="#fff" opacity=".85"/></g>
+</g>
+<rect x="-40" y="${H - 3}" width="${W + 80}" height="1.6" fill="#2F4BF0" opacity=".8"/>`;
+      canal = svg.querySelector('.pr-canal'); node = svg.querySelector('.pr-node'); pupil = svg.querySelector('.pr-pupil');
+      leds = [...svg.querySelectorAll('.pr-led')]; scanBar = svg.querySelector('.pr-scanbar'); strip = [...svg.querySelectorAll('.pr-strip')]; laser = svg.querySelector('.pr-laser');
+      const d = Math.min(devicePixelRatio || 1, 2), r = cv.getBoundingClientRect();
+      cv.width = r.width * d; cv.height = r.height * d; cx.setTransform(d, 0, 0, d, 0, 0);
+    }
+    addEventListener('resize', build); build();
+    if (sheetEl && window.ResizeObserver) new ResizeObserver(() => build()).observe(sheetEl);
+
+    // Ponto de fuga acima do centro: tudo que sai da fenda sobe inclinando para o meio
+    const vp = () => ({ x: CXc, y: -cv.clientHeight * 1.35 });
+    const dirFrom = (x, y) => { const v = vp(), dx = v.x - x, dy = v.y - y, l = Math.hypot(dx, dy); return [dx / l, dy / l]; };
+
+    let on = false, booted = false, last = scrollY, vel = 0, down = 0, pi = 0, raf = 0, t = 0, nextBlink = 2.5;
+    const atEnd = () => scrollY + innerHeight >= document.documentElement.scrollHeight - 6;
+    function setOn(v) {
+      if (v === on) return; on = v; el.classList.toggle('on', v);
+      if (v && !booted) { booted = true; boot.classList.add('go'); }
+      if (v) kick();
+    }
+    const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    addEventListener('scroll', () => {
+      const y = scrollY, dy = y - last; last = y;
+      if (!on && dy > 0 && y > 4 && !atEnd()) setOn(true);
+      else if (on && (y < 4 || atEnd())) setOn(false);
+      vel += Math.abs(dy); if (dy > 0) down += dy; else down = 0; kick();
+    }, { passive: true });
+
+    function tick(now) {
+      raf = 0; t = now / 1000;
+      pi += (Math.min(1, vel / 40) - pi) * 0.12; vel *= 0.82;
+      const pd = Math.min(1, down / 40); down *= 0.82; // partículas só quando a página desce
+      el.style.setProperty('--pi', pi.toFixed(3));
+      if (canal) {
+        canal.setAttribute('opacity', (0.45 + pi * 0.55 + Math.sin(t * 5) * 0.1).toFixed(2));
+        node.setAttribute('r', (9.5 + pi * 1.2).toFixed(2));
+        laser.setAttribute('opacity', (0.7 + pi * 0.3 + Math.sin(t * 31) * 0.05).toFixed(2));
+        strip.forEach(s => s.setAttribute('opacity', (0.3 + 0.15 * Math.sin(t * 1.6) + pi * 0.4).toFixed(2)));
+        leds.forEach((l, i) => l.setAttribute('opacity', (Math.sin(t * 8 - i * 1.2) > 0.3 && pi > 0.08 ? 1 : 0.25).toFixed(2)));
+        scanBar.setAttribute('x', (panelX + 8 + (Math.sin(t * (1.4 + pi * 3)) * 0.5 + 0.5) * (panelW - 19)).toFixed(1));
+        const blink = t > nextBlink && t < nextBlink + 0.12; if (t > nextBlink + 0.12) nextBlink = t + 2.5 + Math.random() * 4;
+        // o olho acompanha a folha subindo (olha para cima e para o centro)
+        pupil.setAttribute('cx', (68 + 2.5 + Math.sin(t * 0.7) * 1.5).toFixed(2)); pupil.setAttribute('cy', (17 - 2 - pi * 2.5).toFixed(2));
+        svg.querySelector('.pr-eyeball').setAttribute('transform', blink ? 'translate(0 17) scale(1 .12) translate(0 -17)' : '');
+      }
+      // feixes e partículas
+      const Wc = cv.clientWidth, Hc = cv.clientHeight;
+      cx.clearRect(0, 0, Wc, Hc);
+      cx.globalCompositeOperation = 'lighter';
+      const rays = 30;
+      for (let i = 0; i < rays; i++) {
+        const x = (i + 0.5) / rays * Wc, [ux, uy] = dirFrom(x, Hc);
+        const len = Hc * (0.35 + 0.45 * (0.5 + 0.5 * Math.sin(i * 12.9898 + t * (0.6 + (i % 5) * 0.13))));
+        const a = (0.035 + pi * 0.11) * (0.6 + 0.4 * Math.sin(t * 3 + i));
+        const g = cx.createLinearGradient(x, Hc, x + ux * len, Hc + uy * len);
+        g.addColorStop(0, `rgba(61,107,255,${a.toFixed(3)})`); g.addColorStop(1, 'rgba(61,107,255,0)');
+        cx.strokeStyle = g; cx.lineWidth = 1 + (i % 3 === 0 ? 1 : 0);
+        cx.beginPath(); cx.moveTo(x, Hc); cx.lineTo(x + ux * len, Hc + uy * len); cx.stroke();
+      }
+      // só na largura da folha e só quando a página desce
+      if (on && pd > 0.02) for (let n = Math.round(pd * 6 + (Math.random() < 0.2 ? 1 : 0)); n > 0; n--) {
+        const k = Math.random(), x = SL + Math.random() * (Wc - SL - SR), [ux, uy] = dirFrom(x, Hc), sp = 40 + Math.random() * 90 + pi * 140;
+        parts.push({ x, y: Hc - 2, vx: ux * sp, vy: uy * sp, life: 0, max: 0.9 + Math.random() * 1.3,
+          g: k < 0.55 ? GLY[Math.floor(Math.random() * GLY.length)] : null, star: k > 0.9, c: COL[Math.floor(Math.random() * COL.length)], s: 3 + Math.random() * 6 });
+      }
+      cx.font = '500 12px "IBM Plex Mono", ui-monospace, monospace'; cx.textAlign = 'center';
+      parts = parts.filter(p => {
+        p.life += 1 / 60; p.x += p.vx / 60; p.y += p.vy / 60; p.vx *= 0.986; p.vy *= 0.986;
+        const a = Math.max(0, 1 - p.life / p.max) * Math.min(1, p.life * 8) * Math.min(1, p.y / (Hc * 0.25));
+        if (a <= 0 || p.y < 0) return false;
+        const sc = 0.65 + 0.35 * (p.y / Hc); // menores ao subir: profundidade
+        cx.globalAlpha = a; cx.fillStyle = p.c;
+        if (p.g) { cx.save(); cx.translate(p.x, p.y); cx.scale(sc, sc); cx.fillText(p.g, 0, 0); cx.restore(); }
+        else if (p.star) { const s = p.s * sc; cx.fillRect(p.x - s, p.y - .5, s * 2, 1); cx.fillRect(p.x - .5, p.y - s, 1, s * 2); }
+        else { cx.beginPath(); cx.arc(p.x, p.y, p.s * 0.25 * sc, 0, Math.PI * 2); cx.fill(); }
+        return true;
+      });
+      cx.globalAlpha = 1;
+      if (on || parts.length || pi > 0.01) kick();
+    }
+    if (scrollY > 4 && !atEnd()) setOn(true);
+  }
+
+  // Máquina do hero (Three.js): transforma dados em telas na coluna do marquee
+  function heroMachine() {
+    const hero = document.querySelector('section[data-screen-label]');
+    const anchor = hero && hero.querySelector('[data-machine-anchor]'), mq = hero && hero.querySelector('[data-mq]');
+    if (!anchor || !mq) return;
+    try { const c = document.createElement('canvas'); if (!(c.getContext('webgl2') || c.getContext('webgl'))) return; } catch (e) { return; }
+    import(asset('assets/machine.js')).then(mod => mod.default({ hero, anchor, mq, base: asset('assets/marquee/'), reduced: RM, start: loaderDone })).catch(() => {});
+  }
+
   // Vídeo de fundo do hero: loop normal (parado com reduzir movimento)
   function heroVideo() {
     const v = document.querySelector('video[data-hero-bg]'); if (!v) return;
@@ -342,6 +522,7 @@ a:hover .ds-arrow.ds-down { transform: translateY(4px); }
     let ticking = false;
     const update = () => {
       ticking = false;
+      if (getComputedStyle(host).position === 'fixed') { v.style.transform = ''; return; } // fundo fixo: sem parallax
       const r = host.getBoundingClientRect();
       if (r.bottom < 0 || r.top > innerHeight) return;
       const y = Math.max(0, -r.top) * 0.3;
@@ -393,7 +574,12 @@ a:hover .ds-arrow.ds-down { transform: translateY(4px); }
     const c = document.createElement('div'); c.id = 'ds-cursor'; c.setAttribute('aria-hidden', 'true'); c.textContent = 'Ver case';
     document.body.appendChild(c);
     const x = gsap.quickTo(c, 'left', { duration: .5, ease: 'power3.out' }), y = gsap.quickTo(c, 'top', { duration: .5, ease: 'power3.out' });
-    addEventListener('mousemove', e => { x(e.clientX); y(e.clientY); c.classList.toggle('on', !!e.target.closest && !!e.target.closest('a.ds-media') && !document.body.classList.contains('ds-menu-open')); }, { passive: true });
+    addEventListener('mousemove', e => {
+      x(e.clientX); y(e.clientY);
+      const ext = window.dsCursorLabel || null; // rótulo externo (ex.: "Fazer carinho" na máquina do hero)
+      if (ext !== c._ext) { if (c._base == null) c._base = c.innerHTML; c._ext = ext; c.innerHTML = ext || c._base; c.classList.toggle('ds-cur-ext', !!ext); }
+      c.classList.toggle('on', !document.body.classList.contains('ds-menu-open') && (!!ext || (!!e.target.closest && !!e.target.closest('a.ds-media'))));
+    }, { passive: true });
     document.addEventListener('mouseleave', () => c.classList.remove('on'));
   }
 
